@@ -4,7 +4,7 @@ title: Download all users
 parent: Users
 grand_parent: Operations
 has_children: false
-nav_order: 2
+nav_order: 4
 ---
 
 One can use the "Download All Users" option to obtain a consolidated excel file with user information. The downloaded file will include the first name, last name, email address, gender, and mobile phone number of all users.
