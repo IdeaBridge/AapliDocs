@@ -1,11 +1,12 @@
 ---
 layout: default
-title: Managing existing users 
+title: Actions
 parent: Users
 grand_parent: Operations
 has_children: false
 nav_order: 4
 ---
+## Actions
 
 Within the Users widget on the aapli site, users can access a list of existing users located below the User Management Tools. This existing user list displays information such as first name, last name, email address, and account status. The last column of the table is labeled "Actions," which includes tools such as Edit user profile, Toggle user account status (Active or Inactive), and an option to delete the user account. These tools become visible when users hover the mouse pointer over the Action column against each user account.
 

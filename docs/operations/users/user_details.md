@@ -4,7 +4,7 @@ title:  Users details
 parent: Users
 grand_parent: Operations
 has_children: false
-nav_order: 5
+nav_order: 8
 ---
 
 The User Details tab can be found on the Home page, providing a convenient overview of the users connected to the administrator. To access the details, simply click on the dropdown arrow depicted in the image.

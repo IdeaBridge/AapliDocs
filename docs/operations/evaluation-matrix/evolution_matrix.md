@@ -3,7 +3,7 @@ layout: default
 title: Evaluation Matrix
 parent: Operations
 has_children: true
-nav_order: 1
+nav_order: 6
 ---
 {% include image.html file="evolution_matrix.jpg" class="docimage" url="https://admin.aapli.co/admin/operations/evaluation-matrix-management" alt="Evolution Matrix" caption="Evolution Matrix" %}
 

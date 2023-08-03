@@ -3,7 +3,7 @@ layout: default
 title: Notification
 parent: Operations
 has_children: true
-nav_order: 1
+nav_order: 6
 ---
 
 {% include image.html file="notifications.jpg" class="docimage" url="https://admin.aapli.co/admin/operations/notifications" alt="Notifications" caption="Notifications" %}
