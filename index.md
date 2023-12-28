@@ -1,7 +1,14 @@
 ---
 layout: default
-title: Home
+title: Introduction
 nav_order: 1
-description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
+description: "
+Empowering Innovations . Simplifying Solutions"
 permalink: /
 ---
+
+## Introduction to IdeaBridge
+
+Navigate the Waves of Innovation with IdeaBridge: Where Ideas Set Sail and Boundless Creativity Meets the Sea of Possibilities. 
+
+
