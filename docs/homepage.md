@@ -18,7 +18,7 @@ nav_order: 2
 
 After a successful login, the user will be directed to the Aapli Home page, which offers the following options:
 
-{% include image.html file="image001.png" class="docimage" url="https://admin.aapli.co" alt="Home Page" caption="Home Page" %}
+{% include image.html file="image002.jpg" class="docimage" url="https://admin.aapli.co" alt="Home Page" caption="Home Page" %}
 
 1.	**User Details:** The "User Details" option on the Aapli Home page offers a convenient overview of the users connected to the administrator.
 2.	**Go to main website:** This option allows users to navigate to the main website associated with Aapli. (https://demoxx.aapli.co/login)
