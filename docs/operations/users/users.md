@@ -13,6 +13,6 @@ Managing user accounts is a critical aspect of any platform, and aapli makes it 
 Additionally, the Users widget displays a complete list of all existing users, making it simple to keep track of who has access to your platform. In this guide, we'll provide a detailed overview of the Users widget, so you can get the most out of this powerful tool.
 
 
-{% include image.html file="users.jpg" class="docimage" url="https://admin.aapli.co/admin/operations/users" alt="Users" caption="Users" %}
+{% include image.html file="image004.jpg" class="docimage" url="https://admin.aapli.co/admin/operations/users" alt="Users" caption="Users" %}
 
 The Users widget can be found under the Operations tab, as shown above.
