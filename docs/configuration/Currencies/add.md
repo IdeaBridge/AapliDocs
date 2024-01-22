@@ -9,7 +9,7 @@ nav_order: 3
 
 ## Add Currency
 
-When you click on the + Add icon in the currency settings, a new window will open on the right side of the screen. To add a new currency, you need to fill in the following information:
+When you can click on the + Add icon in the currency settings, a new window will open on the right side of the screen. To add a new currency, you need to fill in the following information:
 
 1. **Name:** Enter the title or code of the currency, such as USD or INR.
 

@@ -10,15 +10,15 @@ nav_order: 2
 2.	Enter your aapli account login credentials, including your username and password.
 3.	Check the "I am not a robot" box before logging in.
 4.	Click on the "Continue" button to access your aapli account.
-5.	You will be directed to the home page of your aapli account after a successful login.
+5.	You shall be directed to the home page of your aapli account after a successful login.
 
-{% include image.html file="login.jpg" class="docimage" url="https://admin.aapli.app" alt="login screen" caption="Admin login" %}
+{% include image.html file="image001.jpg" class="docimage" url="https://admin.aapli.app" alt="login screen" caption="Admin login" %}
 
 ## Aapli Home
 
 After a successful login, the user will be directed to the Aapli Home page, which offers the following options:
 
-{% include image.html file="Homepage.jpg" class="docimage" url="https://admin.aapli.co" alt="Home Page" caption="Home Page" %}
+{% include image.html file="image002.jpg" class="docimage" url="https://admin.aapli.co" alt="Home Page" caption="Home Page" %}
 
 1.	**User Details:** The "User Details" option on the Aapli Home page offers a convenient overview of the users connected to the administrator.
 2.	**Go to main website:** This option allows users to navigate to the main website associated with Aapli. (https://demoxx.aapli.co/login)
