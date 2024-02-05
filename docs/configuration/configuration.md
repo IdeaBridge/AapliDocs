@@ -5,8 +5,6 @@ has_children: true
 nav_order: 4
 ---
 
-# Configuration
-{: .no_toc }
 ## Configurations
 
 The Configurations tab in the application provides a set of options and settings that allow administrators to customize and configure various aspects of the application's behavior and functionality. This tab offers a range of configuration options to customize the application according to specific needs.
