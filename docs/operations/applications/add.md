@@ -4,7 +4,7 @@ title: Add Applications
 parent: applications
 grand_parent: Operations
 has_children: false
-nav_order: 1
+nav_order: 3
 ---
 
 To create a new application, click on the plus icon next to the "Add" option in aapli application Panel. This will open a new page with various tabs to customize and configure the new application.

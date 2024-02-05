@@ -4,7 +4,7 @@ title: Applications Panel
 parent: applications
 grand_parent: Operations
 has_children: false
-nav_order: 1
+nav_order: 2
 ---
 
 The Application panel is a dedicated section designed for administrators to efficiently manage and create Applications. It provides tools for adding, modifying, enabling/disabling, deleting and duplicating Applications.
