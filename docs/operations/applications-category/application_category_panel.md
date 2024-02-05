@@ -4,7 +4,7 @@ title: Application category panel
 parent: Application Category
 grand_parent: Operations
 has_children: false
-nav_order: 3
+nav_order: 2
 ---
 After reaching the home page of the aapli website, under the operations tab, one can find the Application Category card. 
 
