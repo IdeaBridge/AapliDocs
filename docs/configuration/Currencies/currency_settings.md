@@ -18,7 +18,7 @@ To access the currency settings, simply double click on the currency widget unde
 
 4. **Symbol:** The symbol column displays the currency symbol.
 
-{% include image.html file="currency_settings1.jpg" class="docimage" url="https://admin.aapli.co/admin/configurations/currency-settings" alt="Currency Settings" caption="Currency Settings" %}
+{% include image.html file="image172.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/currency-settings" alt="Currency Settings" caption="Currency Settings" %}
 
 5. **Status:** In the actions column, you can enable or disable a currency, and the status column indicates whether the currency is currently enabled or disabled.
 

@@ -17,7 +17,7 @@ When you can click on the + Add icon in the currency settings, a new window will
 
 3. **Symbol:** Enter the symbol that represents the currency, for example ₹ or $.
 
-{% include image.html file="add_currency.jpg" class="docimage" url="https://admin.aapli.co/admin/configurations/currency-settings" alt="Add" caption="Add Currency" %}
+{% include image.html file="image173.jpg" class="docimage" url="https://admin.aapli.co/admin/configurations/currency-settings" alt="Add" caption="Add Currency" %}
 
 4. **Conversion rate to default currency:** Specify the conversion rate of the currency to the default currency. In this case, the default currency is Indian Rupees (INR).
 
