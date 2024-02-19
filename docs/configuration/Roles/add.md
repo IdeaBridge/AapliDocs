@@ -14,7 +14,7 @@ To create a new Role, follow these steps:
 
 2. Look for the "+ Add" icon, typically located within the Role Panel. Clicking on this icon will initiate the Role creation process.
 
-{% include image.html file="add_roles.jpg" class="docimage" url="https://admin.aapli.co/admin/configurations/roles" alt="Add Roles" caption="Add Roles" %}
+{% include image.html file="image192.jpg" class="docimage" url="https://admin.aapli.co/admin/configurations/roles" alt="Add Roles" caption="Add Roles" %}
 
 3. Once you click on the "+ Add" icon, a pop-up window will appear on the right-hand side of the page. This window will prompt you to provide the necessary details for the new Role.
 

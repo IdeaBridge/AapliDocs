@@ -10,7 +10,7 @@ nav_order: 1
 
 When the admin accesses the Roles widget, they will be presented with the Roles Panel, which facilitates the creation and management of various roles within the system.
 
-{% include image.html file="roles_panel.jpg" class="docimage" url="https://admin.aapli.co/admin/configurations/roles" alt="Roles" caption="Roles Panel" %}
+{% include image.html file="image192.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/roles" alt="Roles" caption="Roles Panel" %}
 
 The Role Panel provides the following options:
 

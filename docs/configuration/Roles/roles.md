@@ -10,6 +10,6 @@ Under the Configurations tab, the next widget is Roles, which enables administra
 
 Roles are used to define sets of permissions or access levels that can be assigned to users, controlling what actions they can perform within the application.
 
-{% include image.html file="roles.jpg" class="docimage" url="https://admin.aapli.co/admin/configurations/roles" alt="Roles" caption="Roles" %}
+{% include image.html file="image191.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/roles" alt="Roles" caption="Roles" %}
 
 The Roles widget can be found under the Configurations tab, as shown above.
