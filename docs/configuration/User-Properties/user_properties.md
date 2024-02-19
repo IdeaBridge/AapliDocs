@@ -15,7 +15,7 @@ The great advantage of user properties lies in their flexibility and adaptabilit
 
 The User Properties widget can be found under the Configurations tab, as shown below.
 
-{% include image.html file="user_properties.jpg" class="docimage" url="https://admin.aapli.co/admin/configurations/user-setting" alt="User Properties" caption="User Properties" %}
+{% include image.html file="image181.jpg" class="docimage" url="https://admin.aapli.co/admin/configurations/user-setting" alt="User Properties" caption="User Properties" %}
 
 User properties enable us to add custom fields that capture specific details about each user, enabling better organization, segmentation, and personalized management within your application or system.
 
