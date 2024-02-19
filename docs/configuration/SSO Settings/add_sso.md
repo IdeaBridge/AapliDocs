@@ -15,7 +15,7 @@ To create a new SSO Settings, follow these steps:
 
 2. Look for the "+ Add" icon, typically located within the SSO Settings User Panel. Clicking on this icon will initiate the SSO Setting creation process.
 
-{% include image.html file="add_sso_settings.jpg" class="docimage" url="https://admin.aapli.co/admin/configurations/sso-setting" alt="Add SSO Settings" caption="Add SSO Settings" %}
+{% include image.html file="image176.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/sso-setting" alt="Add SSO Settings" caption="Add SSO Settings" %}
 
 3. Once you click on the "+ Add" icon, a pop-up window will appear on the right-hand side of the page. This window will prompt you to provide the necessary details for the new SSO Setting.
 

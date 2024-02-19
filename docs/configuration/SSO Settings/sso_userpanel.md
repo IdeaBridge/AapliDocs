@@ -21,7 +21,7 @@ The SSO Settings Panel provides the following options:
 
 4. **Provider:** This column indicates the available SSO providers that the admin can choose from. Two options are provided: Azure and Onpremise AD. The admin can select one of these Active Directory providers for setting up SSO.
 
-{% include image.html file="sso_userpanel.jpg" class="docimage" url="https://admin.aapli.co/admin/configurations/sso-setting" alt="SSO Settings" caption="SSO Settings; User Panel" %}
+{% include image.html file="sso_userpanel.jpg" class="image175" url="https://admin-dev.aapli.app/admin/configurations/sso-setting" alt="SSO Settings" caption="SSO Settings; User Panel" %}
 
 5. **Actions Column:** This column provides interactive options for each SSO setting. The available actions may include:
 
