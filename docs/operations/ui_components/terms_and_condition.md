@@ -4,7 +4,7 @@ title: Terms and Conditions
 parent: UI Components
 grand_parent: Operations
 has_children: false
-nav_order: 11
+nav_order: 14
 ---
 
 The Terms and Conditions widget is a component designed to facilitate the inclusion of specific terms and conditions within applications. This component used to ensure legal compliance and to establish clear guidelines and expectations for users interacting with the application. The process of integrating this feature into applications is made effortless for administrators as it is a simple drag-and-drop functionality in the form builder.
