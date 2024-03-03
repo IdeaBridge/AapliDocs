@@ -4,7 +4,7 @@ title: Bulk import template
 parent: Users
 grand_parent: Operations
 has_children: false
-nav_order: 5
+nav_order: 4
 ---
 
 The "Download Bulk Import Template" option allows users to enter multiple user details in an Excel file and add them to the system at once using the "Bulk add" tool. This option simplifies the process of adding multiple users, minimizing errors, and ensuring that all required user information is included.
