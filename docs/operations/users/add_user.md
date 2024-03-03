@@ -4,7 +4,7 @@ title: Add Users
 parent: Users
 grand_parent: Operations
 has_children: false
-nav_order: 3
+nav_order: 2
 ---
 1.	Click on the "add" icon to open a new page titled "Add new User" on the right-hand side of the page
 
