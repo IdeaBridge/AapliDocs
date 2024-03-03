@@ -4,7 +4,7 @@ title: Date
 parent: File Upload
 grand_parent: Operations
 has_children: false
-nav_order: 5
+nav_order: 10
 ---
 
 The File Upload component allows users to upload files by either dragging and dropping them onto the designated area or clicking to browse and select files from their device. It provides a convenient way for users to submit files, such as documents, images, or media, as part of a form.
