@@ -4,7 +4,7 @@ title: Components
 parent: Applications
 grand_parent: Operations
 has_children: false
-nav_order: 4
+nav_order: 3
 ---
 
 **Form** 
@@ -16,6 +16,5 @@ To design the application layout, we can drag and drop the desired components fr
 {% include image.html file="image025.jpg" class="docimage" url="https://admin.aapli.co/admin/operations/cards" alt="None" caption="Applications" %}
 
 
-
-The available components are categorized into different groups, such as Basic, Finance, Media, and others.
+The available components are categorized into different groups, such as Basic, Finance, Media, and others. The Form building components are explained uder section named "Form Building components"
 
