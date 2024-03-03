@@ -4,7 +4,7 @@ title: Timeline
 parent: UI Components
 grand_parent: Operations
 has_children: false
-nav_order: 13
+nav_order: 11 
 ---
 The Time line component allows users to input a range of dates or time periods by selecting a start date and an end date. It provides a convenient interface for capturing time-based information, such as project durations, event schedules, by allowing users to specify both the beginning and end points of a time span.
 
