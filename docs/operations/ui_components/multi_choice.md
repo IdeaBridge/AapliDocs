@@ -9,9 +9,35 @@ nav_order: 4
 
 The Multi Choice component allows users to select one or more options from a predefined list. It provides a set of choices or options for users to choose from, enabling them to make selections based on their preferences, opinions, or specific requirements. This component is commonly used when gathering multiple-choice responses, conducting surveys, or collecting data that involves selecting one or more options from a given list.
 
-{% include image.html file="multi_choice1.jpg" class="docimage" url="https://admin.aapli.co/form-builder" alt="Multi Choice" caption="Multi Choice" %}
+{% include image.html file="image062.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Multi Choice" caption="Multi Choice" %}
 
 Multi Choice properties are divided into basics and Advanced properties.
+
+**Properties of Multi Choice:**
+The Multi-Choice input features are categorized into General, Condition, Appearance, Validation, Permission, and Option Source.
+
+**General**
+
+{% include image.html file="image063.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Multi Choice" caption="Multi Choice" %}
+
+1. Field Label: Give your multi-choice selection a clear and descriptive label, guiding users on what to choose.
+2. Help Text: Provide additional assistance or concise information to clarify aspects of the multi-choice input.
+3. Tooltip: Enhance user interaction by providing quick tips or additional context with tooltips when they hover over the dropdown.
+In the General section, you'll also find checkboxes:
+4. Enable Duplicate: Choose whether to allow or disallow the entry of identical values in the multi-choice for a more streamlined data collection.
+5. Index Number: This automatically appears when enabling duplicate entries, aiding in sorting and referencing.
+6. Allow Attachment: Enable users to attach files within the dropdown for added versatility.
+7. Filterable: Improve sorting and the user experience through indexing and filtering.
+
+
+**Condition** 
+
+{% include image.html file="img3.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Multi Choice" caption="Multi Choice" %}
+
+
+Select the "Use in Workflow" checkbox to integrate the multi-choice input into workflow processes.
+
+Appearance
 
 ## Basic Properties of Multi Choice:
 
