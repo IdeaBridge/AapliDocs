@@ -4,7 +4,7 @@ title: User Management Panel
 parent: Users
 grand_parent: Operations
 has_children: false
-nav_order: 2
+nav_order: 1
 ---
 The user management panel is a section that helps administrators to manage user accounts. It includes tools for adding, modifying, and deleting user accounts. The panel also displays a list of all existing users in the system. This feature simplifies user account management, allowing administrators to quickly edit user information and access privileges.
 
