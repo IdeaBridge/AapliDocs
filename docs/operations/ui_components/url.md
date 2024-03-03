@@ -4,7 +4,7 @@ title: Date
 parent: URL
 grand_parent: Operations
 has_children: false
-nav_order: 14
+nav_order: 12
 ---
 
 The URL component is used to collect and validate website addresses or links. Users can enter a web URL, such as "https://example.com", and the component ensures that it is in the correct format. It is commonly used when you need users to provide website links or when you want to include clickable links within a form or application.
