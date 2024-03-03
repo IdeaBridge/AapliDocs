@@ -4,7 +4,7 @@ title: Date
 parent: UI Components
 grand_parent: Operations
 has_children: false
-nav_order: 2
+nav_order: 7
 ---
 
 The Date component is used in forms to collect date input from users. It provides a field where users can enter or select a date, typically in the mm/dd/yyyy format, allowing for accurate and standardized recording of dates for various purposes such as event registration, appointment scheduling, or birthdate submission.

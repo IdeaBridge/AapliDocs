@@ -4,7 +4,7 @@ title: Number
 parent: UI Components
 grand_parent: Operations
 has_children: false
-nav_order: 8
+nav_order: 6
 ---
 
 The Number component is used in forms to collect numerical input from users. It provides a field where users can enter numeric values such as integers or decimals, allowing for precise and quantitative data input.

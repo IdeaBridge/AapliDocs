@@ -4,7 +4,7 @@ title: Radio
 parent: UI Components
 grand_parent: Operations
 has_children: false
-nav_order: 9
+nav_order: 5
 ---
 
 A radio component is a user interface element commonly used in form builders. It allows users to select a single option from a list of predefined choices. The radio component typically consists of a round or circular button, also known as a radio button, alongside each option. When the user selects one option, it automatically deselects any previously selected option, ensuring that only one choice is selected at a time.

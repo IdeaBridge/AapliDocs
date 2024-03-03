@@ -4,7 +4,7 @@ title: Multi Choice
 parent: UI Components
 grand_parent: Operations
 has_children: false
-nav_order: 6
+nav_order: 4
 ---
 
 The Multi Choice component allows users to select one or more options from a predefined list. It provides a set of choices or options for users to choose from, enabling them to make selections based on their preferences, opinions, or specific requirements. This component is commonly used when gathering multiple-choice responses, conducting surveys, or collecting data that involves selecting one or more options from a given list.

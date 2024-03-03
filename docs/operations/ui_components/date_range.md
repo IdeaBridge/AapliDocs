@@ -4,7 +4,7 @@ title: Date Range
 parent: UI Components
 grand_parent: Operations
 has_children: false
-nav_order: 1
+nav_order: 8
 ---
 
 The Date range component is used in forms to collect a range of dates from users. It provides two date input fields, allowing users to select a start date and an end date, enabling the collection of date intervals or date ranges for various purposes such as event duration, reservation periods, or project timelines.

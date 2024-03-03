@@ -1,9 +1,9 @@
 ---
 layout: default
-title: UI Components
+title: Form Building Components
 parent: Operations
 has_children: true
-nav_order: 1
+nav_order: 4
 ---
 **Form** 
 The Form tab allows users to create a comprehensive application layout using a simple drag-and-drop interface. This tab allows you to drag and drop inputs, add dates, currencies, attach files, background images, and music to create a comprehensive application layout that meets the requirements of the application. 
