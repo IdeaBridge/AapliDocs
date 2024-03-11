@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Currency
-parent: UI Components
+parent: Form Building components
 grand_parent: Operations
 has_children: false
 nav_order: 9

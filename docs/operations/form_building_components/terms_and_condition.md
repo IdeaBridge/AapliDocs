@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Terms and Conditions 
-parent: UI Components
+parent: Form Building Components
 grand_parent: Operations
 has_children: false
 nav_order: 14
