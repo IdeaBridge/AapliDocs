@@ -3,7 +3,7 @@ layout: default
 title: Cards
 parent: Operations
 has_children: true
-nav_order: 7
+nav_order: 8
 ---
 The Cards widget is a feature that allows administrators to add and manage content of cards displayed on the Home page. It provides tools for adding, modifying, enabling/disabling, and deleting cards. This feature enables administrators to curate and customize the content displayed on the Home page to provide relevant information and updates to users.
 

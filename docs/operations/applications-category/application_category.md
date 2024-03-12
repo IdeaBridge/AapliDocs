@@ -3,7 +3,7 @@ layout: default
 title: Application Category
 parent: Operations
 has_children: true
-nav_order: 1
+nav_order: 5
 ---
 Application Category
 The application category feature allows users to create and define categories in which applications can be created. This feature helps in configuring application categories so that applications can be organized and managed more efficiently.
