@@ -11,8 +11,8 @@ The Application panel is a dedicated section designed for administrators to effi
 
 {% include image.html file="imag3.jpg" class="docimage" url="https://admin.aapli.co/admin/operations/users" alt="Applications Panel" caption="Applications Panel" %}
 
-1. **Add: **This option is used to create a new application. In the upcoming chapters, we will cover the steps and information required for creating a new application.
-2. **Application Name: **The Application Name section displays a list of all the applications that have been created. Additionally, there is a search bar available where you can enter the name of the application and search for a specific application from the list.
+1. **Add:** This option is used to create a new application. In the upcoming chapters, we will cover the steps and information required for creating a new application.
+2. **Application Name:** The Application Name section displays a list of all the applications that have been created. Additionally, there is a search bar available where you can enter the name of the application and search for a specific application from the list.
 3. **Created Date:** The Created Date column indicates the date when an application was created. It provides information about when the application was initially set up.
 4. **Status:** The Status column indicates the current status of the application. It can be either active or inactive, depending on its operational state.
 5. **Actions:** When you hover the mouse pointer over the action column corresponding to a specific application, it presents you with four options:
