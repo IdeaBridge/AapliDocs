@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Add Applications
+title: Application Settings, Form, and Properties. 
 parent: Applications
 grand_parent: Operations
 has_children: false
