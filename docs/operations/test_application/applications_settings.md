@@ -25,5 +25,18 @@ The Application Settings tab is like the control center the application. It's wh
 
 Below the workflow, we have a radio button to select whether the response has a workflow or not. 
 
-**Note: As we select the workflows by selecting the respective radio button, we can notice that the Response Workflow and Request workflow tab being added along with Tasks tab. **
+
+**Note: As we select the workflows by selecting the respective radio button, we can notice that the Response Workflow and Request workflow tab being added along with Tasks tab.**
+
+### Preview:
+
+{% include image.html file="imag9.jpg" class="docimage" url="https://admin.aapli.co/admin/operations/users" alt="Applications Panel" caption="Applications Panel" %}
+
+On the right-hand side of the Application Settings window, under the "Preview" pane, you can customize the color of the application card by clicking on the colored square below "Select Application color." Choose an appropriate color for the application. Additionally, you can select a desired icon by clicking on the white box below "Assign application icon." Choose an appropriate icon that represents the application's purpose.
+
+Once the configuration is completed click on “Next: Form builder” option on bottom right corner of the page.
+
+
+
+
 
