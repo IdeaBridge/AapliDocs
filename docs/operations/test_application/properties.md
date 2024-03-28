@@ -71,3 +71,22 @@ One of the features of aapli is that you can customize the way you view the Appl
 
 Once the columns are selected for list view, we can interchange their positions by dragging their position as shown in above image. 
 
+## Roles and Permission 
+
+One of the features of an application is the ability to assign different roles and permissions to users. This means that users can have different levels of access and control over the application's functions and data, depending on their role. For example, an administrator role might have full access to all the settings and features of the application, while a user role might have limited access to only view some data. Roles and permissions can help to manage the security and privacy of the application, as well as to customize the user experience based on their needs and preferences.
+
+{% include image.html file="imag32.jpg" class="docimage" url="https://admin-dev.aapli.app/form-builder" alt="Application Category" caption="Application Category" %}
+
+We can add roles using the Add Role drop down list and thus we can assign different permissions using the respective checkboxes under each properties.  
+
+## Other Settings
+
+{% include image.html file="imag33.jpg" class="docimage" url="https://admin-dev.aapli.app/form-builder" alt="Application Category" caption="Application Category" %}
+
+1. Duplicate Check: This option allows you to determine whether you want to check for duplicate application or entries. When enabled, the system will compare new content with existing content to identify any duplicates. It’s a useful feature to maintain data integrity and avoid redundancy.
+2. Enable Horizontal Tabs: By selecting this checkbox, you enable horizontal tabs within the application view. Horizontal tabs organize content side by side, making it easier to navigate and access different sections or features. 
+3. Team Members: This checkbox relates to team collaboration. When checked, it indicates that team members associated with the application can access and collaborate on the application. It ensures that relevant stakeholders have the necessary permissions to contribute and work together effectively.
+One can configure these settings according to your preferences and requirements! 
+
+Application Category
+The application category feature allows users to create and define categories in which applications can be created. This feature helps in configuring application categories so that applications can be organized and managed more efficiently.
