@@ -7,9 +7,7 @@ Empowering Innovations . Simplifying Solutions"
 permalink: /
 ---
 
-## Introduction to IdeaBridge
-
-Navigate the Waves of Innovation with IdeaBridge: Where Ideas Set Sail and Boundless Creativity Meets the Sea of Possibilities. 
+## Introduction to Plus Innovations
 
 Plus Innovation offers a range of cloud-based platforms and tools that are designed to help teams collaborate, share ideas, manage innovation projects more effectively and automate workflows and business processes.
 We have worked with Professional Services, Financial Services, Manufacturing, Automobile, Healthcare and Government Establishments
