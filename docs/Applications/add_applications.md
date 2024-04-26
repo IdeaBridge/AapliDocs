@@ -2,7 +2,6 @@
 layout: default
 title: Add Applications 
 parent: applications
-grand_parent: Operations
 has_children: false
 nav_order: 1
 ---
