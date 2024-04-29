@@ -19,6 +19,6 @@ To add or change company logo or Site favicon, admin is required to click on the
 
 To change or edit a logo and Favicon, admin can click on edit icon, and that will open the file browser. 
 
-{% include image.html file="logo favicon_1.jpg" class="docimage" url="https://admin.ideabridge.co/admin/configurations/site-design" alt="Site Design" caption="Site Design" %}
+{% include image.html file="logo favicon 1.jpg" class="docimage" url="https://admin.ideabridge.co/admin/configurations/site-design" alt="Site Design" caption="Site Design" %}
 
 Once the admin clicks on edit icon of the Company Logo or Fevicon, that will open a file browser window, admin can browse to the location where the Logo or Favicon is saved and can select the file, and upload. Clicking on save will save the Logo and Favicon. 

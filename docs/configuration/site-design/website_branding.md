@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Home Page Banners
-parent: Website Branding
+title: Website Branding
+parent: Site Design
 grand_parent: Configuration
 has_children: false
 nav_order: 3
