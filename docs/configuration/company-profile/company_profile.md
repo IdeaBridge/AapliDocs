@@ -14,4 +14,4 @@ The Company Profile widget allows administrators to update and manage informatio
 
 To access the Company Profile, the admin user can simply double-click on the Company Profile widget, which will open the Company Profile window for editing and managing company information.
 
-Here is the video tutorial for Company profile: [Link button](https://youtu.be/o3CPcNlUoL0){: .btn .btn-purple }
+Here is the video tutorial for Company profile: [Link button](https://youtu.be/o3CPcNlUoL0){: .btn .btn-red }
