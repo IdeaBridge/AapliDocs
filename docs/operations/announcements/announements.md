@@ -13,4 +13,4 @@ The Announcement widget allows users to customize notifications for various purp
 
 Announcement widget can be located under operations tab of aapli’s home page. Once we click on the Announcement icon, the Announcement Panel will open. 
 
-
+Here is the video tutorial for Announcements [Video Tutorial](https://youtu.be/w1c64rcixKY){: .btn .btn-red}
