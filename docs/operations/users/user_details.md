@@ -12,6 +12,3 @@ The User Details tab can be found on the Home page, providing a convenient overv
 Within the User Details section, you will find information such as the total number of users, the number of suspended users, as well as the name and email ID of the administrator.
 
 {% include image.html file="user_details.jpg" class="docimage" url="https://admin.aapli.co" alt="User Details" caption="User Details" %}
-
-
-Here is the video tutorial for Notifications: [Video Tutorial](https://youtu.be/v3oiCJsTgAk){: .btn .btn-red}
