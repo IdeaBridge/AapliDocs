@@ -15,3 +15,5 @@ Single Sign-On (SSO) is a user authentication process that allows users to acces
 {% include image.html file="image174.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/sso-setting" alt="SSO Settings" caption="SSO Settings" %}
 
 The SSO Settings widget can be found under the Configurations tab, as shown above.
+
+Here is the video tutorial for SSO Settings: [Video Tutorial](https://youtu.be/UCXp7_N6OgI){: .btn .btn-red }
