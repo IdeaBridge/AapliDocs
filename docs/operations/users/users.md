@@ -16,3 +16,5 @@ Additionally, the Users widget displays a complete list of all existing users, m
 {% include image.html file="image004.jpg" class="docimage" url="https://admin.aapli.co/admin/operations/users" alt="Users" caption="Users" %}
 
 The Users widget can be found under the Operations tab, as shown above.
+
+Here is the video tutorial for Users[Video Tutorial](https://youtu.be/v3oiCJsTgAk){: .btn .btn-red}
