@@ -12,3 +12,4 @@ The application category feature allows users to create and define categories in
 
 By defining application categories, users can group related applications together and easily find them when needed. This is particularly useful when managing a large number of applications. Users can create categories based on different criteria, such as application type, department, or function.
 
+Here is the video tutorial for Application Category [Video Tutorial](https://youtu.be/aH_Mr6kHk6k){: .btn .btn-red}
