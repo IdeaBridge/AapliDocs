@@ -17,10 +17,18 @@ The properties of the Single line input can be found on the right-hand side of t
 The properties of the Single line input is divided into General, Condition, Appearance, Validation, Permission. 
 
 **General**
-1. Field Label: Clearly identify the purpose or information expected from users with a descriptive label for the single-line input field.
-2. Placeholder Text: Guide users by providing example or instructional text within the input field, offering a hint or format suggestion.
-3. Help Text: Offer additional assistance or clarification to users by providing concise information or instructions related to the single-line input.
-4. Tooltip: Enhance user understanding with a brief, context-sensitive tooltip that appears when users hover over the single-line input, providing supplementary information.
+
+1. ***Field Label*** The field label is the text displayed to the user as the main identifier for the input field. It tells the user what kind of information is required. For example, it could be a label like “Name” or “Email Address” to indicate that the field is for entering personal details or contact information.
+
+2. ***Placeholder Text*** Placeholder text is the temporary text that appears inside the input field before any data is entered. It serves as a hint for the user, suggesting what should be typed into the field. For instance, a placeholder text might say “Enter your name” in a field labeled "Name" or “example@domain.com” for an email field, giving the user a clear idea of the expected input format.
+
+3. ***Help Text*** Help text provides additional guidance or instructions to the user about the input field and appears beneath it. This text offers further clarification to assist the user in filling out the field correctly. For example, under a "Name" field, help text might read “Please enter your full legal name as it appears on your ID.”
+
+4. ***Tooltip*** A tooltip is a brief informational message that appears when the user hovers over the input field. It provides extra context or instructions in a compact manner. For instance, hovering over a password field might show a tooltip saying “Your password must be at least 8 characters long and include a special character.”
+
+5. ***Allow Attachment*** (Checkbox) When the "Allow Attachment" option is enabled, users can attach files directly to this input field. This feature is useful in scenarios where additional documentation or files, such as resumes, certificates, or images, need to be submitted along with the input.
+
+6. ***Filterable (Checkbox)*** If the "Filterable" option is checked, this input field can be used as a filter criterion in data tables or reports. This means that users can later search or filter records based on the value entered in this field, making it useful for creating dynamic filtering options in lists or dashboards.
 
 {% include image.html file="simage046.jpg" class="docimage" url="https://admin.aapli.co/form-builder" alt="Single line input" caption="Single line input" %}
 
