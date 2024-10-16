@@ -5,7 +5,7 @@ has_children: false
 nav_order: 2
 ---
 
-## Aapli Admin Panel: Account Login 
+## Aapli Admin Panel: Account Login  
 1.	Open a web browser on your device and go to https://admin.aapli.co
 2.	Enter your aapli account login credentials, including your username and password.
 3.	Check the "I am not a robot" box before logging in.
