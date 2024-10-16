@@ -36,7 +36,7 @@ The properties of the Single line input is divided into General, Condition, Appe
 6. Index Number: Specify whether to include an index number for entries in the single-line input, aiding in organized sorting and reference after enabling the duplicate checkbox.
 7. Filterable: Enable users to filter or search through entries in the single-line input, enhancing usability and efficiency.
 
-Test line(Will be deleted)
+Test line(Will be deleted 2)
  
 **Condition**
 The next property is a condition, under the condition we have checkbox which reads "Use in Workflow", selecting this property will use the single line input in workflow.
