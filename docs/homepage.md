@@ -2,7 +2,7 @@
 layout: default
 title: Home
 has_children: false
-nav_order: 2
+nav_order: 1
 ---
 
 ## Aapli Admin Panel: Account Login  

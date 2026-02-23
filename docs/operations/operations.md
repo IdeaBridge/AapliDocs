@@ -2,7 +2,7 @@
 layout: default
 title: Operations
 has_children: true
-nav_order: 1
+nav_order: 2
 ---
 
 The Operations tab on the home page provides a comprehensive set of tools (Widgets) and functionalities to streamline and manage operational aspects within Aapli.
