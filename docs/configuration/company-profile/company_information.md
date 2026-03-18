@@ -15,7 +15,7 @@ The "Company Information" option in the company profile allows you to add or edi
 
 In the "Company Information" section, you have the option to input or modify both the Company Address and the Billing Address.
 
-{% include image.html file="cimage168.jpg" class="docimage" url="https://docs.aapli.co/docs/configuration/company-profile/company_details/" alt="Company Information" caption="Company Information" %}
+{% include image.html file="image168.jpg" class="docimage" url="https://docs.aapli.co/docs/configuration/company-profile/company_details/" alt="Company Information" caption="Company Information" %}
 
 1. **Company Address:** In this section, you must provide the following details: Company Address, City, State, Pincode, and Country.
 2. **Billing Address:** To simplify the process, there is a convenient checkbox labeled "Same as Company Address." When this box is selected, the billing address will automatically be set to match the company address.
