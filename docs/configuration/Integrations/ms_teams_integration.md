@@ -7,34 +7,46 @@ has_children: false
 nav_order: 1
 ---
 
+## Overview
+
+This guide describes how to create and deploy a custom Microsoft Teams app package for integrating your application with Microsoft Teams.
+
 ## Creating an MS Teams App Package
 
-Once the user navigates to the Integrations page within the Admin form builder portal, they must click on the button area labelled "Download Microsoft Teams App". 
+### Step 1: Access the Integration Settings
+
+1. Navigate to the Integrations section of the Configurations page in the Admin portal.
+2. Click **Download Microsoft Teams App**.
 
 {% include image.html file="teamspanel.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/integrations" alt="Microsoft Teams Panel" caption="Microsoft Teams Panel" %}
 
-This will open up an overlay wherein the user can enter the necessary details to create their custom app.
+### Step 2: Configure App Settings
+
+An overlay will appear where you can configure your custom app details. Complete the following fields:
 
 {% include image.html file="teamssettings.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/integrations" alt="Microsoft Teams Settings" caption="Microsoft Teams Settings" %}
 
-1. **App Name (Short):** The short name of the custom app, for display efficiency 
+| Field | Description | Requirements |
+|-------|-------------|--------------|
+| **App Name (Short)** | Short display name for the app | - |
+| **App Name (Full)** | Full name of the app | - |
+| **App Description (Short)** | Brief description of the app's functionality | - |
+| **App Description (Full)** | Detailed description of the app's features and functionality | - |
+| **Accent Color** | Primary color for the app icon background | Hex color code |
+| **App Icon** | Main app icon displayed with the app name | PNG format, minimum 128x128px |
+| **Outline Icon** | Icon displayed in the Teams toolbar | PNG format, minimum 128x128px |
+| **Website URL** | Target URL for the custom app | Valid URL |
 
-2. **App Name (Full)**: The full name of the custom app 
+### Step 3: Generate the App Package
 
-3. **App Description (Short)**: The short description of the custom app’s function, for efficient reference 
-
-4. **App Description (Full)**: The full description of the custom app, where the user can define how the application works completely 
-
-5. **Accent Color**: The desired color of the app’s icon space 
-
-6. **App Icon** *(must be PNG, at least 128x128px)*: The app icon desired to display next to the app's full name when opening the app 
-
-7. **Outline Icon** *(must be PNG, at least 128x128px)*: The app icon desired to display on the Teams toolbar 
-
-8. **Website URL**: The URL to where the custom app should direct the user 
-
-Once all details are entered, the user can then click Download App Package to receive the created package on their local system. If the user changes their mind about integrating MS Teams, they can click Cancel.
+1. Review all entered information for accuracy.
+2. Click **Download App Package** to download the package to your local system.
+3. To cancel the operation, click **Cancel**.
 
 ## Uploading the Custom App to Microsoft Teams
 
-Follow the instructions on https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload to successfully install the application on Teams, and access the Ideabridge service configured in the custom app.
+To install and configure the custom app package in Microsoft Teams, refer to the official Microsoft documentation:
+
+[Upload a custom app in Microsoft Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)
+
+Follow the step-by-step instructions provided by Microsoft to complete the installation and access your configured Ideabridge service within Teams.

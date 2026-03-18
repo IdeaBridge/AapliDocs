@@ -6,17 +6,45 @@ has_children: true
 nav_order: 5
 ---
 
-## User Properties
+# User Properties
 
-User Properties are a feature that allows you to attach custom attributes or information to individual user accounts within the system. These properties serve as additional fields where you can store specific data related to each user, tailoring it to your organization's needs.
+## Overview
 
-For instance, you might want to create a user property called "Department" to categorize users based on the department they belong to within the organization. Another example could be a property named "Location," indicating the location each user is associated with.
-The great advantage of user properties lies in their flexibility and adaptability. You can define these properties according to your unique requirements and business processes. Furthermore, user properties can be mapped to corresponding organization-wide properties, streamlining the process of importing and managing user data effectively.
+User Properties allow you to attach custom attributes to individual user accounts. These properties function as additional data fields for storing user-specific information tailored to your organization's requirements.
 
-The User Properties widget can be found under the Configurations tab, as shown below.
+## Key Features
 
-{% include image.html file="image181.jpg" class="docimage" url="https://admin.aapli.co/admin/configurations/user-setting" alt="User Properties" caption="User Properties" %}
+- **Custom Attributes**: Define properties specific to your organization's needs
+- **Flexible Configuration**: Create and modify properties based on business requirements
+- **Organization Mapping**: Map user properties to organization-wide properties for streamlined data management
+- **Enhanced Organization**: Support better user segmentation and categorization
 
-User properties enable us to add custom fields that capture specific details about each user, enabling better organization, segmentation, and personalized management within your application or system.
+## Common Use Cases
+
+User Properties can be configured for various organizational needs, including:
+
+- **Department**: Categorize users by their organizational department
+- **Location**: Track physical location or regional assignment
+- **Employee ID**: Store unique employee identifiers
+- **Role Classification**: Assign custom role designations beyond system roles
+- **Project Assignment**: Track project or team affiliations
+
+## Accessing User Properties
+
+1. Navigate to the **Configurations** tab in the admin panel
+2. Select **User Properties** from the available options
+
+{% include image.html file="image181.jpg" class="docimage" url="https://admin.aapli.co/admin/configurations/user-setting" alt="User Properties" caption="User Properties Configuration Interface" %}
+
+## Benefits
+
+- Enables personalized user management within the system
+- Improves data organization and user segmentation
+- Facilitates efficient user data import processes
+- Supports custom reporting and analytics based on user attributes
+
+---
+
+**Related Topics**: User Management | Organization Properties | Data Import
 
 
