@@ -13,7 +13,7 @@ nav_order: 3
 
 This section of Features enables ways for the platform to entice users to increase their overall participation, by offering potential rewards to those who show greater initiative.
 
-(insert image of G&R features)
+{% include image.html file="rewards.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/application-features" alt="Gamification & Rewards" caption="Gamification & Rewards" %}
 
 1. **Points:** Enabling this feature allows the platform to keep score of a user's participation on the platform, awarding points based on the number, content, and progress of submissions made by the user.
 

@@ -21,7 +21,7 @@ The Application panel is a dedicated section designed for administrators to effi
 
 {% include image.html file="applicationspanel.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Applications" caption="Applications" %}
 
-1.** Add: **This option is used to create a new application. In the upcoming chapters, we will cover the steps and information required for creating a new application.
+1. **Add:** This option is used to create a new application. In the upcoming chapters, we will cover the steps and information required for creating a new application.
 
 2. **Application Name:** The Application Name section displays a list of all the applications that have been created. Additionally, there is a search bar available where you can enter the name of the application and search for a specific application from the list.
 

@@ -13,7 +13,8 @@ This section enables the Simple Mail Transfer Protocol (SMTP), for admins to sen
 
 To enable SMTP in its entirety, the following details will need to be entered:
 
-(insert image of SMTP panel)
+{% include image.html file="smtpp1.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/application-features" %}
+{% include image.html file="smtpp2.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/application-features" alt="SMTP E-mail Settings" caption="SMTP E-mail Settings" %}
 
 1. **From E-mail Address:** The e-mail address that needs to be used for sending automated e-mails to users.
 
@@ -23,7 +24,7 @@ To enable SMTP in its entirety, the following details will need to be entered:
 
 4. **Port Number:** The port on which the SMTP server should be registered to send these automated e-mails.
 
-5. **Use Secure Connection:** A checkbox to confirm 
+5. **Use Secure Connection:** 
 
 6. **Username:**
 
@@ -33,6 +34,6 @@ To enable SMTP in its entirety, the following details will need to be entered:
 
 9. **Sender Display Name:**
 
-10. **E-mail Addresses to Exclude:**
+10. **E-mail Addresses to Exclude:** A list of e-mail addresses to whom the user does not want these automated e-mails to be sent to.
 
 The ability to test the dispatch of these e-mails is also available, just to confirm that the settings are applied properly. Once satisfied, click Save; otherwise, click Close.

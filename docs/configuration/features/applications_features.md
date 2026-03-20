@@ -7,11 +7,11 @@ has_children: false
 nav_order: 1
 ---
 
-## Features for Applications
+## Applications
 
 This section of Features enables general applications, that serve as the skeleton of interaction with users.
 
-(insert image of how to find Applications)
+{% include image.html file="applicationadds.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/application-features" alt="Applications" caption="Applications" %}
 
 1. **Idea Application:** This feature enables the Ideas application on the desired website, which allows regular users to add Ideas of their own to the database, or to view other ideas that have been submitted to the platform.
 
