@@ -19,16 +19,25 @@ This section of the Features panel controls features concerning authentication a
 
 2. **Authentication Type:** Enabling this feature will give admins the option to choose the kind of authentication they want to implement on the platform for users to comply by when signing in.
 
-{% include image.html file="authtype.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/application-features" alt="Authentication Type" caption="Authentication Type" %}
+    <figure>
+    <a class="no_icon" target="_blank" rel="noopener" href="https://admin-dev.aapli.app/admin/configurations/application-features"><img class="docimage" src="/assets/images/authtype.png" alt="Authentication Type" /></a>
+    <figcaption>Authentication Type</figcaption>
+    </figure>
 
 3. **Two-Factor Authentication:** This feature gives admins the option to enforce 2FA over the sign-in of every user, ensuring greater security and preventing potential simple hacking.
 
 4. **Inactivity Timeout:** Enabling this feature will warn users that they've not registered any form of activity in some time on the platform while they're logged in, and enforce logging out if the inactivity exceeds a defined duration.
 
-{% include image.html file="inactivity.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/application-features" alt="Authentication Type" caption="Authentication Type" %}
+    <figure>
+    <a class="no_icon" target="_blank" rel="noopener" href="https://admin-dev.aapli.app/admin/configurations/application-features"><img class="docimage" src="/assets/images/inactivity.png" alt="Inactivity Timeout" /></a>
+    <figcaption>Inactivity Timeout configuration</figcaption>
+    </figure>
 
-5. **Reports:** 
+5. **Reports:** Activation of this feature will enable visibility of metrics through certain media, for example regular reports & dashboards, for admins to monitor user activity & performance.
 
 6. **Single Session:** Enabling this feature will ensure that a user won't be able to log into the website on any other device if they're already logged in. This will ensure a greater level of security over sensitive data.
 
-{% include image.html file="singlesession.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/application-features" alt="Single Session" caption="Single Session" %}
+    <figure>
+    <a class="no_icon" target="_blank" rel="noopener" href="https://admin-dev.aapli.app/admin/configurations/application-features"><img class="docimage" src="/assets/images/singlesession.png" alt="Single Session" /></a>
+    <figcaption>Single Session</figcaption>
+    </figure>
