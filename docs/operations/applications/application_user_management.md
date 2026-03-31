@@ -7,6 +7,8 @@ has_children: false
 nav_order: 1
 ---
 
+## Application Panel
+
 The Application panel is a dedicated section designed for administrators to efficiently manage and create Applications. It provides tools for adding, modifying, enabling/disabling, deleting and duplicating Applications.
 
 {% include image.html file="imag3.jpg" class="docimage" url="https://admin.aapli.co/admin/operations/users" alt="Applications Panel" caption="Applications Panel" %}
@@ -16,8 +18,7 @@ The Application panel is a dedicated section designed for administrators to effi
 3. **Created Date:** The Created Date column indicates the date when an application was created. It provides information about when the application was initially set up.
 4. **Status:** The Status column indicates the current status of the application. It can be either active or inactive, depending on its operational state.
 5. **Actions:** When you hover the mouse pointer over the action column corresponding to a specific application, it presents you with four options:
-I.	**Edit:** This option allows you to make changes to the application. You can modify its settings, configurations, or any other relevant information.
-
-II.	**Change Status:** You can use this option to switch the status of the application. By selecting either "active" or "inactive," you can control whether the application is currently operational or not.
-III.	**Delete:** This option allows you to permanently remove the application from the system. Exercise caution when using this option, as it cannot be undone.
-IV.	**Duplicate:** This option creates a copy of the application. It can be useful if you want to create a similar application without starting from scratch, as it saves time and effort.
+   1. **Edit:** This option allows you to make changes to the application. You can modify its settings, configurations, or any other relevant information.
+   2. **Change Status:** You can use this option to switch the status of the application. By selecting either "active" or "inactive," you can control whether the application is currently operational or not.
+   3. **Delete:** This option allows you to permanently remove the application from the system. Exercise caution when using this option, as it cannot be undone.
+   4. **Duplicate:** This option creates a copy of the application. It can be useful if you want to create a similar application without starting from scratch, as it saves time and effort.

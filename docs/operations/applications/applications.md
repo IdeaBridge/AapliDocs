@@ -1,14 +1,16 @@
 ---
 layout: default
 title: Applications
-parent: Configuration
+parent: Operations
 has_children: true
-nav_order: 3
+nav_order: 12
 ---
-The application widget facilities options to create and manage Applications. This tool lets you create edit, enable/disable, delete and adjust applications without any hassle. The Application widget provides no code platform for creating and managing applications.
+
+## Applications
+
+The application widget facilitates options to create and manage Applications. This tool lets you create edit, enable/disable, delete and adjust applications without any hassle. The Application widget provides a no-code platform for creating and managing applications.
 In aapli, users can access applications by clicking on the application card located on the home screen, typically under the "Operations" tab. 
 
-
-{% include image.html file="imga34.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Users" caption="Users" %}
+{% include image.html file="imag34.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Applications" caption="Applications" %}
 
 The Applications widget can be found under the Configurations tab, as shown above.

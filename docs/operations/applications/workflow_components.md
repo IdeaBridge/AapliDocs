@@ -13,10 +13,7 @@ Workflow components are the design elements which can be used in designing the w
 
 {% include image.html file="imag24.jpg" class="docimage" url="https://admin-dev.aapli.app/form-builder" alt="Application Category" caption="Application Category" %}
 
-
-Let us look into the workflow design components in details. 
 1. **Hand tool:** The Hand Tool allows you to select and move design elements within the canvas. It’s like grabbing an object and relocating it to a different spot on your design. 
-
 2. **Lasso Tool:** It allows you to create freehand selections by clicking and dragging to trace the edges of an area you want to select.
 3. **Global Connect Tool:** This tool can be used in connecting different design elements, and thus it helps defining the workflow.
 4. **Start Event:** Start even is a thin circle which indicates and functions as a start of an event. 
@@ -24,4 +21,3 @@ Let us look into the workflow design components in details.
 6. **Gateway:** Gateways can be used when there are parallel paths which are to be operated in a workflow.
 7. **Task:** Task refers to a specific activity or action that needs to be performed as part of a larger process. Tasks can vary widely and may include activities such as setting up an action for a Role, User, Department etc. Tasks can be entitled by opening Tasks tab. 
 8. **Design Element recommendations:** When you begin designing a workflow, you have the ability to click on any element. The system will then suggest other design elements related to your selection. Clicking on these recommended elements will automatically add them to your workflow.
-

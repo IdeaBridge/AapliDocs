@@ -1,15 +1,15 @@
 ---
 layout: default
-title: Application Settings, Form, and Properties. 
+title: General Tabs 
 parent: Applications
 grand_parent: Operations
 has_children: false
 nav_order: 3
 ---
 
-## General Tabs: Application Settings, Form, and Properties. 
+## General Tabs 
 
-General tabs appear when user selects Response has no work flow in the application settings tab (We will look into details in applications tab) 
+General tabs appear when the user disables workflows in the application settings tab. 
 
 {% include image.html file="imag5.jpg" class="docimage" url="https://admin.aapli.co/admin/operations/users" alt="Applications Panel" caption="Applications Panel" %}
 
