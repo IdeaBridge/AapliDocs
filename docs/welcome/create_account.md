@@ -65,20 +65,20 @@ The first page will take you through your company's most basic identifying detai
 {% include image.html file="so6.png" class="docimage" alt="Step 1 - Company Details" caption="Step 1 - Company Details" %}
 
 1. *Domain:* The website name you agreed on at the registration step
-2. *Logo:* A panel on which you can import a customised logo for your website
+2. *Logo:* A panel on which you can import a customised logo for your website.
 
 The second page will ask to create profiles for users you wish to add to your organisation from the start. If you wish to add more users, you can click on the User Settings hyperlink, to head straight to the User Settings page on the admin portal:
 
 {% include image.html file="so7.png" class="docimage" alt="Step 2 - Team Members" caption="Step 2 - Team Members" %}
 
-The third & last page for default configuration introduces you to a set of small tutorial videos, which will help you to familiarise yourself with the inner details of the admin portal website:
+The third & last page for default configuration introduces you to a set of small tutorial videos, which will help you to familiarise yourself with the inner details of the admin portal website.
+
+At any stage during this process, if you feel like you don't need to configure default settings right now, you can click on the "Skip" button next to the continuing button, to be led straight to your admin portal:
 
 {% include image.html file="so8.png" class="docimage" alt="Step 3 - Tutorials" caption="Step 3 - Tutorials" %}
 
 Once you're done with the default configuration, click on "Let's Start" on the new page to be taken directly to the admin portal:
 
 {% include image.html file="so9.png" class="docimage" alt=" Configuration Completion Screen" caption="Configuration Completion Screen" %}
-
-At any stage during this process, if you feel like you don't need to configure default settings right now, you can click on the "Skip" button next to the continuing button, to be led straight to your admin portal.
 
 **Congratulations!** You have now created your first Aapli suborgansation website!

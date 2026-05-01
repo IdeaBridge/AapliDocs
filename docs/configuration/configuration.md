@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Configuration
+title: Configurations
 has_children: true
 nav_order: 4
 ---
