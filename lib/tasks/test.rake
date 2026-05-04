@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
-require 'rspec/core/rake_task'
+begin
+  require 'rspec/core/rake_task'
+rescue LoadError
+  # rspec not available, skip test tasks
+  return
+end
 
 namespace :spec do
   desc 'Run all documentation tests'
