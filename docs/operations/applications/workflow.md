@@ -1,3 +1,11 @@
+---
+layout: default
+title: Workflow
+parent: Applications
+grand_parent: Operations
+has_children: false
+nav_order: 8
+---
 Request Workflow and Response workflow tab is included when the user defines Request has workflow and Response has workflow in Application Settings tab. Workflow Tab provides two options: Create a new workflow or select an existing workflow from the drop-down menu. 
 
 **1.	Create a new Workflow:** To create a new workflow, simply click on the "Create new Workflow" button. This action will open the Workflow Designer window, where user can drag and drop different items available in the left pane and design a workflow that suits the application’s needs. The Workflow Designer provides a user-friendly interface that simplifies the process of creating workflows. To add a workflow item, drag it from the left pane and drop it onto the main pane.

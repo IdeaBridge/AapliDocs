@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Integrations
-parent: Configuration
+parent: Configurations
 has_children: true
 nav_order: 11
 ---

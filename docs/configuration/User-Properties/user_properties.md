@@ -1,7 +1,7 @@
 ---
 layout: default
 title: User Properties
-parent: Configuration
+parent: Configurations
 has_children: true
 nav_order: 5
 ---

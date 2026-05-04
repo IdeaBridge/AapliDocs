@@ -2,7 +2,7 @@
 layout: default
 title: Add
 parent: Currencies
-grand_parent: Configuration
+grand_parent: Configurations
 has_children: false
 nav_order: 3
 ---

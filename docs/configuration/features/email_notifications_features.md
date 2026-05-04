@@ -2,7 +2,7 @@
 layout: default
 title: E-mail & Notifications
 parent: Features
-grand_parent: Configuration
+grand_parent: Configurations
 has_children: false
 nav_order: 5
 ---

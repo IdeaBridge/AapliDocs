@@ -2,7 +2,7 @@
 layout: default
 title: Logo and Favicons
 parent: Site Design
-grand_parent: Configuration
+grand_parent: Configurations
 has_children: false
 nav_order: 1
 ---

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Application Settings 
+title: Settings for Applications
 parent: Applications
 grand_parent: Operations
 has_children: false
