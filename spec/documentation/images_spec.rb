@@ -43,9 +43,9 @@ RSpec.describe 'Image Assets' do
 
         it 'has a lowercase filename for consistency' do
           filename = File.basename(file_path)
-          # Allow numbers but prefer lowercase letters
-          expect(filename).to match(/^[a-z0-9_\-.]+$/i),
-            "Filename should only contain alphanumeric characters, underscores, hyphens, and dots"
+          # Enforce lowercase letters, numbers, underscores, hyphens, and dots
+          expect(filename).to match(/^[a-z0-9_\-.]+$/),
+            "Filename should be lowercase and only contain alphanumeric characters, underscores, hyphens, and dots"
         end
       end
     end
@@ -123,8 +123,8 @@ RSpec.describe 'Image Assets' do
         it 'references an existing image' do
           # Handle different reference formats
           if image_ref.start_with?('/')
-            # Absolute path from root
-            image_path = File.join(ROOT_PATH, image_ref)
+            # Absolute path from root 
+            image_path = File.join(ROOT_PATH, image_ref.delete_prefix('/'))
           elsif image_ref.start_with?('http')
             # External URL - skip validation
             skip 'External URL - not validating'

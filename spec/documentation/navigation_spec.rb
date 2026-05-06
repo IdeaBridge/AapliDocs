@@ -30,6 +30,11 @@ RSpec.describe 'Navigation Structure' do
         all_docs.select { |d| d[:frontmatter]['parent'] == 'Features' }
       end
 
+      before do
+        expect(features_parent).not_to be_nil,
+          "Expected to find Features document under Configurations"
+      end
+
       it 'has Features as a child of Configurations' do
         expect(features_parent).not_to be_nil
       end
@@ -62,6 +67,11 @@ RSpec.describe 'Navigation Structure' do
         all_docs.select { |d| d[:frontmatter]['parent'] == 'Entity Builder' }
       end
 
+      before do
+        expect(entity_builder_parent).not_to be_nil,
+          "Expected to find Entity Builder document under Operations"
+      end
+
       it 'has Entity Builder as a child of Operations' do
         expect(entity_builder_parent).not_to be_nil
       end
@@ -88,6 +98,11 @@ RSpec.describe 'Navigation Structure' do
         all_docs.select { |d| d[:frontmatter]['parent'] == 'Welcome to Aapli!' }
       end
 
+      before do
+        expect(welcome_parent).not_to be_nil,
+          "Expected to find 'Welcome to Aapli!' document"
+      end
+
       it 'has Welcome section as top-level navigation' do
         expect(welcome_parent).not_to be_nil
         expect(welcome_parent[:frontmatter]['parent']).to be_nil
@@ -111,6 +126,11 @@ RSpec.describe 'Navigation Structure' do
 
       let(:integrations_children) do
         all_docs.select { |d| d[:frontmatter]['parent'] == 'Integrations' }
+      end
+
+      before do
+        expect(integrations_parent).not_to be_nil,
+          "Expected to find Integrations document under Configurations"
       end
 
       it 'has Integrations as a child of Configurations' do

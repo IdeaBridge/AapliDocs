@@ -81,7 +81,7 @@ RSpec.describe 'Documentation Frontmatter' do
       expect(File.exist?(File.join(features_dir, 'features.md'))).to be true
     end
 
-    it 'all feature files have Configuration as grand_parent' do
+    it 'all feature files have Configurations as grand_parent' do
       features_files.each do |file|
         next if file.end_with?('features.md') # Skip the parent file
 
@@ -89,7 +89,7 @@ RSpec.describe 'Documentation Frontmatter' do
         next unless frontmatter
 
         if frontmatter['parent'] == 'Features'
-          expect(frontmatter['grand_parent']).to eq('Configuration'),
+          expect(frontmatter['grand_parent']).to eq('Configurations'),
             "#{File.basename(file)} should have grand_parent: Configurations"
         end
       end

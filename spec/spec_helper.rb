@@ -15,11 +15,38 @@ module DocumentationHelpers
     Dir.glob(File.join(ROOT_PATH, 'docs', '**', '*.md'))
   end
 
-  # Get all new/modified doc files from current branch (compared to main)
+  # Resolve base branch ref for git diff, trying in order:
+  # 1. origin/GITHUB_BASE_REF (in CI/PR context)
+  # 2. origin/main
+  # 3. origin/master
+  # 4. main
+  # 5. master
+  def self.resolve_base_ref
+    # In GitHub Actions PR context, GITHUB_BASE_REF contains the target branch name
+    if ENV['GITHUB_BASE_REF'] && !ENV['GITHUB_BASE_REF'].empty?
+      ref = "origin/#{ENV['GITHUB_BASE_REF']}"
+      return ref if system("git rev-parse --verify #{ref}", out: File::NULL, err: File::NULL)
+    end
+    
+    # Try common remote refs first, then local refs
+    ['origin/main', 'origin/master', 'main', 'master'].each do |ref|
+      return ref if system("git rev-parse --verify #{ref}", out: File::NULL, err: File::NULL)
+    end
+    
+    raise "Could not find base branch. Tried: origin/main, origin/master, main, master" +
+          (ENV['GITHUB_BASE_REF'] ? " and origin/#{ENV['GITHUB_BASE_REF']}" : "")
+  end
+
+  # Get all new/modified doc files from current branch (compared to base)
   def self.branch_doc_files
-    # Get files changed compared to main branch
-    changed_files = `git diff main --name-only`.split("\n")
-    changed_files
+    base_ref = resolve_base_ref
+    changed_files = `git diff #{base_ref} --name-only`
+    
+    unless $?.success?
+      raise "git diff #{base_ref} --name-only failed with exit code #{$?.exitstatus}"
+    end
+    
+    changed_files.split("\n")
       .select { |f| f.end_with?('.md') && f.start_with?('docs/') }
       .map { |f| File.join(ROOT_PATH, f) }
       .select { |f| File.exist?(f) }
@@ -33,8 +60,14 @@ module DocumentationHelpers
 
   # Get new image files from current branch
   def self.branch_image_files
-    changed_files = `git diff main --name-only`.split("\n")
-    changed_files
+    base_ref = resolve_base_ref
+    changed_files = `git diff #{base_ref} --name-only`
+    
+    unless $?.success?
+      raise "git diff #{base_ref} --name-only failed with exit code #{$?.exitstatus}"
+    end
+    
+    changed_files.split("\n")
       .select { |f| f.start_with?('assets/images/') && !File.directory?(File.join(ROOT_PATH, f)) }
       .map { |f| File.join(ROOT_PATH, f) }
       .select { |f| File.exist?(f) }

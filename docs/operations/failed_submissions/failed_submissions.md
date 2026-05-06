@@ -21,4 +21,4 @@ This table displays all of the submissions from applications in the suborganisat
 3. **Title:** The title of the attempted submission.
 4. **Application Name:** The name of the application responsible for the failed submission.
 5. **Created Date:** The date of the creation of the submission.
-6. **Actions:** The user can choose to the failed submission if there is no need to attempt it anymore.
+6. **Actions:** The user can choose to delete the failed submission if there is no need to attempt it anymore.

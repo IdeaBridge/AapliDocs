@@ -81,4 +81,4 @@ Once you're done with the default configuration, click on "Let's Start" on the n
 
 {% include image.html file="so9.png" class="docimage" alt=" Configuration Completion Screen" caption="Configuration Completion Screen" %}
 
-**Congratulations!** You have now created your first Aapli suborgansation website!
+**Congratulations!** You have now created your first Aapli suborganisation website!
