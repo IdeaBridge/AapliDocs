@@ -10,5 +10,3 @@ The Cards widget is a feature that allows administrators to add and manage conte
 {% include image.html file="cards.jpg" class="docimage" url="https://admin.aapli.co/admin/operations/cards" alt="cards" caption="cards" %}
 
 Cards widget can be located under operations tab of aapli’s home page. Once we click on the Cards icon, the Cards  Panel will open. 
-
-

@@ -2,7 +2,7 @@
 layout: default
 title: User Panel
 parent: SSO Settings
-grand_parent: Configuration
+grand_parent: Configurations
 has_children: false
 nav_order: 2
 ---

@@ -2,7 +2,7 @@
 layout: default
 title: Company Name, Theme and Logo
 parent: Company Profile
-grand_parent: Configuration
+grand_parent: Configurations
 has_children: false
 nav_order: 2
 ---
@@ -11,7 +11,7 @@ nav_order: 2
 
 The first option which is available after opening the Company Profile widget is Company Name, Theme and Logo. To make any changes or to enter the option kindly click on the edit icon as shown in the image. 
 
-{% include image.html file="image165.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/company-profile" alt="Company Name, Theme and Logo" caption="Company Name, Theme and Logo" %}
+{% include image.html file="image166.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/company-profile" alt="Company Name, Theme and Logo" caption="Company Name, Theme and Logo" %}
 
 Upon clicking the edit icon next to "Company Name, Theme, and Logo", the admin user will be presented with editable fields as follows:
 

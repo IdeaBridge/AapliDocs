@@ -2,7 +2,7 @@
 layout: default
 title: Actions
 parent: Application Settings
-grand_parent: Configuration
+grand_parent: Configurations
 has_children: false
 nav_order: 2
 ---

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Configuration
+title: Configurations
 has_children: true
-nav_order: 3
+nav_order: 4
 ---
 
 ## Configurations
@@ -26,5 +26,11 @@ Below are the widgets available in the Configurations tab include:
 5. **User Properties:** The User Properties widget provides options to manage and customize user-related properties and fields. 
 
 6. **Roles:** The Roles widget allows administrators to create and manage user roles and permissions. They can define different roles with specific access levels, assign permissions to each role, and control user privileges based on their assigned roles.
+
+7. **User Import Mapping:** The User Import Mapping widget enables admin users to link users to their organisations through user properties, which would be provided by external sources. Streamlining user identification through this service enables greater ease of user import into the desired system.
+
+8. **Features:** The Features section introduces useful ways a website can be allowed to interact with users, enabling greater communication and security measures.
+
+9. **Integrations:** The Integrations widget allows the admin user to create custom application packages for communication channels, and synchronise them to access Ideabridge services & websites.
 
 Let's explore each widget in the Configurations tab in more detail. 

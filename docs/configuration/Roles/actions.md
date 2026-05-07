@@ -2,7 +2,7 @@
 layout: default
 title: Actions
 parent: Roles
-grand_parent: Configuration
+grand_parent: Configurations
 has_children: false
 nav_order: 3
 ---
@@ -28,7 +28,7 @@ The "Disable/Enable" action lets you enable or disable a role as needed. When a 
 
 ## 3. Delete: 
 
-{% include image.html file="dimage197.jpg" class="docimage" url="https://admin.aapli.co/admin/configurations/roles" alt="Disable ROles" caption="Disable Roles" %}
+{% include image.html file="image197.jpg" class="docimage" url="https://admin.aapli.co/admin/configurations/roles" alt="Disable Roles" caption="Disable Roles" %}
 
 The "Delete" action enables you to remove a role from the system. When you click on the "Delete" icon or link under the "Actions" column for a specific role, a confirmation prompt may appear to ensure that you want to proceed with the deletion. 
 
