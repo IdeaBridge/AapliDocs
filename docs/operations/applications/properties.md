@@ -11,7 +11,7 @@ nav_order: 7
 
 The Properties tab of the application provides access to various configuration options. These properties are listed on the left-hand side of the properties page and include the following categories:
 
-{% include image.html file="imag25.jpg" class="docimage" url="https://admin-dev.aapli.app/form-builder" alt="Application Category" caption="Application Category" %}
+{% include image.html file="imag25.jpg" class="docimage" url="https://admin-dev.aapli.dev/form-builder" alt="Application Category" caption="Application Category" %}
 
 **Information Tabs:** This section allows you to manage different sections of information within the application. You can organize and customize this tabs/information based on your needs.
 
@@ -25,7 +25,7 @@ The Properties tab of the application provides access to various configuration o
 
 In the Information tab, you have the option to enable additional details relevant to the application. There are four checkboxes available:
 
-{% include image.html file="imag26.jpg" class="docimage" url="https://admin-dev.aapli.app/form-builder" alt="Application Category" caption="Application Category" %}
+{% include image.html file="imag26.jpg" class="docimage" url="https://admin-dev.aapli.dev/form-builder" alt="Application Category" caption="Application Category" %}
 
 1. **Info:** This section provides details such as the creation date, user information, application ID, team members, and other related information.
 
@@ -37,11 +37,11 @@ In the Information tab, you have the option to enable additional details relevan
 
 When using the “Similar Content” feature, you have the option to set a minimum threshold for the similarity score. By doing so, you can filter the results and only display content that meets or exceeds your specified percentage match. This ensures that you receive relevant and closely related information.
 
-{% include image.html file="imag27.jpg" class="docimage" url="https://admin-dev.aapli.app/form-builder" alt="Application Category" caption="Application Category" %}
+{% include image.html file="imag27.jpg" class="docimage" url="https://admin-dev.aapli.dev/form-builder" alt="Application Category" caption="Application Category" %}
 
 Feel free to adjust the threshold according to your preferences, and explore the content that aligns most closely with your submitted material.
 
-{% include image.html file="imag28.jpg" class="docimage" url="https://admin-dev.aapli.app/form-builder" alt="Application Category" caption="Application Category" %}
+{% include image.html file="imag28.jpg" class="docimage" url="https://admin-dev.aapli.dev/form-builder" alt="Application Category" caption="Application Category" %}
 
 On the right-hand side of the page, you can see the preview of the information tab. The preview shows the position of the information tabs.
 
@@ -51,7 +51,7 @@ In Application Views tab, you have the option to change how your applications la
 
 **Card View**
 
-{% include image.html file="imag29.jpg" class="docimage" url="https://admin-dev.aapli.app/form-builder" alt="Application Category" caption="Application Category" %}
+{% include image.html file="imag29.jpg" class="docimage" url="https://admin-dev.aapli.dev/form-builder" alt="Application Category" caption="Application Category" %}
 
 If you want to present information in a way that is easy to read and understand, you should use card view. Card view is a design pattern that shows information in small, rectangular cards that have a clear and consistent layout. 
 
@@ -63,12 +63,12 @@ Card view is ideal for displaying information that has different levels of impor
 When users need to access and compare a lot of data that belongs to the same category, list view is an ideal option. List view displays data in rows and columns, allowing users to sort and filter the data according to different criteria.
 List view also enables users to scan the data quickly and efficiently, as they can see multiple items at once and focus on the most relevant information. List view is especially useful for complex or dynamic data sets that require frequent updates or changes.
 
-{% include image.html file="imag30.jpg" class="docimage" url="https://admin-dev.aapli.app/form-builder" alt="Application Category" caption="Application Category" %}
+{% include image.html file="imag30.jpg" class="docimage" url="https://admin-dev.aapli.dev/form-builder" alt="Application Category" caption="Application Category" %}
 
 One of the features of aapli is that you can customize the way you view the Applications. On the right-hand side of the page, you will see a dropdown menu that lets you choose which columns you want to see. You can select from the following options: Title, Description, Comments, Followers, Likes, Profile Picture, Created By, Created Date, and Status. 
 These columns will show you different information about each Application, such as the title of the Application, a brief summary of its content, the number of comments it has received, the number of people who follow it, the number of likes it has earned, the profile picture of the Creator, the name of the Creator, the date when the post was created, and the current status of the post (e.g., Submitted, Approved etc.). 
 
-{% include image.html file="imag31.jpg" class="docimage" url="https://admin-dev.aapli.app/form-builder" alt="Application Category" caption="Application Category" %}
+{% include image.html file="imag31.jpg" class="docimage" url="https://admin-dev.aapli.dev/form-builder" alt="Application Category" caption="Application Category" %}
 
 Once the columns are selected for list view, we can interchange their positions by dragging their position as shown in above image. 
 
@@ -77,13 +77,13 @@ Once the columns are selected for list view, we can interchange their positions 
 One of the features of an application is the ability to assign different roles and permissions to users. This means that users can have different levels of access and control over the application's functions and data, depending on their role. For example, an administrator role might have full access to all the settings and features of the application, while a user role might have limited access to only view some data. 
 Roles and permissions can help to manage the security and privacy of the application, as well as to customize the user experience based on their needs and preferences.
 
-{% include image.html file="imag32.jpg" class="docimage" url="https://admin-dev.aapli.app/form-builder" alt="Application Category" caption="Application Category" %}
+{% include image.html file="imag32.jpg" class="docimage" url="https://admin-dev.aapli.dev/form-builder" alt="Application Category" caption="Application Category" %}
 
 We can add roles using the Add Role drop down list and thus we can assign different permissions using the respective checkboxes under each properties.  
 
 ## Other Settings
 
-{% include image.html file="imag33.jpg" class="docimage" url="https://admin-dev.aapli.app/form-builder" alt="Application Category" caption="Application Category" %}
+{% include image.html file="imag33.jpg" class="docimage" url="https://admin-dev.aapli.dev/form-builder" alt="Application Category" caption="Application Category" %}
 
 1. **Duplicate Check:** This option allows you to determine whether you want to check for duplicate application or entries. When enabled, the system will compare new content with existing content to identify any duplicates. It’s a useful feature to maintain data integrity and avoid redundancy.
 2. **Enable Horizontal Tabs:** By selecting this checkbox, you enable horizontal tabs within the application view. Horizontal tabs organize content side by side, making it easier to navigate and access different sections or features. 

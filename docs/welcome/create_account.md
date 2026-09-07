@@ -9,9 +9,9 @@ nav_order: 1
 ## Create an Aapli Account
 
 To create a website through the Aapli platform, first a user needs to register the website domain of their choice.
-Go to registration-dev.aapli.app, where you'll be met with this screen:
+Go to registration-dev.aapli.dev, where you'll be met with this screen:
 
-{% include image.html file="so2.png" class="docimage" url="https://registration-dev.aapli.app" alt="Plan Selection Page" caption="Plan Selection Page" %}
+{% include image.html file="so2.png" class="docimage" url="https://registration-dev.aapli.dev" alt="Plan Selection Page" caption="Plan Selection Page" %}
 
 This screen shows two available plans and a number of available features to users who decide to sign up to the Aapli platform:
 
@@ -41,7 +41,7 @@ This screen shows two available plans and a number of available features to user
 
 After selecting the plan of your choice, you'll be led to this registration screen:
 
-{% include image.html file="so1.png" class="docimage" url="https://registration-dev.aapli.app/registration/FT" alt="Registration Page" caption="Registration Page" %}
+{% include image.html file="so1.png" class="docimage" url="https://registration-dev.aapli.dev/registration/FT" alt="Registration Page" caption="Registration Page" %}
 
 Once the necessary details are filled in, and you've affirmed your agreement with Aapli's Privacy Policy, you can click the "Agree and Signup" button to register your suborganisation.
 You will then be sent an e-mail to the address you signed up with:

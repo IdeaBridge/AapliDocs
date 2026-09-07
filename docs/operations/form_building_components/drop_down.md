@@ -12,14 +12,14 @@ The Drop-Down component is used in forms to present users with a list of selecta
 **Properties of Drop Down:**
 The properties of the Dropdown input is divided into General, Condition, Appearance, Validation, Permission and Option Source. 
 
-{% include image.html file="image056.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Drop Down" caption="Drop Down" %}
+{% include image.html file="image056.jpg" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/application-management" alt="Drop Down" caption="Drop Down" %}
 
 
 **General**
 
 The General Properties section allows users to configure foundational aspects of the dropdown component. Upon expanding this section, users see  the following options:
 
-{% include image.html file="image057.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Drop Down" caption="Drop Down" %}
+{% include image.html file="image057.jpg" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/application-management" alt="Drop Down" caption="Drop Down" %}
 
 1.	**Field Label:**
 The name of the dropdown field as it appears to the end-user. For example, "Select Country".
@@ -39,7 +39,7 @@ Enables a search bar within the dropdown, allowing users to filter options dynam
 
 **Appearance**
 
-{% include image.html file="image059.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Drop Down" caption="Drop Down" %}
+{% include image.html file="image059.jpg" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/application-management" alt="Drop Down" caption="Drop Down" %}
 
 The Appearance Properties section focuses on the visual dimensions of the dropdown. Upon expanding this section, users can choose from the following predefined sizes:
 •	**Small**
@@ -50,7 +50,7 @@ This helps align the dropdown with the overall layout and design of the applicat
 
 **Validation**
 
-{% include image.html file="image060.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Drop Down" caption="Drop Down" %}
+{% include image.html file="image060.jpg" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/application-management" alt="Drop Down" caption="Drop Down" %}
 
 The Validation Properties section helps enforce rules for user inputs. The options available are:
 1.	**Required:**
@@ -60,7 +60,7 @@ Makes the dropdown field non-editable, displaying it in a greyed-out state.
 
 
 **Permission** 
-{% include image.html file="image061.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Drop Down" caption="Drop Down" %}
+{% include image.html file="image061.jpg" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/application-management" alt="Drop Down" caption="Drop Down" %}
 
 The Permission Properties section manages visibility and accessibility of the dropdown based on user roles and conditions. Options include:
 1.	Field Can Be Hidden from Responder:
@@ -73,7 +73,7 @@ Displays a list of roles (e.g., Admin, Manager, Employee) from which users can i
 **Option Source Properties**
 The Option Source Properties section defines the source of options displayed in the dropdown. Two configurations are available:
 
-{% include image.html file="image062.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Drop Down" caption="Drop Down" %}
+{% include image.html file="image062.jpg" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/application-management" alt="Drop Down" caption="Drop Down" %}
 
 
 1.	**Select Option:**

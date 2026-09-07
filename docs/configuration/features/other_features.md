@@ -11,7 +11,7 @@ nav_order: 6
 
 This section introduces miscellaneous features, which aren't a real necessity to the function of features on the platform, but could be called to use depending on the admin's need for the website.
 
-{% include image.html file="otherfeatures.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/application-features" alt="Other Features" caption="Other Features" %}
+{% include image.html file="otherfeatures.png" class="docimage" url="https://admin-dev.aapli.dev/admin/configurations/application-features" alt="Other Features" caption="Other Features" %}
 
 1. **Hide IdeaBridge Logo:** This feature removes the IdeaBridge logo from the platform's login screen, enabling external admins to take full representation of the platform to the overall userbase.
 

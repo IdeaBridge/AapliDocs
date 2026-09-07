@@ -11,7 +11,7 @@ nav_order: 1
 
 To start creating an Entity, click on the Add button at the top left of the Entity Builder page:
 
-{% include image.html file="addentity.png" class="docimage" url="https://admin-dev.aapli.app/admin/operations/entity-builder" alt="Add an Entity" caption="Add an Entity" %}
+{% include image.html file="addentity.png" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/entity-builder" alt="Add an Entity" caption="Add an Entity" %}
 
 This will take the user to a new Form Builder to start creating a new Entity, with an Overview page to fill in their Entity's basic identifying details:
 

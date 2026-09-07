@@ -21,17 +21,17 @@ Tasks are a way to collect and organize data in a form. You can customize the fo
 7. Allow Attachment: This is a checkbox that lets you enable or disable the option for the user to attach files within the Task field.
 
 
-{% include image.html file="img7.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Task" caption="Task" %}
+{% include image.html file="img7.jpg" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/application-management" alt="Task" caption="Task" %}
 
 **Appearance**: 
 
-{% include image.html file="img8.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Task" caption="Task" %}
+{% include image.html file="img8.jpg" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/application-management" alt="Task" caption="Task" %}
 
 Customize the visual appearance of the Task input by choosing from "Small," "Medium," or "Large" sizes to align with your design preferences.
 
 **Validation**
 
-{% include image.html file="img9.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Task" caption="Task" %}
+{% include image.html file="img9.jpg" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/application-management" alt="Task" caption="Task" %}
 
 Required Checkbox: To make sure that the task field is always filled in, select the "Required" checkbox. This will prevent users from submitting the form without entering a valid date range.
 
@@ -39,6 +39,6 @@ Required Checkbox: To make sure that the task field is always filled in, select 
 
 Field Can Be Hidden from Responder Checkbox: To hide the Tasks from users or ideators, check the box next to "Field Can Be Hidden from Responder".
 
-{% include image.html file="img10.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Task" caption="Task" %}
+{% include image.html file="img10.jpg" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/application-management" alt="Task" caption="Task" %}
 
 Visible to: To control who can see the Tasks, select an option from the "Visible to" dropdown menu, and select the required users. 

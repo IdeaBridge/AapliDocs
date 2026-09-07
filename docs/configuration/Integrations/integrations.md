@@ -12,7 +12,7 @@ nav_order: 11
 
 The Integrations configuration enables administrators to create and manage custom application packages for various communication channels. These packages allow communication platforms to integrate with Ideabridge services and websites as native applications.
 
-{% include image.html file="integrations.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/integrations" alt="Integrations" caption="Integrations configuration interface" %}
+{% include image.html file="integrations.png" class="docimage" url="https://admin-dev.aapli.dev/admin/configurations/integrations" alt="Integrations" caption="Integrations configuration interface" %}
 
 ## Prerequisites
 

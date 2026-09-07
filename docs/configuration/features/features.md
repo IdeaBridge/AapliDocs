@@ -14,4 +14,4 @@ The Features section allows administrators to enable a number of features in the
 
 To access this segment, click on the Features icon in the Configurations section.
 
-{% include image.html file="featureswidget.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/application-features" alt="Features Panel" caption="Features Panel" %}
+{% include image.html file="featureswidget.png" class="docimage" url="https://admin-dev.aapli.dev/admin/configurations/application-features" alt="Features Panel" caption="Features Panel" %}

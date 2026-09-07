@@ -9,7 +9,7 @@ nav_order: 1
 
 ## Application Settings Panel
 
-{% include image.html file="applicationsettings2.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/application-settings" alt="Application Settings" caption="Application Settings" %}
+{% include image.html file="applicationsettings2.jpg" class="docimage" url="https://admin-dev.aapli.dev/admin/configurations/application-settings" alt="Application Settings" caption="Application Settings" %}
 
 The application settings panel comprises several columns, including:
 1. **Key:** This column displays the name of the application settings.
@@ -19,7 +19,7 @@ The application settings panel comprises several columns, including:
 
 ## Application Settings Descriptions
 
-{% include image.html file="applicationsettings3.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/application-settings" alt="Application Settings" caption="Application Settings" %}
+{% include image.html file="applicationsettings3.jpg" class="docimage" url="https://admin-dev.aapli.dev/admin/configurations/application-settings" alt="Application Settings" caption="Application Settings" %}
 
 1. **Allow External Sign up: **This setting enables you to decide whether users should have the ability to register and become members of your organization. This setting gives you control over the registration process and user access.
 

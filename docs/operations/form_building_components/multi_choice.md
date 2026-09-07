@@ -9,7 +9,7 @@ nav_order: 4
 
 The Multi Choice component allows users to select one or more options from a predefined list. It provides a set of choices or options for users to choose from, enabling them to make selections based on their preferences, opinions, or specific requirements. This component is commonly used when gathering multiple-choice responses, conducting surveys, or collecting data that involves selecting one or more options from a given list.
 
-{% include image.html file="image062.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Multi Choice" caption="Multi Choice" %}
+{% include image.html file="image062.jpg" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/application-management" alt="Multi Choice" caption="Multi Choice" %}
 
 Multi Choice properties are divided into basics and Advanced properties.
 
@@ -18,7 +18,7 @@ The Multi-Choice input features are categorized into General, Condition, Appeara
 
 **General**
 
-{% include image.html file="image063.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Multi Choice" caption="Multi Choice" %}
+{% include image.html file="image063.jpg" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/application-management" alt="Multi Choice" caption="Multi Choice" %}
 
 1. Field Label: Give your multi-choice selection a clear and descriptive label, guiding users on what to choose.
 2. Help Text: Provide additional assistance or concise information to clarify aspects of the multi-choice input.
@@ -32,7 +32,7 @@ In the General section, you'll also find checkboxes:
 
 **Condition** 
 
-{% include image.html file="img3.jpg" class="docimage" url="https://admin-dev.aapli.app/admin/operations/application-management" alt="Multi Choice" caption="Multi Choice" %}
+{% include image.html file="img3.jpg" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/application-management" alt="Multi Choice" caption="Multi Choice" %}
 
 
 Select the "Use in Workflow" checkbox to integrate the multi-choice input into workflow processes.

@@ -10,11 +10,11 @@ nav_order: 12
 
 To access this section, click on the "E-mail Logs" tab on the top row of the Operations tab group, on the admin home page.
 
-{% include image.html file="elogwidget.png" class="docimage" url="https://admin-dev.aapli.app/" alt="E-mail Logs Widget" caption="E-mail Logs Widget" %}
+{% include image.html file="elogwidget.png" class="docimage" url="https://admin-dev.aapli.dev/" alt="E-mail Logs Widget" caption="E-mail Logs Widget" %}
 
 This section shows all of the e-mails that have been sent to users due to functions of the applications created in the suborganisation.
 
-{% include image.html file="elogs.png" class="docimage" url="https://admin-dev.aapli.app/admin/operations/email-logs" alt="E-mail Logs" caption="E-mail Logs" %}
+{% include image.html file="elogs.png" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/email-logs" alt="E-mail Logs" caption="E-mail Logs" %}
 
 1. **E-mail Stats:** A bar chart measuring the activity of e-mail sending against time. Hovering over a particular bar on the chart will allow the user to see how many e-mails were sent in general on that day.
 2. **Time Range Filter:** This dropdown defines how far back in time the user wants to see across the e-mails sent by the suborganisation:

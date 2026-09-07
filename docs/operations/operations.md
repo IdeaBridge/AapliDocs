@@ -9,7 +9,7 @@ nav_order: 3
 
 The Operations tab on the home page provides a comprehensive set of tools (Widgets) and functionalities to streamline and manage operational aspects within Aapli.
 
-{% include image.html file="operations.png" class="docimage" url="https://admin-dev.aapli.app/" alt="Operations" caption="Operations" %}
+{% include image.html file="operations.png" class="docimage" url="https://admin-dev.aapli.dev/" alt="Operations" caption="Operations" %}
 
 1. **Users:** This widget provides information and management options related to user accounts. Admin can add and Manage users. 
 2. **Applications:** Here, users can view and manage various applications within the Aapli platform.

@@ -13,11 +13,11 @@ These tables can be edited, and their relationships & structures re-defined, wit
 
 The user can access this area by clicking on the "Entity Builder" tab on the top row of the Operations tab group, on the admin home page.
 
-{% include image.html file="ebwidget.png" class="docimage" url="https://admin-dev.aapli.app/" alt="Entity Builder Widget" caption="Entity Builder Widget" %}
+{% include image.html file="ebwidget.png" class="docimage" url="https://admin-dev.aapli.dev/" alt="Entity Builder Widget" caption="Entity Builder Widget" %}
 
 This table allows entities created by the user to be modified or deleted.
 
-{% include image.html file="ebhome.png" class="docimage" url="https://admin-dev.aapli.app/admin/operations/entity-builder" alt="Entity Builder Table" caption="Entity Builder Table" %}
+{% include image.html file="ebhome.png" class="docimage" url="https://admin-dev.aapli.dev/admin/operations/entity-builder" alt="Entity Builder Table" caption="Entity Builder Table" %}
 
 1. **Add:** This will take the user to the entity builder, which they can use to create the entity of their choice as per requirements.
 2. **Entities:** This column lists the entities already created; it is also a sorting column through A-Z or Z-A.

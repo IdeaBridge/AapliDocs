@@ -11,7 +11,7 @@ nav_order: 6
 
 Workflow components are the design elements which can be used in designing the workflow. There is no need of any coding required in designing the workflow. Its is drag and drop feature and can be connected different design component to complete the workflow. 
 
-{% include image.html file="imag24.jpg" class="docimage" url="https://admin-dev.aapli.app/form-builder" alt="Application Category" caption="Application Category" %}
+{% include image.html file="imag24.jpg" class="docimage" url="https://admin-dev.aapli.dev/form-builder" alt="Application Category" caption="Application Category" %}
 
 1. **Hand tool:** The Hand Tool allows you to select and move design elements within the canvas. It’s like grabbing an object and relocating it to a different spot on your design. 
 2. **Lasso Tool:** It allows you to create freehand selections by clicking and dragging to trace the edges of an area you want to select.

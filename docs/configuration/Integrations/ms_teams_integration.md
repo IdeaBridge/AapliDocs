@@ -18,13 +18,13 @@ This guide describes how to create and deploy a custom Microsoft Teams app packa
 1. Navigate to the Integrations section of the Configurations page in the Admin portal.
 2. Click **Download Microsoft Teams App**.
 
-{% include image.html file="teamspanel.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/integrations" alt="Microsoft Teams Panel" caption="Microsoft Teams Panel" %}
+{% include image.html file="teamspanel.png" class="docimage" url="https://admin-dev.aapli.dev/admin/configurations/integrations" alt="Microsoft Teams Panel" caption="Microsoft Teams Panel" %}
 
 ### Step 2: Configure App Settings
 
 An overlay will appear where you can configure your custom app details. Complete the following fields:
 
-{% include image.html file="teamssettings.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/integrations" alt="Microsoft Teams Settings" caption="Microsoft Teams Settings" %}
+{% include image.html file="teamssettings.png" class="docimage" url="https://admin-dev.aapli.dev/admin/configurations/integrations" alt="Microsoft Teams Settings" caption="Microsoft Teams Settings" %}
 
 | Field | Description | Requirements |
 |-------|-------------|--------------|

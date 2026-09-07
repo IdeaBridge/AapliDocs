@@ -13,8 +13,8 @@ This section enables the Simple Mail Transfer Protocol (SMTP), for admins to sen
 
 To enable SMTP in its entirety, the following details will need to be entered:
 
-{% include image.html file="smtpp1.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/application-features" %}
-{% include image.html file="smtpp2.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/application-features" alt="SMTP E-mail Settings" caption="SMTP E-mail Settings" %}
+{% include image.html file="smtpp1.png" class="docimage" url="https://admin-dev.aapli.dev/admin/configurations/application-features" %}
+{% include image.html file="smtpp2.png" class="docimage" url="https://admin-dev.aapli.dev/admin/configurations/application-features" alt="SMTP E-mail Settings" caption="SMTP E-mail Settings" %}
 
 1. **From E-mail Address:** The e-mail address that needs to be used for sending automated e-mails to users.
 

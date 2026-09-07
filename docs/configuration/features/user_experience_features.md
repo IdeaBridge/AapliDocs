@@ -13,7 +13,7 @@ nav_order: 4
 
 This section helps administrators to enable particular features on their platform which can be used to improve the overall user experience.
 
-{% include image.html file="userexp.png" class="docimage" url="https://admin-dev.aapli.app/admin/configurations/application-features" alt="User Experience" caption="User Experience" %}
+{% include image.html file="userexp.png" class="docimage" url="https://admin-dev.aapli.dev/admin/configurations/application-features" alt="User Experience" caption="User Experience" %}
 
 1. **Show Feedback Form:** Enabling this feature will allow a Feedback Form to be shown on the platform, which will help users submit their own suggestions to the company on what they think could be improved about the website. This will encourage users to take action on issues that directly affect their experience on the platform.
 

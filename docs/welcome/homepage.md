@@ -10,7 +10,7 @@ nav_order: 3
 
 After a successful login, the user will be directed to the Aapli Home page, which offers the following options:
 
-{% include image.html file="adminpanel26.png" class="docimage" url="https://admin-dev.aapli.app" alt="Admin Home Page" caption="Admin Home Page" %}
+{% include image.html file="adminpanel26.png" class="docimage" url="https://admin-dev.aapli.dev" alt="Admin Home Page" caption="Admin Home Page" %}
 
 1.	**User Details:** The "User Details" option on the Aapli Home page offers a convenient overview of the users connected to the administrator.
 2.  **Get Started:** This will direct you to the homepage of the Aapli documentation website.
