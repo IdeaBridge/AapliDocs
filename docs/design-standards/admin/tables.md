@@ -13,7 +13,6 @@ permalink: /design-standards/admin/tables/
 
 ![Table anatomy and row height](/assets/images/design-standards/admin/ds-table.svg)
 
-
 ```html
 <div class="ab-table-wrap">
   <table class="ab-table">
@@ -50,7 +49,6 @@ One row height everywhere in the console: lists, data tables, the form builder's
 
 ![Row actions: one always-visible menu per row](/assets/images/design-standards/admin/ds-row-menu.svg)
 
-
 ![Option A: row menu](/assets/images/design-standards/admin/row-menu.png)
 
 Every row's actions sit behind **one ⋮ button that is always visible** in the last column. **Actions never appear on hover.**
@@ -78,7 +76,6 @@ In `app-item-management` and every [data table](#651-data-table--app-ab-data-tab
 # 6.5.1 Data table — `app-ab-data-table` {#651-data-table--app-ab-data-table}
 
 ![Data table: toolbar, person cell, status chips, footer and bulk bar](/assets/images/design-standards/admin/ds-data-table.svg)
-
 
 ![People › Users: the reference data table](/assets/images/design-standards/admin/users-table.png)
 

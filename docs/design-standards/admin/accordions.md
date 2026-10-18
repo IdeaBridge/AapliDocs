@@ -13,7 +13,6 @@ permalink: /design-standards/admin/accordions/
 
 ![Accordion groups](/assets/images/design-standards/admin/ds-accordion.svg)
 
-
 Collapsible groups in the form builder and entity builder palettes and property columns (`cdk-accordion`).
 
 - **Open by default:** every group starts expanded (`[multi]="true"`, `[expanded]="true"`); people collapse what they don't need.

@@ -19,7 +19,6 @@ Component: `<app-side-nav>` (`src/app/_view/_ui-components/side-nav/`). Data: `S
 
 ![Left navigation anatomy, expanded and collapsed](/assets/images/design-standards/admin/ds-left-nav.svg)
 
-
 ![Left navigation: Data open with Templates active, Others above the pinned General link](/assets/images/design-standards/admin/left-nav.png)
 
 *Current page Data › Templates; Others is the last group; General pinned at the bottom.*
@@ -58,7 +57,6 @@ Component: `<app-side-nav>` (`src/app/_view/_ui-components/side-nav/`). Data: `S
 ## 4.2 States {#42-states}
 
 ![Navigation item states](/assets/images/design-standards/admin/ds-left-nav-states.svg)
-
 
 | State | Treatment |
 |---|---|

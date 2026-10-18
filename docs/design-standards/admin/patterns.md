@@ -38,7 +38,6 @@ permalink: /design-standards/admin/patterns/
 
 ![Search field, highlighted matches and no results](/assets/images/design-standards/admin/ds-search.svg)
 
-
 - Filter as you type; no search button.
 - Search field: `.ab-input` with a leading `search` icon and a clear button once there is text. `Esc` clears.
 - Highlight matches with `.ab-mark`. Announce the result count to screen readers.

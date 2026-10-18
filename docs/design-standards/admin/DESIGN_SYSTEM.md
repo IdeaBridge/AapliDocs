@@ -1,6 +1,6 @@
 # Aapli Admin design system
 
-**Status:** v2.7.1 · adopted 15/10/2026, updated 17/10/2026
+**Status:** v2.7.2 · adopted 15/10/2026, updated 18/10/2026
 **Applies to:** the admin console (left navigation) and the form builder. Every new admin screen, and every change to an existing one, must follow this document.
 **Code:** `src/scss/design-system/` (tokens and shared classes) and `src/app/_view/_ui-components/side-nav/` (left navigation).
 **Reference prototype:** *Application Custom Properties* (Admin › Form Builder › Properties). This system is drawn from it.
@@ -47,7 +47,6 @@ All tokens are CSS custom properties defined on `:root` in `src/scss/design-syst
 ### 2.1 Colour
 
 ![Colour tokens with their values and uses](../../../assets/images/design-standards/admin/ds-colour.svg)
-
 
 The admin uses a **fixed brand blue** (`#0062b5`). It does not follow the tenant's theme colour: tenants theme what their users see, not the admin tool. Inside an `.ab-theme` container the legacy `--primaryColor` and `--primaryColorRGBA` variables are re-pointed at the admin blue, so older markup inside a redesigned screen follows along.
 
@@ -103,7 +102,6 @@ The admin uses a **fixed brand blue** (`#0062b5`). It does not follow the tenant
 
 ![Type scale](../../../assets/images/design-standards/admin/ds-type.svg)
 
-
 | Token | Value |
 |---|---|
 | `--ab-font-ui` | `"Roboto", system-ui, -apple-system, "Segoe UI", sans-serif` |
@@ -137,7 +135,6 @@ Both are loaded from Google Fonts in `src/index.html` (Roboto 300/400/500/700, R
 ### 2.3 Spacing
 
 ![Spacing scale, radius and icon sizes](../../../assets/images/design-standards/admin/ds-spacing-shape.svg)
-
 
 A 4px grid. Use the tokens; a value off the grid needs a comment.
 
@@ -224,7 +221,6 @@ The admin is a desktop tool, but nothing may scroll horizontally at page level a
 
 ![Workspace layout: app bar, main tabs, section rail, pane, aside and action bar](../../../assets/images/design-standards/admin/ds-layout-shell.svg)
 
-
 ```
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ LEFT NAV │  ┌ SHELL ─────────────────────────────────────────────────────┐   │
@@ -281,7 +277,6 @@ The identity row of a workspace.
 
 ![Main tabs: active, error and hover states](../../../assets/images/design-standards/admin/ds-tabs.svg)
 
-
 The top-level sections of a workspace (Overview, Design, Workflow…).
 
 - Row: `0 12px` padding, 4px gap, bottom border, horizontal scroll if it overflows (never wraps).
@@ -298,7 +293,6 @@ Grid of `260px` section rail + flexible pane (`--ab-rail-w`). See [Section rail]
 ### 3.6 Page frame and title
 
 ![Page frame: title 24px from the top and 28px from the nav](../../../assets/images/design-standards/admin/ds-page-frame.svg)
-
 
 Every admin screen's header sits at the same place in the same type, whatever link opened it.
 
@@ -334,7 +328,6 @@ Supporting information that reacts to what is being edited: an API preview, a li
 
 ![Sticky action bar, button order and status text](../../../assets/images/design-standards/admin/ds-action-bar.svg)
 
-
 Where the user commits or abandons work.
 
 - `--sticky`: pinned to the bottom of the viewport with top border, `12px 20px` padding. Use for multi-tab workspaces (the form builder).
@@ -353,7 +346,6 @@ Component: `<app-side-nav>` (`src/app/_view/_ui-components/side-nav/`). Data: `S
 ### 4.1 Anatomy
 
 ![Left navigation anatomy, expanded and collapsed](../../../assets/images/design-standards/admin/ds-left-nav.svg)
-
 
 ![Left navigation: Data open with Templates active, Others above the pinned General link](../../../assets/images/design-standards/admin/left-nav.png)
 
@@ -393,7 +385,6 @@ Component: `<app-side-nav>` (`src/app/_view/_ui-components/side-nav/`). Data: `S
 ### 4.2 States
 
 ![Navigation item states](../../../assets/images/design-standards/admin/ds-left-nav-states.svg)
-
 
 | State | Treatment |
 |---|---|
@@ -569,7 +560,6 @@ When a screen's sub-pages are views of one thing that admins switch between with
 
 ![Section rail with active, hover and badge](../../../assets/images/design-standards/admin/ds-section-rail.svg)
 
-
 The vertical list of sections **inside** a workspace tab (the form builder's Settings tab). Same visual language as the left nav, single level.
 
 **Form builder › Settings** is one tab and one rail: **Application settings** first (name, category, type), then the property sections (Information, Views, Roles and permissions, Other settings, Points, AI features, Integrations). It is the first tab and opens on Application settings for a new or edited application; creating from a template skips Application settings, as before. Save errors about the name, category or type reopen it. There is no separate Properties tab. In code: `app-properties` takes `[leadSection]` and projects `[props-lead]` as rail position 0.
@@ -611,7 +601,6 @@ Every pane has a title and a subtitle. If you can't write the subtitle, the sect
 
 ![Button variants in every state](../../../assets/images/design-standards/admin/ds-buttons.svg)
 
-
 Base: inline-flex, 6px gap, `7px 14px` padding, min-height 34px, `--ab-radius-sm`, 14px / 500, 20px icon. Always a `<button type="button">` (or `<a>` for navigation).
 
 | Variant | Class | Look | Use |
@@ -644,7 +633,6 @@ Base: inline-flex, 6px gap, `7px 14px` padding, min-height 34px, `--ab-radius-sm
 
 ![Dropdown: closed, selected, invalid and open](../../../assets/images/design-standards/admin/ds-dropdown.svg)
 
-
 | Class | Spec |
 |---|---|
 | `.ab-field` | Column wrapper, 4px gap, 16px bottom margin |
@@ -667,7 +655,6 @@ Base: inline-flex, 6px gap, `7px 14px` padding, min-height 34px, `--ab-radius-sm
 
 ![Checkbox, radio and slide toggle](../../../assets/images/design-standards/admin/ds-selection.svg)
 
-
 Use Angular Material `mat-checkbox`, `mat-radio-button`, `mat-slide-toggle`, `mat-slider`. Inside `.ab-theme` they use `--ab-primary` for the checked state and `--ab-muted` for the unchecked outline.
 
 - **Checkbox** for independent options and for opting a card in or out (see [Cards](#67-cards--ab-card)).
@@ -678,7 +665,6 @@ Use Angular Material `mat-checkbox`, `mat-radio-button`, `mat-slide-toggle`, `ma
 ### 6.5 Tables — `.ab-table`
 
 ![Table anatomy and row height](../../../assets/images/design-standards/admin/ds-table.svg)
-
 
 ```html
 <div class="ab-table-wrap">
@@ -716,7 +702,6 @@ One row height everywhere in the console: lists, data tables, the form builder's
 
 ![Row actions: one always-visible menu per row](../../../assets/images/design-standards/admin/ds-row-menu.svg)
 
-
 ![Option A: row menu](../../../assets/images/design-standards/admin/row-menu.png)
 
 Every row's actions sit behind **one ⋮ button that is always visible** in the last column. **Actions never appear on hover.**
@@ -744,7 +729,6 @@ In `app-item-management` and every [data table](#651-data-table--app-ab-data-tab
 ### 6.5.1 Data table — `app-ab-data-table`
 
 ![Data table: toolbar, person cell, status chips, footer and bulk bar](../../../assets/images/design-standards/admin/ds-data-table.svg)
-
 
 ![People › Users: the reference data table](../../../assets/images/design-standards/admin/users-table.png)
 
@@ -794,7 +778,6 @@ The one component for lists of records (`src/app/_view/_ui-components/ab-data-ta
 
 ![Chips, badge, cards and status flag](../../../assets/images/design-standards/admin/ds-chips-cards.svg)
 
-
 | Class | Spec | Use |
 |---|---|---|
 | `.ab-chip` | 12px, `2px 8px`, pill radius, `--ab-surface-2` with `--ab-line` border, muted text | Read-only context: "Content type: RPG Application" |
@@ -812,7 +795,6 @@ Chips are not buttons. If it can be clicked or removed, it is a different compon
 ### 6.8 Settings section — `.ab-section`
 
 ![Settings section in view and edit mode](../../../assets/images/design-standards/admin/ds-settings-section.svg)
-
 
 One group of saved settings (Company name, Company address, Date format, Number format, Application type), usually inside a Settings detail panel. When embedded in a panel the section heading is visually hidden (`[embedded]="true"`) because the panel title already says it, and the Edit button stays on the right (`.ab-section__edit`). Shows the current values read-only, with an **Edit** button; Edit swaps the body for a form with **Cancel** and **Save**. Each section saves on its own.
 
@@ -846,7 +828,6 @@ One group of saved settings (Company name, Company address, Date format, Number 
 ![Right-hand panel anatomy](../../../assets/images/design-standards/admin/ds-right-panel.svg)
 
 ![Panel widths and variants](../../../assets/images/design-standards/admin/ds-panel-variants.svg)
-
 
 For screens that are a set of separate things to switch on, install or configure: Features, Site design, Marketplace, Integrations, and Organisation › Settings (Company name, Company address, Date format, Number format, Application type, Currencies). Use it for any future "services", "integrations" or "add-ins" list too. A scannable list of everything available, and a panel from the right with one feature's explanation, its on/off switch and its settings. The list stays visible behind the panel so admins keep their place.
 
@@ -909,7 +890,6 @@ Settings uses the same list without the Status column, one row per area, and eac
 
 ![Note variants and API preview](../../../assets/images/design-standards/admin/ds-notes-code.svg)
 
-
 Explanatory or policy text below the main content ("Rules in this prototype").
 
 - `--ab-surface-2`, 1px border, `--ab-radius-sm`, padding `14px 16px`, muted text at 1.55 line height, `max-width: 70ch`, 22px top margin. `<b>` and `<code>` inside use `--ab-fg`.
@@ -939,7 +919,6 @@ A row explaining the effect of the current settings ("Export to IF tab: shown").
 
 ![Toast, empty, loading and error states](../../../assets/images/design-standards/admin/ds-feedback.svg)
 
-
 Confirmation that something finished.
 
 - Fixed, centred, 20px above the bottom (plus safe area), `--ab-fg` background with `--ab-surface` text, `10px 16px`, `--ab-radius-sm`, `check_circle` icon (18px).
@@ -955,7 +934,6 @@ Confirmation that something finished.
 ### 6.15 Dialogs — modal confirmation
 
 ![Modal confirmation with its spacing](../../../assets/images/design-standards/admin/ds-dialog.svg)
-
 
 Every confirmation and small form in a modal uses the shared `app-default-dialog` (`DefaultDialogService`), which implements this pattern. Dialogs and select panels get `.ab-theme` by default (`MAT_DIALOG_DEFAULT_OPTIONS`, `MAT_SELECT_CONFIG` in `app.module.ts`).
 
@@ -981,7 +959,6 @@ Every confirmation and small form in a modal uses the shared `app-default-dialog
 
 ![Stats tiles](../../../assets/images/design-standards/admin/ds-stats.svg)
 
-
 A row of summary figures at the top of a list screen, between the title and the actions. Read only; never a substitute for the table. Used on People › Users (users on the licence, suspended users, administrator), which took these figures over from the old home page.
 
 ![Users page stats: users, suspended users and administrator](../../../assets/images/design-standards/admin/stats.png)
@@ -1006,7 +983,6 @@ A row of summary figures at the top of a list screen, between the title and the 
 ### 6.17 Accordions
 
 ![Accordion groups](../../../assets/images/design-standards/admin/ds-accordion.svg)
-
 
 Collapsible groups in the form builder and entity builder palettes and property columns (`cdk-accordion`).
 
@@ -1042,7 +1018,6 @@ Collapsible groups in the form builder and entity builder palettes and property 
 ### 7.4 Search and filter
 
 ![Search field, highlighted matches and no results](../../../assets/images/design-standards/admin/ds-search.svg)
-
 
 - Filter as you type; no search button.
 - Search field: `.ab-input` with a leading `search` icon and a clear button once there is text. `Esc` clears.
@@ -1109,6 +1084,7 @@ Target: **WCAG 2.2 AA**.
 | `src/app/_view/admin-console/` | Hosts the left nav |
 | `src/app/_view/form-builder/form-builder.component.*` | Workspace shell: app bar, main tabs, action bar |
 | `src/app/_view/form-builder/properties/properties.component.*` | Section rail |
+| `docs/design-system/diagrams/` | Annotated diagrams (`ds-*.svg`) for each pattern, and `gen_ds_svgs.py`, which draws them from the tokens |
 
 ### 10.2 Adopting the system in a screen
 
@@ -1167,7 +1143,7 @@ Copy into the PR description for any admin UI change.
 - [ ] New nav item: added to a group in `ADMIN_NAV_GROUPS`, with `description` and keywords, at an address that follows the nav (4.6).
 - [ ] Moved screen: old address redirects with `pathMatch: "full"`.
 - [ ] No real personal data in examples, fixtures or screenshots.
-- [ ] This document updated if a token, component or rule changed (and changelog entry added).
+- [ ] This document updated if a token, component or rule changed (and changelog entry added). If the change alters a diagram, redraw it with `gen_ds_svgs.py`.
 
 ---
 
@@ -1205,6 +1181,7 @@ Copy into the PR description for any admin UI change.
 
 | Date | Version | Change |
 |---|---|---|
+| 18/10/2026 | 2.7.2 | Annotated diagrams added for every pattern (tokens, type, spacing, layout, page frame, left nav and states, section rail, tabs, buttons, form fields, dropdown, selection controls, tables and row height, row menu, data table, chips and cards, settings section, feature list, right panel and widths, notes and API preview, feedback states, dialog, stats, accordions, action bar, search). Drawn from the tokens by `docs/design-system/diagrams/gen_ds_svgs.py`; redraw a figure when its spec changes. Fixed the link to Cards (6.7). |
 | 17/10/2026 | 2.7.1 | Import history: clicking a row (or Enter) opens the file's row log in a right panel; the detail component can be embedded (`[fileId]`, `[embedded]`, `(closed)`). Company banner: Delete asks first ("Delete banner?", danger-solid "Delete banner") and reports failures. Message wording: 176 toasts and dialog titles / buttons set in TypeScript rewritten to sentence case without "Please" (rules added to 8), specs updated with them; rule builder's validation warning now shows as an error. Import data steps full width, one per row. |
 | 17/10/2026 | 2.7 | Design-system audit (`design-system/audit-17-10-2026.md`) and fixes: admin content, entity builder, dialogs and select panels are `.ab-theme` roots; 598 hard-coded colours replaced with tokens; remaining legacy screens rebuilt (list in 12). Modal confirmation pattern specified (6.15: 18/24 heading, 14/21 body, 24px padding, 16px / 24px rhythm, 8px between buttons, Cancel then action) and `app-default-dialog` rebuilt to it. Accordions (6.17): open by default, no hover background. App header, sidebar and footer on tokens. Info tooltips use `mat-icon.ab-info` + `matTooltip` instead of hover boxes. |
 | 17/10/2026 | 2.6 | One row height across the console (6.5 Row height): 36px header, 40px single-line body rows, `6px 12px` cells, new tokens `--ab-row-h`, `--ab-row-h-head`, `--ab-cell-py`, `--ab-cell-px`. Form fields everywhere are 36px white boxes with a thin border (Material included; the old pale blue select fill removed). Right panels: blue header band, white body, groups split by hairlines instead of cards. Form builder: Roles and permissions as a grouped matrix (Records, Lifecycle, Output, Social; roles by Default / Custom / Workflow tasks; Add role menu, search); Points as a grouped table (workflow › task › action) with a share toggle instead of "/T" and a "Most a creator can earn" summary; Assign tasks as an assignment grid (Split by field, fixed category columns with repeats hidden, task columns with coverage, select-all and per-column checkboxes, searchable assignee picker with radio buttons for roles and checkboxes for people); Dashboard designer compacted; Form and Dashboard left columns use the rail width (`--ab-rail-w`, 260px); Card view settings compacted. Prototypes in `design-system/roles-permissions-prototypes.html`, `points-prototypes.html`, `tasks-prototypes.html`. |

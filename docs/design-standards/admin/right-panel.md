@@ -17,7 +17,6 @@ permalink: /design-standards/admin/right-panel/
 
 ![Panel widths and variants](/assets/images/design-standards/admin/ds-panel-variants.svg)
 
-
 For screens that are a set of separate things to switch on, install or configure: Features, Site design, Marketplace, Integrations, and Organisation › Settings (Company name, Company address, Date format, Number format, Application type, Currencies). Use it for any future "services", "integrations" or "add-ins" list too. A scannable list of everything available, and a panel from the right with one feature's explanation, its on/off switch and its settings. The list stays visible behind the panel so admins keep their place.
 
 ![Feature list grouped by category, with icon, name, description and status](/assets/images/design-standards/admin/feature-list.png)

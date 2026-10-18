@@ -17,7 +17,6 @@ permalink: /design-standards/admin/form-fields/
 
 ![Dropdown: closed, selected, invalid and open](/assets/images/design-standards/admin/ds-dropdown.svg)
 
-
 | Class | Spec |
 |---|---|
 | `.ab-field` | Column wrapper, 4px gap, 16px bottom margin |

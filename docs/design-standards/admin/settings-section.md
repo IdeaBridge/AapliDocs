@@ -13,7 +13,6 @@ permalink: /design-standards/admin/settings-section/
 
 ![Settings section in view and edit mode](/assets/images/design-standards/admin/ds-settings-section.svg)
 
-
 One group of saved settings (Company name, Company address, Date format, Number format, Application type), usually inside a Settings detail panel. When embedded in a panel the section heading is visually hidden (`[embedded]="true"`) because the panel title already says it, and the Edit button stays on the right (`.ab-section__edit`). Shows the current values read-only, with an **Edit** button; Edit swaps the body for a form with **Cancel** and **Save**. Each section saves on its own.
 
 ![Company profile: three settings sections in view mode](/assets/images/design-standards/admin/settings-section-view.png)

@@ -17,7 +17,6 @@ All tokens are CSS custom properties defined on `:root` in `src/scss/design-syst
 
 ![Colour tokens with their values and uses](/assets/images/design-standards/admin/ds-colour.svg)
 
-
 The admin uses a **fixed brand blue** (`#0062b5`). It does not follow the tenant's theme colour: tenants theme what their users see, not the admin tool. Inside an `.ab-theme` container the legacy `--primaryColor` and `--primaryColorRGBA` variables are re-pointed at the admin blue, so older markup inside a redesigned screen follows along.
 
 ### Surfaces and lines {#surfaces-and-lines}
@@ -72,7 +71,6 @@ The admin uses a **fixed brand blue** (`#0062b5`). It does not follow the tenant
 
 ![Type scale](/assets/images/design-standards/admin/ds-type.svg)
 
-
 | Token | Value |
 |---|---|
 | `--ab-font-ui` | `"Roboto", system-ui, -apple-system, "Segoe UI", sans-serif` |
@@ -106,7 +104,6 @@ Both are loaded from Google Fonts in `src/index.html` (Roboto 300/400/500/700, R
 ## 2.3 Spacing {#23-spacing}
 
 ![Spacing scale, radius and icon sizes](/assets/images/design-standards/admin/ds-spacing-shape.svg)
-
 
 A 4px grid. Use the tokens; a value off the grid needs a comment.
 

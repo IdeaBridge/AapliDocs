@@ -13,7 +13,6 @@ permalink: /design-standards/admin/notes-code-flag/
 
 ![Note variants and API preview](/assets/images/design-standards/admin/ds-notes-code.svg)
 
-
 Explanatory or policy text below the main content ("Rules in this prototype").
 
 - `--ab-surface-2`, 1px border, `--ab-radius-sm`, padding `14px 16px`, muted text at 1.55 line height, `max-width: 70ch`, 22px top margin. `<b>` and `<code>` inside use `--ab-fg`.

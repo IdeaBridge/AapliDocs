@@ -13,7 +13,6 @@ permalink: /design-standards/admin/feedback/
 
 ![Toast, empty, loading and error states](/assets/images/design-standards/admin/ds-feedback.svg)
 
-
 Confirmation that something finished.
 
 - Fixed, centred, 20px above the bottom (plus safe area), `--ab-fg` background with `--ab-surface` text, `10px 16px`, `--ab-radius-sm`, `check_circle` icon (18px).

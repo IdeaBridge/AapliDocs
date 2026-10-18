@@ -10,7 +10,7 @@ permalink: /design-standards/admin/
 {% raw %}
 # Aapli Admin design system {#aapli-admin-design-system}
 
-**Status:** v2.7.1 · adopted 15/10/2026, updated 17/10/2026
+**Status:** v2.7.2 · adopted 15/10/2026, updated 18/10/2026
 **Applies to:** the admin console (left navigation) and the form builder. Every new admin screen, and every change to an existing one, must follow this document.
 **Code:** `src/scss/design-system/` (tokens and shared classes) and `src/app/_view/_ui-components/side-nav/` (left navigation).
 **Reference prototype:** *Application Custom Properties* (Admin › Form Builder › Properties). This system is drawn from it.

@@ -13,7 +13,6 @@ permalink: /design-standards/admin/dialogs/
 
 ![Modal confirmation with its spacing](/assets/images/design-standards/admin/ds-dialog.svg)
 
-
 Every confirmation and small form in a modal uses the shared `app-default-dialog` (`DefaultDialogService`), which implements this pattern. Dialogs and select panels get `.ab-theme` by default (`MAT_DIALOG_DEFAULT_OPTIONS`, `MAT_SELECT_CONFIG` in `app.module.ts`).
 
 | Modal attribute | Value |

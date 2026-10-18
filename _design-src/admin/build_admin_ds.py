@@ -110,8 +110,11 @@ def slug_for_line(i):
     return s
 anchor_page = {anchor(t): slug_for_line(i) for i, lvl, t in heads}
 
+HAS_DIAGRAMS = 'design-system/diagrams/' in src   # since v2.7.2 the source carries the diagrams itself
+
 def visual_md(key, img_prefix):
     out = []
+    if HAS_DIAGRAMS: return out
     for k, items in VISUALS.items():
         if key.startswith(k):
             for name, alt in items:
@@ -142,6 +145,7 @@ def transform(chunk_start, chunk_end, mode, slug=None, img_prefix=IMG):
                     for v in vis: out.extend([v, ''])
                 continue
             # existing screenshots
+            ln = re.sub(r'\]\(design-system/diagrams/([\w\-]+\.svg)\)', lambda mm: f']({img_prefix}{mm.group(1)})', ln)
             ln = re.sub(r'\]\(design-system/([\w\-]+\.png)\)', lambda mm: f']({img_prefix}{mm.group(1)})', ln)
             if mode == 'page':
                 def fix(mm):

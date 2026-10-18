@@ -13,7 +13,6 @@ permalink: /design-standards/admin/section-rail/
 
 ![Section rail with active, hover and badge](/assets/images/design-standards/admin/ds-section-rail.svg)
 
-
 The vertical list of sections **inside** a workspace tab (the form builder's Settings tab). Same visual language as the left nav, single level.
 
 **Form builder › Settings** is one tab and one rail: **Application settings** first (name, category, type), then the property sections (Information, Views, Roles and permissions, Other settings, Points, AI features, Integrations). It is the first tab and opens on Application settings for a new or edited application; creating from a template skips Application settings, as before. Save errors about the name, category or type reopen it. There is no separate Properties tab. In code: `app-properties` takes `[leadSection]` and projects `[props-lead]` as rail position 0.

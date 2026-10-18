@@ -13,7 +13,6 @@ permalink: /design-standards/admin/selection-controls/
 
 ![Checkbox, radio and slide toggle](/assets/images/design-standards/admin/ds-selection.svg)
 
-
 Use Angular Material `mat-checkbox`, `mat-radio-button`, `mat-slide-toggle`, `mat-slider`. Inside `.ab-theme` they use `--ab-primary` for the checked state and `--ab-muted` for the unchecked outline.
 
 - **Checkbox** for independent options and for opting a card in or out (see [Cards](/design-standards/admin/chips-cards/#67-cards--ab-card)).

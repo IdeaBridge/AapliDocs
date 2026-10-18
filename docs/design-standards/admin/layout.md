@@ -13,7 +13,6 @@ permalink: /design-standards/admin/layout/
 
 ![Workspace layout: app bar, main tabs, section rail, pane, aside and action bar](/assets/images/design-standards/admin/ds-layout-shell.svg)
 
-
 ```
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ LEFT NAV │  ┌ SHELL ─────────────────────────────────────────────────────┐   │
@@ -70,7 +69,6 @@ The identity row of a workspace.
 
 ![Main tabs: active, error and hover states](/assets/images/design-standards/admin/ds-tabs.svg)
 
-
 The top-level sections of a workspace (Overview, Design, Workflow…).
 
 - Row: `0 12px` padding, 4px gap, bottom border, horizontal scroll if it overflows (never wraps).
@@ -87,7 +85,6 @@ Grid of `260px` section rail + flexible pane (`--ab-rail-w`). See [Section rail]
 ## 3.6 Page frame and title {#36-page-frame-and-title}
 
 ![Page frame: title 24px from the top and 28px from the nav](/assets/images/design-standards/admin/ds-page-frame.svg)
-
 
 Every admin screen's header sits at the same place in the same type, whatever link opened it.
 
@@ -122,7 +119,6 @@ Supporting information that reacts to what is being edited: an API preview, a li
 ## 3.8 Action bar — `.ab-actionbar` {#38-action-bar--ab-actionbar}
 
 ![Sticky action bar, button order and status text](/assets/images/design-standards/admin/ds-action-bar.svg)
-
 
 Where the user commits or abandons work.
 

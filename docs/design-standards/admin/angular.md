@@ -25,6 +25,7 @@ permalink: /design-standards/admin/angular/
 | `src/app/_view/admin-console/` | Hosts the left nav |
 | `src/app/_view/form-builder/form-builder.component.*` | Workspace shell: app bar, main tabs, action bar |
 | `src/app/_view/form-builder/properties/properties.component.*` | Section rail |
+| `docs/design-system/diagrams/` | Annotated diagrams (`ds-*.svg`) for each pattern, and `gen_ds_svgs.py`, which draws them from the tokens |
 
 ## 10.2 Adopting the system in a screen {#102-adopting-the-system-in-a-screen}
 

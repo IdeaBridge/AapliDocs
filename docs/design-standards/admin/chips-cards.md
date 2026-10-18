@@ -13,7 +13,6 @@ permalink: /design-standards/admin/chips-cards/
 
 ![Chips, badge, cards and status flag](/assets/images/design-standards/admin/ds-chips-cards.svg)
 
-
 | Class | Spec | Use |
 |---|---|---|
 | `.ab-chip` | 12px, `2px 8px`, pill radius, `--ab-surface-2` with `--ab-line` border, muted text | Read-only context: "Content type: RPG Application" |

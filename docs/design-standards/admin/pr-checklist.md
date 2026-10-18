@@ -31,5 +31,5 @@ Copy into the PR description for any admin UI change.
 - [ ] New nav item: added to a group in `ADMIN_NAV_GROUPS`, with `description` and keywords, at an address that follows the nav (4.6).
 - [ ] Moved screen: old address redirects with `pathMatch: "full"`.
 - [ ] No real personal data in examples, fixtures or screenshots.
-- [ ] This document updated if a token, component or rule changed (and changelog entry added).
+- [ ] This document updated if a token, component or rule changed (and changelog entry added). If the change alters a diagram, redraw it with `gen_ds_svgs.py`.
 {% endraw %}

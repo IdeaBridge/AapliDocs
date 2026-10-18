@@ -13,7 +13,6 @@ permalink: /design-standards/admin/stats/
 
 ![Stats tiles](/assets/images/design-standards/admin/ds-stats.svg)
 
-
 A row of summary figures at the top of a list screen, between the title and the actions. Read only; never a substitute for the table. Used on People › Users (users on the licence, suspended users, administrator), which took these figures over from the old home page.
 
 ![Users page stats: users, suspended users and administrator](/assets/images/design-standards/admin/stats.png)

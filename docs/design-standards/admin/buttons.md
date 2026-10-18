@@ -13,7 +13,6 @@ permalink: /design-standards/admin/buttons/
 
 ![Button variants in every state](/assets/images/design-standards/admin/ds-buttons.svg)
 
-
 Base: inline-flex, 6px gap, `7px 14px` padding, min-height 34px, `--ab-radius-sm`, 14px / 500, 20px icon. Always a `<button type="button">` (or `<a>` for navigation).
 
 | Variant | Class | Look | Use |
