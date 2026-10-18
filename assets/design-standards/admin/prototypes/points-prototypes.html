@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Points layouts</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&family=Material+Icons&display=swap">
+<style>
+/* Three ways to arrange Form builder › Settings › Points. Tokens follow docs/DESIGN_SYSTEM.md. Fictional workflow only. */
+
+
+:root{
+  --bg:#f4f6f9; --surface:#fff; --surface-2:#f8f8f8; --line:#e2e6ec; --line-strong:#cfd5dd;
+  --fg:#1d2127; --muted:#5f6670; --placeholder:#8a919b;
+  --primary:#0062b5; --primary-tint:rgba(0,98,181,.1); --primary-tint-2:rgba(0,98,181,.05);
+  --ok:#2e7d32; --ok-tint:rgba(46,125,50,.1); --warn:#8a5300; --warn-tint:rgba(237,160,0,.14);
+  --f-ui:"Roboto",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-ui);font-size:14px;line-height:1.5}
+.material-icons{font-family:"Material Icons";font-size:20px;line-height:1;font-weight:normal;font-style:normal;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;font-feature-settings:"liga";vertical-align:middle}
+.wrap{max-width:1240px;margin:0 auto;padding:28px 16px 56px}
+h1{font-size:22px;font-weight:500;margin:0 0 6px}
+.lede{color:var(--muted);margin:0 0 20px;max-width:76ch}
+.switch{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:20px;overflow-x:auto}
+.switch button{font:inherit;cursor:pointer;background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:12px 14px;color:var(--muted);display:flex;gap:8px;align-items:center;white-space:nowrap}
+.switch button[aria-selected="true"]{color:var(--primary);border-bottom-color:var(--primary);font-weight:500}
+.tag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:0 7px}
+.switch button[aria-selected="true"] .tag{background:var(--primary-tint);border-color:transparent}
+.option{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:24px;align-items:start}
+@media(max-width:1020px){.option{grid-template-columns:minmax(0,1fr)}}
+.screen{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:24px 28px;min-width:0;position:relative;overflow:hidden}
+@media(max-width:600px){.screen{padding:18px 14px}}
+.head{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;margin-bottom:16px}
+.title{font-size:17px;font-weight:500;margin:0 0 4px}
+.sub{color:var(--muted);margin:0}
+.notes{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px}
+.notes h2{font-size:16px;font-weight:500;margin:0 0 4px}
+.notes p{color:var(--muted);margin:0 0 12px}
+.notes h4{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:14px 0 6px}
+.notes ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+.rec{margin-top:16px;border-top:1px solid var(--line);padding-top:12px;font-size:13px}
+.rec b{color:var(--primary);font-weight:500}
+.btn{font:inherit;font-weight:500;font-size:13px;cursor:pointer;border-radius:4px;padding:6px 14px;display:inline-flex;gap:6px;align-items:center;border:1px solid var(--primary);background:var(--primary);color:#fff}
+.btn--stroked{background:#fff;color:var(--primary);border-color:var(--line-strong)}
+.btn--text{background:none;border-color:transparent;color:var(--primary);padding:4px 8px}
+.btn .material-icons{font-size:18px}
+.iconbtn{background:none;border:0;cursor:pointer;color:var(--muted);border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center}
+.iconbtn:hover{background:var(--surface-2)}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;border-radius:10px;padding:1px 8px;background:var(--surface-2);border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.chip--task{background:var(--warn-tint);border-color:transparent;color:var(--warn)}
+.chip--default{background:var(--primary-tint);border-color:transparent;color:var(--primary)}
+.chip--ok{background:var(--ok-tint);border-color:transparent;color:var(--ok)}
+input[type=checkbox]{width:16px;height:16px;accent-color:var(--primary);cursor:pointer;margin:0;vertical-align:middle}
+input[type=checkbox]:disabled{cursor:not-allowed;opacity:.35}
+.na{color:var(--placeholder)}
+select{font:inherit;font-size:13px;border:1px solid var(--line-strong);border-radius:4px;padding:5px 8px;background:#fff;color:var(--fg)}
+.search{display:flex;align-items:center;gap:6px;border:1px solid var(--line-strong);border-radius:4px;padding:4px 8px;min-width:200px}
+.search input{border:0;outline:0;font:inherit;font-size:13px;width:100%}
+.search .material-icons{color:var(--placeholder);font-size:18px}
+.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:12px}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+
+/* shared */
+.ab-in{font:inherit;font-size:13px;font-family:"Roboto Mono",ui-monospace,monospace;width:72px;height:30px;border:1px solid var(--line-strong);border-radius:4px;padding:0 8px;text-align:right;background:#fff;color:var(--fg)}
+.ab-in:focus{outline:0;border-color:var(--primary);box-shadow:0 0 0 1px var(--primary)}
+.ab-in:disabled{background:var(--surface-2);color:var(--placeholder);cursor:not-allowed}
+.ab-in.zero{color:var(--placeholder)}
+.split{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:4px;border:1px solid transparent;background:none;color:var(--placeholder);cursor:pointer;vertical-align:middle;margin-left:2px}
+.split .material-icons{font-size:16px}
+.split.on{background:var(--primary-tint);color:var(--primary)}
+.split:hover{border-color:var(--line-strong)}
+.seg{display:inline-flex;border:1px solid var(--line-strong);border-radius:4px;overflow:hidden}
+.seg button{font:inherit;font-size:13px;border:0;background:#fff;padding:5px 14px;cursor:pointer;color:var(--muted)}
+.seg button+button{border-left:1px solid var(--line-strong)}
+.seg button.on{background:var(--primary-tint);color:var(--primary);font-weight:500}
+.taskchips{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.taskchip{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;border:1px solid var(--line-strong);border-radius:14px;padding:2px 4px 2px 10px;background:#fff}
+.taskchip button{border:0;background:none;cursor:pointer;color:var(--muted);display:inline-flex;padding:0}
+.taskchip .material-icons{font-size:16px}
+.lbl{font-size:12px;font-weight:500;color:var(--muted)}
+.hint{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:var(--muted);margin:12px 0 0}
+.hint .material-icons{font-size:18px;color:var(--primary)}
+
+/* 1 grouped table */
+.pt-wrap{border:1px solid var(--line);border-radius:6px;overflow-x:auto}
+table.pt{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
+.pt th,.pt td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:right;white-space:nowrap;vertical-align:middle}
+.pt thead th{background:var(--surface-2);color:var(--muted);font-weight:500;font-size:12px;vertical-align:bottom}
+.pt thead tr.grp th{font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.pt .gl{border-left:1px solid var(--line)}
+.pt .act{text-align:left;position:sticky;left:0;background:#fff;min-width:240px;border-right:1px solid var(--line);z-index:1}
+.pt thead .act{background:var(--surface-2)}
+.pt .act small{display:block;color:var(--muted);font-size:12px}
+.pt tr.wf td{background:#fff;text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;padding-top:14px}
+.pt tr.task td{background:var(--surface-2);text-align:left;font-weight:500;font-size:13px}
+.pt tr.task td .material-icons{font-size:18px;color:var(--primary);margin-right:6px}
+.pt tr.task td.act{background:var(--surface-2)}
+.pt tbody tr.row:hover td{background:#f9fbfd}
+.pt .tcol{background:var(--warn-tint)!important;color:var(--warn)!important}
+.pt .tcol-cell{background:rgba(237,160,0,.05)}
+.pt .x{border:0;background:none;cursor:pointer;color:inherit;padding:0;vertical-align:middle}
+.pt .x .material-icons{font-size:15px}
+
+/* 2 list + panel */
+.al{border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.al table{border-collapse:collapse;width:100%;font-size:13px}
+.al th{background:var(--surface-2);text-align:left;font-weight:500;color:var(--muted);font-size:12px;padding:8px 14px;border-bottom:1px solid var(--line)}
+.al td{padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+.al tr.task td{background:var(--surface-2);font-weight:500;font-size:12px;color:var(--muted);padding:6px 14px;cursor:default}
+.al tbody tr.row{cursor:pointer}
+.al tbody tr.row:hover td{background:#f9fbfd}
+.al tbody tr.row.sel td{background:var(--primary-tint-2)}
+.al tbody tr.row.sel td:first-child{box-shadow:inset 3px 0 0 var(--primary)}
+.who{display:flex;gap:10px;align-items:center}
+.tile{width:32px;height:32px;border-radius:6px;background:var(--primary-tint);color:var(--primary);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.who b{font-weight:500;display:block}
+.who small{color:var(--muted)}
+.earn{display:flex;gap:6px;flex-wrap:wrap}
+.earn .chip b{color:var(--fg);font-weight:500}
+.total{font-family:"Roboto Mono",monospace;font-weight:500}
+.panel{position:absolute;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--bg);border-left:1px solid var(--line);box-shadow:-8px 0 24px rgba(16,24,40,.08);display:flex;flex-direction:column;transform:translateX(102%);transition:transform .2s}
+.panel.open{transform:none}
+.panel__head{background:linear-gradient(180deg,#eaf2fa,#f4f8fc);border-bottom:1px solid var(--line);padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
+.panel__head h3{margin:0;font-size:16px;font-weight:500}
+.panel__head p{margin:2px 0 0;color:var(--muted);font-size:12.5px}
+.panel__body{flex:1;overflow:auto;padding:18px}
+.panel__foot{border-top:1px solid var(--line);background:#fff;padding:12px 18px;display:flex;gap:8px;justify-content:flex-end}
+.pgroup+.pgroup{border-top:1px solid var(--line);margin-top:18px;padding-top:18px}
+.pgroup h4{margin:0 0 8px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.prow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0}
+.prow+.prow{border-top:1px solid var(--line)}
+.prow small{display:block;color:var(--muted);font-size:12px}
+.prow .ctl{display:flex;align-items:center;gap:6px}
+.prow.dis{opacity:.5}
+.sharebox{display:flex;gap:10px;align-items:flex-start;font-size:13px;margin-top:6px}
+.sharebox small{display:block;color:var(--muted);font-size:12px}
+
+/* 3 cards by task */
+.tk{display:flex;flex-direction:column;gap:12px}
+.tcard{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fff}
+.tcard__head{display:flex;align-items:center;gap:12px;padding:12px 16px;cursor:pointer;user-select:none}
+.tcard__head:hover{background:#f9fbfd}
+.tcard__head .grow{flex:1;min-width:0}
+.tcard__head b{font-weight:500;display:block}
+.tcard__head small{color:var(--muted);font-size:12px}
+.tcard__head .chev{color:var(--muted);transition:transform .15s}
+.tcard.closed .chev{transform:rotate(-90deg)}
+.tcard.closed .tcard__body{display:none}
+.tcard__body{border-top:1px solid var(--line)}
+.arow{display:grid;grid-template-columns:minmax(160px,1.3fr) repeat(var(--n),minmax(96px,1fr));gap:0 12px;align-items:center;padding:10px 16px}
+.arow+.arow{border-top:1px solid var(--line)}
+.arow.head{background:var(--surface-2);font-size:12px;color:var(--muted);font-weight:500;padding:6px 16px}
+.arow .cell{display:flex;align-items:center;gap:2px}
+.arow .cell label{display:none}
+@media(max-width:760px){
+  .arow{grid-template-columns:1fr 1fr}
+  .arow.head{display:none}
+  .arow .an{grid-column:1/-1;margin-bottom:6px}
+  .arow .cell{flex-direction:column;align-items:flex-start;margin-bottom:8px}
+  .arow .cell label{display:block;font-size:12px;color:var(--muted)}
+}
+.sumbar{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-bottom:12px}
+.sumbar b{color:var(--fg);font-family:"Roboto Mono",monospace;font-weight:500}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Points: three layouts</h1>
+  <p class="lede">Form builder › Settings › Points. Today it's one table: workflow type, task and action as merged row headers, then a text box per recipient, extra columns for chosen workflow tasks, and a <span style="font-family:'Roboto Mono'">/T</span> prefix to share points with the team. Each option uses the same made-up workflow. The inputs work.</p>
+
+  <div class="switch" role="tablist">
+    <button role="tab" aria-selected="true" data-opt="a"><span class="tag">Option 1</span> Grouped table</button>
+    <button role="tab" aria-selected="false" data-opt="b"><span class="tag">Option 2</span> Action list + panel</button>
+    <button role="tab" aria-selected="false" data-opt="c"><span class="tag">Option 3</span> Cards by task</button>
+  </div>
+
+  <!-- 1 -->
+  <div class="option" id="opt-a">
+    <div class="screen">
+      <div class="head">
+        <div><h2 class="title">Points</h2><p class="sub">How many points people earn for each action, by who they are.</p></div>
+        <div class="toolbar"><span class="lbl">Also give points to</span><div class="taskchips" id="a-chips"></div><button class="btn btn--stroked" id="a-addtask"><span class="material-icons">add</span>Task</button></div>
+      </div>
+      <div class="pt-wrap"><table class="pt" id="a-table"></table></div>
+      <p class="hint"><span class="material-icons">group</span><span>Select <span class="material-icons" style="font-size:15px;color:var(--primary)">group</span> beside a number to share it between the creator and team members instead of giving it to each of them.</span></p>
+    </div>
+    <aside class="notes">
+      <h2>Grouped table</h2>
+      <p>Today's table, tidied up.</p>
+      <h4>What changes</h4>
+      <ul>
+        <li>Request and Response become section rows, each task a band, actions underneath, so there are no merged cells.</li>
+        <li>Columns are grouped: People on the record, then Workflow task assignees.</li>
+        <li>Task columns are added with "+ Task" and removed with the × in their header.</li>
+        <li>The <span style="font-family:'Roboto Mono'">/T</span> prefix becomes a share toggle beside the number. It's stored as <span style="font-family:'Roboto Mono'">/T</span> as before.</li>
+        <li>Numbers are right-aligned; zero shows faded.</li>
+      </ul>
+      <h4>Good for</h4><ul><li>Seeing every value at once.</li><li>Smallest change to build.</li></ul>
+      <h4>Watch out</h4><ul><li>Gets wide once several task columns are added.</li></ul>
+    </aside>
+  </div>
+
+  <!-- 2 -->
+  <div class="option" id="opt-b" hidden>
+    <div class="screen" style="min-height:640px">
+      <div class="head">
+        <div><h2 class="title">Points</h2><p class="sub">Select an action to set who earns points for it.</p></div>
+        <div class="seg" id="b-seg"><button class="on" data-w="Request">Request</button><button data-w="Response">Response</button></div>
+      </div>
+      <div class="al"><table><thead><tr><th>Action</th><th>Who earns points</th><th style="text-align:right">Total</th></tr></thead><tbody id="b-list"></tbody></table></div>
+      <div class="panel" id="b-panel" role="dialog" aria-modal="true" aria-labelledby="b-title">
+        <div class="panel__head"><span class="tile"><span class="material-icons" id="b-icon">bolt</span></span><div style="flex:1"><h3 id="b-title"></h3><p id="b-desc"></p></div><button class="iconbtn" id="b-close" aria-label="Close"><span class="material-icons">close</span></button></div>
+        <div class="panel__body" id="b-body"></div>
+        <div class="panel__foot"><button class="btn btn--stroked" id="b-cancel">Cancel</button><button class="btn" id="b-save">Save</button></div>
+      </div>
+    </div>
+    <aside class="notes">
+      <h2>Action list + panel</h2>
+      <p>The same pattern as Features, Other settings and Users.</p>
+      <h4>What changes</h4>
+      <ul>
+        <li>Request and Response switch with a toggle, so you only see one workflow at a time.</li>
+        <li>Each action shows who earns points as chips, plus the total.</li>
+        <li>The panel has one labelled field per recipient, each explained.</li>
+        <li>Workflow task assignees are added per action inside the panel, not as table columns.</li>
+        <li>Sharing is a plain checkbox with an explanation; no <span style="font-family:'Roboto Mono'">/T</span> to remember.</li>
+      </ul>
+      <h4>Good for</h4><ul><li>Clearest for new admins.</li><li>Scales to any number of tasks.</li></ul>
+      <h4>Watch out</h4><ul><li>Changing many actions means opening each one.</li></ul>
+    </aside>
+  </div>
+
+  <!-- 3 -->
+  <div class="option" id="opt-c" hidden>
+    <div class="screen">
+      <div class="head">
+        <div><h2 class="title">Points</h2><p class="sub">Each workflow step and the points its actions give.</p></div>
+        <div class="toolbar"><div class="seg" id="c-seg"><button class="on" data-w="Request">Request</button><button data-w="Response">Response</button></div><button class="btn btn--stroked" id="c-expand"><span class="material-icons">unfold_more</span>Expand all</button></div>
+      </div>
+      <div class="sumbar" id="c-sum"></div>
+      <div class="tk" id="c-cards"></div>
+      <p class="hint"><span class="material-icons">group</span><span>The <span class="material-icons" style="font-size:15px;color:var(--primary)">group</span> toggle shares the number between the creator and team members.</span></p>
+    </div>
+    <aside class="notes">
+      <h2>Cards by task</h2>
+      <p>Follows the workflow: one card per step.</p>
+      <h4>What changes</h4>
+      <ul>
+        <li>Each workflow task is a card that folds; its header shows how many points the step gives in total.</li>
+        <li>Inside, each action is a row with an input per recipient.</li>
+        <li>A summary line shows the most a creator, team member and assignee can earn across the workflow.</li>
+        <li>Task-assignee points sit on that task's own card, so there are no extra columns.</li>
+        <li>On narrow screens rows stack with labels.</li>
+      </ul>
+      <h4>Good for</h4><ul><li>Matches how people think about the workflow.</li><li>Works on small screens.</li></ul>
+      <h4>Watch out</h4><ul><li>Comparing the same action across tasks needs scrolling.</li></ul>
+      <div class="rec"><b>Suggestion:</b> Option 1 if admins tweak numbers often, as with roles and permissions; Option 3 if it should read like the workflow.</div>
+    </aside>
+  </div>
+</div>
+
+<script>
+const RECIP=[['Creator','Creator','The person who submitted'],['ParentContentCreator','Parent content creator','Who submitted the request this responds to'],['TeamMember','Team member','People on the submission’s team'],['Executor','Executor','The person who takes the next action']];
+const TASKS=[{id:'t1',name:'Approve request'},{id:'t2',name:'Evaluate response'},{id:'t3',name:'Shortlist'}];
+const WF={
+ Request:[{task:'Submit request',icon:'send',actions:[{id:'Submit Request',name:'Submit request'}]},
+          {task:'Approve request',icon:'fact_check',actions:[{id:'a-app',name:'Approve'},{id:'a-rej',name:'Reject'},{id:'a-back',name:'Send back'}]}],
+ Response:[{task:'Submit response',icon:'reply',actions:[{id:'Submit Response',name:'Submit response'}]},
+           {task:'Evaluate response',icon:'rate_review',actions:[{id:'e-short',name:'Shortlist'},{id:'e-dec',name:'Decline'}]},
+           {task:'Shortlist',icon:'star',actions:[{id:'s-win',name:'Select as winner'},{id:'s-close',name:'Close'}]}]
+};
+const V={};let seed=[[20,0,10,0],[5,0,0,10],[0,0,0,5],[0,0,0,5],[0,15,10,0],[10,0,'/T30',10],[0,0,0,5],[50,0,'/T100',20],[0,0,0,0]];
+let si=0;Object.values(WF).forEach(ts=>ts.forEach(t=>t.actions.forEach(a=>{const s=seed[si++]||[0,0,0,0];V[a.id]={};RECIP.forEach((r,i)=>V[a.id][r[0]]=String(s[i]));V[a.id].tasks={};})));
+V['a-app'].tasks.t1='10';V['e-short'].tasks.t2='15';
+let aTaskCols=['t1','t2'];
+const disabled=(a,k)=>a.id.startsWith('Submit')&&k==='Executor';
+const num=v=>{v=String(v||'');return +v.replace('/T','')||0};
+const shared=v=>String(v||'').startsWith('/T');
+function inp(a,k,val,dis,extra=''){const n=num(val),sh=shared(val);return `<input class="ab-in ${n?'':'zero'}" inputmode="numeric" value="${n}" ${dis?'disabled title="The executor doesn’t act on a submission"':''} data-a="${a}" data-k="${k}" ${extra} aria-label="${k} points">`+(['Creator','TeamMember'].includes(k)&&!dis?`<button class="split ${sh?'on':''}" data-a="${a}" data-k="${k}" aria-pressed="${sh}" title="Share between creator and team members"><span class="material-icons">group</span></button>`:'')}
+function bindInputs(root,after){
+  root.querySelectorAll('input.ab-in').forEach(e=>e.onchange=()=>{const a=e.dataset.a,k=e.dataset.k,v=String(Math.max(0,parseInt(e.value)||0));
+    if(e.dataset.t){V[a].tasks[e.dataset.t]=v}else{V[a][k]=(shared(V[a][k])?'/T':'')+v}after()});
+  root.querySelectorAll('button.split').forEach(b=>b.onclick=()=>{const a=b.dataset.a,k=b.dataset.k,n=num(V[a][k]);V[a][k]=(shared(V[a][k])?'':'/T')+n;after()});
+}
+const tname=id=>TASKS.find(t=>t.id===id).name;
+
+/* 1 */
+function renderA(){
+  document.getElementById('a-chips').innerHTML='';
+  const t=document.getElementById('a-table');
+  let h=`<thead><tr class="grp"><th class="act" rowspan="2">Action</th><th colspan="4" class="gl" style="text-align:center">People on the record</th>${aTaskCols.length?`<th colspan="${aTaskCols.length}" class="gl" style="text-align:center">Workflow task assignees</th>`:''}</tr><tr>`;
+  RECIP.forEach((r,i)=>h+=`<th class="${i===0?'gl':''}" title="${r[2]}">${r[1]}</th>`);
+  aTaskCols.forEach((c,i)=>h+=`<th class="${i===0?'gl':''} tcol">${tname(c)} <button class="x" data-rm="${c}" aria-label="Remove ${tname(c)} column"><span class="material-icons">close</span></button></th>`);
+  h+='</tr></thead><tbody>';const span=5+aTaskCols.length;
+  Object.entries(WF).forEach(([wf,ts])=>{h+=`<tr class="wf"><td class="act" colspan="${span}" style="position:static">${wf} workflow</td></tr>`;
+    ts.forEach(tk=>{h+=`<tr class="task"><td class="act" colspan="${span}" style="position:static"><span class="material-icons">${tk.icon}</span>${tk.task}</td></tr>`;
+      tk.actions.forEach(a=>{h+=`<tr class="row"><td class="act">${a.name}</td>`;RECIP.forEach((r,i)=>h+=`<td class="${i===0?'gl':''}">${inp(a.id,r[0],V[a.id][r[0]],disabled(a,r[0]))}</td>`);
+        aTaskCols.forEach((c,i)=>h+=`<td class="${i===0?'gl':''} tcol-cell">${inp(a.id,c,V[a.id].tasks[c]||'0',false,`data-t="${c}"`)}</td>`);h+='</tr>'})})});
+  t.innerHTML=h+'</tbody>';bindInputs(t,renderAll);
+  t.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{aTaskCols=aTaskCols.filter(x=>x!==b.dataset.rm);renderA()});
+  const left=TASKS.filter(x=>!aTaskCols.includes(x.id));const ab=document.getElementById('a-addtask');ab.disabled=!left.length;ab.style.opacity=left.length?1:.5;
+  ab.onclick=()=>{if(left.length){aTaskCols.push(left[0].id);renderA()}};
+}
+
+/* 2 */
+let bWf='Request',bSel=null,bSnap=null;
+function totalOf(a){return RECIP.reduce((s,r)=>s+num(V[a][r[0]]),0)+Object.values(V[a].tasks).reduce((s,v)=>s+num(v),0)}
+function renderB(){
+  const tb=document.getElementById('b-list');let h='';
+  WF[bWf].forEach(tk=>{h+=`<tr class="task"><td colspan="3">${tk.task}</td></tr>`;
+    tk.actions.forEach(a=>{const chips=RECIP.filter(r=>num(V[a.id][r[0]])).map(r=>`<span class="chip">${r[1]} <b>${num(V[a.id][r[0]])}</b>${shared(V[a.id][r[0]])?' <span class="material-icons" style="font-size:14px" title="Shared">group</span>':''}</span>`)
+      .concat(Object.entries(V[a.id].tasks).filter(([,v])=>num(v)).map(([k,v])=>`<span class="chip chip--task">${tname(k)} <b style="color:inherit">${num(v)}</b></span>`)).join('')||'<span class="na">No points</span>';
+      h+=`<tr class="row ${bSel===a.id?'sel':''}" data-a="${a.id}"><td><div class="who"><span class="tile"><span class="material-icons">${tk.icon}</span></span><div><b>${a.name}</b><small>${tk.task}</small></div></div></td><td><div class="earn">${chips}</div></td><td style="text-align:right" class="total">${totalOf(a.id)}</td></tr>`})});
+  tb.innerHTML=h;tb.querySelectorAll('tr.row').forEach(r=>r.onclick=()=>openB(r.dataset.a));
+}
+function findA(id){for(const ts of Object.values(WF))for(const t of ts)for(const a of t.actions)if(a.id===id)return [a,t]}
+function openB(id){bSel=id;bSnap=JSON.stringify(V[id]);const [a,t]=findA(id);document.getElementById('b-title').textContent=a.name;document.getElementById('b-desc').textContent=`${t.task} · ${bWf} workflow`;document.getElementById('b-icon').textContent=t.icon;drawB();document.getElementById('b-panel').classList.add('open');renderB()}
+function drawB(){const id=bSel,[a]=findA(id),v=V[id];const sh=shared(v.Creator)||shared(v.TeamMember);
+  let h='<div class="pgroup"><h4>People on the record</h4>';
+  RECIP.forEach(r=>{const dis=disabled(a,r[0]);h+=`<div class="prow ${dis?'dis':''}"><span>${r[1]}<small>${dis?'The executor doesn’t act on a submission':r[2]}</small></span><span class="ctl"><input class="ab-in ${num(v[r[0]])?'':'zero'}" value="${num(v[r[0]])}" data-a="${id}" data-k="${r[0]}" ${dis?'disabled':''} aria-label="${r[1]} points"></span></div>`});
+  h+=`<label class="sharebox"><input type="checkbox" id="b-share" ${sh?'checked':''}><span>Share creator and team member points<small>Split the points between them instead of each getting the full amount.</small></span></label></div>`;
+  h+='<div class="pgroup"><h4>Workflow task assignees</h4>';
+  const used=Object.keys(v.tasks);
+  used.forEach(k=>h+=`<div class="prow"><span>${tname(k)}<small>Person assigned this task</small></span><span class="ctl"><input class="ab-in" value="${num(v.tasks[k])}" data-a="${id}" data-t="${k}" data-k="${k}" aria-label="${tname(k)} points"><button class="iconbtn" data-rm="${k}" aria-label="Remove"><span class="material-icons">close</span></button></span></div>`);
+  const left=TASKS.filter(t=>!used.includes(t.id));
+  h+=left.length?`<div class="prow"><select id="b-addsel" aria-label="Task">${left.map(t=>`<option value="${t.id}">${t.name}</option>`).join('')}</select><button class="btn btn--stroked" id="b-add"><span class="material-icons">add</span>Add</button></div>`:'';
+  h+='</div>';const b=document.getElementById('b-body');b.innerHTML=h;bindInputs(b,()=>{drawB();renderB()});
+  b.querySelector('#b-share').onchange=e=>{['Creator','TeamMember'].forEach(k=>v[k]=(e.target.checked?'/T':'')+num(v[k]));drawB();renderB()};
+  b.querySelectorAll('[data-rm]').forEach(x=>x.onclick=()=>{delete v.tasks[x.dataset.rm];drawB();renderB()});
+  const add=b.querySelector('#b-add');if(add)add.onclick=()=>{v.tasks[b.querySelector('#b-addsel').value]='0';drawB();renderB()};
+}
+function closeB(save){if(!save&&bSel)V[bSel]=JSON.parse(bSnap);document.getElementById('b-panel').classList.remove('open');bSel=null;renderAll()}
+document.getElementById('b-close').onclick=()=>closeB(false);document.getElementById('b-cancel').onclick=()=>closeB(false);document.getElementById('b-save').onclick=()=>closeB(true);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&bSel)closeB(false)});
+document.querySelectorAll('#b-seg button').forEach(x=>x.onclick=()=>{bWf=x.dataset.w;document.querySelectorAll('#b-seg button').forEach(y=>y.classList.toggle('on',y===x));if(bSel)closeB(false);renderB()});
+
+/* 3 */
+let cWf='Request';const cOpen=new Set(['Approve request','Evaluate response']);
+function renderC(){
+  const ts=WF[cWf];let max={Creator:0,TeamMember:0,Executor:0,Assignee:0};
+  ts.forEach(t=>t.actions.forEach(a=>{['Creator','TeamMember','Executor'].forEach(k=>max[k]+=num(V[a.id][k]));max.Assignee+=Object.values(V[a.id].tasks).reduce((s,v)=>s+num(v),0)}));
+  document.getElementById('c-sum').innerHTML=`<span>Most a creator can earn <b>${max.Creator}</b></span><span>Team member <b>${max.TeamMember}</b></span><span>Executor <b>${max.Executor}</b></span><span>Task assignees <b>${max.Assignee}</b></span>`;
+  let h='';
+  ts.forEach(tk=>{const tid=(TASKS.find(x=>x.name===tk.task)||{}).id;const cols=RECIP.slice();const n=cols.length+(tid?1:0);
+    const tot=tk.actions.reduce((s,a)=>s+totalOf(a.id),0);
+    h+=`<div class="tcard ${cOpen.has(tk.task)?'':'closed'}" data-t="${tk.task}"><div class="tcard__head"><span class="tile"><span class="material-icons">${tk.icon}</span></span><div class="grow"><b>${tk.task}</b><small>${tk.actions.length} action${tk.actions.length>1?'s':''}</small></div><span class="chip">${tot} points</span><span class="material-icons chev">expand_more</span></div><div class="tcard__body">`;
+    h+=`<div class="arow head" style="--n:${n}"><span>Action</span>${cols.map(r=>`<span title="${r[2]}">${r[1]}</span>`).join('')}${tid?`<span>Assignee</span>`:''}</div>`;
+    tk.actions.forEach(a=>{h+=`<div class="arow" style="--n:${n}"><span class="an">${a.name}</span>${cols.map(r=>`<span class="cell"><label>${r[1]}</label><span>${inp(a.id,r[0],V[a.id][r[0]],disabled(a,r[0]))}</span></span>`).join('')}${tid?`<span class="cell"><label>Assignee</label>${inp(a.id,tid,V[a.id].tasks[tid]||'0',false,`data-t="${tid}"`)}</span>`:''}</div>`});
+    h+='</div></div>'});
+  const c=document.getElementById('c-cards');c.innerHTML=h;bindInputs(c,renderAll);
+  c.querySelectorAll('.tcard__head').forEach(x=>x.onclick=()=>{const t=x.parentNode.dataset.t;cOpen.has(t)?cOpen.delete(t):cOpen.add(t);renderC()});
+  const all=ts.every(t=>cOpen.has(t.task));document.getElementById('c-expand').innerHTML=all?'<span class="material-icons">unfold_less</span>Collapse all':'<span class="material-icons">unfold_more</span>Expand all';
+}
+document.getElementById('c-expand').onclick=()=>{const ts=WF[cWf];if(ts.every(t=>cOpen.has(t.task)))ts.forEach(t=>cOpen.delete(t.task));else ts.forEach(t=>cOpen.add(t.task));renderC()};
+document.querySelectorAll('#c-seg button').forEach(x=>x.onclick=()=>{cWf=x.dataset.w;document.querySelectorAll('#c-seg button').forEach(y=>y.classList.toggle('on',y===x));renderC()});
+
+function renderAll(){renderA();renderB();renderC()}
+document.querySelectorAll('.switch button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.switch button').forEach(x=>x.setAttribute('aria-selected',x===b));['a','b','c'].forEach(o=>document.getElementById('opt-'+o).hidden=o!==b.dataset.opt)});
+renderAll();
+</script>
+</body>
+</html>

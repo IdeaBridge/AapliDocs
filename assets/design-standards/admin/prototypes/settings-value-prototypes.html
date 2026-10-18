@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings: show values</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400&family=Material+Icons&display=swap">
+<style>
+/* Three ways to show each setting's current value on Organisation › Settings. Tokens follow docs/DESIGN_SYSTEM.md. */
+:root{
+  --bg:#f4f6f9; --surface:#fff; --surface-2:#f8f8f8; --line:#e2e6ec; --line-strong:#cfd5dd;
+  --fg:#1d2127; --muted:#5f6670; --placeholder:#8a919b;
+  --primary:#0062b5; --primary-rgb:0,98,181; --primary-tint:rgba(0,98,181,.1);
+  --ok:#2e7d32; --ok-tint:rgba(46,125,50,.1); --warn:#8a5300; --warn-tint:rgba(237,160,0,.14);
+  --f-ui:"Roboto",system-ui,sans-serif; --f-mono:"Roboto Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-ui);font-size:14px;line-height:1.5}
+.material-icons{font-family:"Material Icons";font-size:20px;line-height:1;font-weight:normal;font-style:normal;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;-webkit-font-feature-settings:"liga";font-feature-settings:"liga";vertical-align:middle}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 56px}
+h1{font-size:22px;font-weight:500;margin:0 0 6px}
+.lede{color:var(--muted);margin:0 0 20px;max-width:72ch}
+.switch{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:20px;overflow-x:auto}
+.switch button{font:inherit;cursor:pointer;background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:12px 14px;color:var(--muted);display:flex;gap:8px;align-items:center;white-space:nowrap}
+.switch button[aria-selected="true"]{color:var(--primary);border-bottom-color:var(--primary);font-weight:500}
+.tag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:0 7px}
+.switch button[aria-selected="true"] .tag{background:var(--primary-tint);border-color:transparent}
+.option{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:24px;align-items:start}
+@media(max-width:980px){.option{grid-template-columns:minmax(0,1fr)}}
+.screen{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:24px 28px;min-width:0}
+@media(max-width:600px){.screen{padding:18px 14px}}
+.title{font-size:17px;font-weight:500;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 16px;max-width:62ch}
+.notes{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px}
+.notes h2{font-size:16px;font-weight:500;margin:0 0 4px}
+.notes p{color:var(--muted);margin:0 0 12px}
+.notes h4{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:14px 0 6px}
+.notes ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+.rec{margin-top:16px;border-top:1px solid var(--line);padding-top:12px;font-size:13px}
+.rec b{color:var(--primary);font-weight:500}
+.tile{width:32px;height:32px;border-radius:6px;background:var(--primary-tint);color:var(--primary);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.mono{font-family:var(--f-mono);font-size:12.5px}
+.empty{color:var(--placeholder);font-style:italic}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;border-radius:10px;padding:1px 9px;white-space:nowrap;background:var(--surface-2);color:var(--muted)}
+.chip.ok{background:var(--ok-tint);color:var(--ok)}
+.chip.primary{background:var(--primary-tint);color:var(--primary)}
+.swatch{width:14px;height:14px;border-radius:3px;display:inline-block;vertical-align:-2px;margin-right:6px;border:1px solid rgba(0,0,0,.1)}
+.chev{color:var(--muted)}
+
+/* A: value column */
+.tbl-wrap{border:1px solid var(--line);border-radius:4px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;padding:10px 12px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+td{padding:12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:rgba(var(--primary-rgb),.025)}
+.name{display:flex;gap:12px;align-items:center;font-weight:500}
+.desc{color:var(--muted);font-size:13px}
+.val{color:var(--fg)}
+.val small{display:block;color:var(--muted);font-size:12px}
+
+/* B: cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:8px;background:var(--surface);display:flex;flex-direction:column;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.card:hover{border-color:var(--line-strong);box-shadow:0 2px 8px rgba(15,27,42,.06)}
+.card-h{display:flex;gap:12px;align-items:center;padding:16px 18px 10px}
+.card-h b{font-weight:500;font-size:15px}
+.card-h .edit{margin-left:auto;color:var(--primary);font-size:13px;font-weight:500;display:flex;gap:4px;align-items:center}
+.card dl{margin:0;padding:0 18px 16px;display:grid;gap:8px}
+.card dl div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px}
+.card dt{color:var(--muted);font-size:12.5px}
+.card dd{margin:0;overflow-wrap:anywhere}
+
+/* C: two-line rows */
+.list{border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.row{display:flex;gap:16px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line);cursor:pointer;background:var(--surface)}
+.row:last-child{border-bottom:0}
+.row:hover{background:rgba(var(--primary-rgb),.025)}
+.row .main{min-width:0;flex:1}
+.row .label{font-weight:500;display:flex;gap:8px;align-items:center}
+.row .label .info{color:var(--placeholder);font-size:16px}
+.row .value{margin-top:2px;font-size:15px;color:var(--fg);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row .value .sep{color:var(--line-strong);margin:0 8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Settings: see the values without opening a row</h1>
+  <p class="lede">Organisation › Settings, three ways. Each shows the current value of every setting on the list, and selecting a row still opens its panel to change it. The data is made up.</p>
+
+  <div class="switch" role="tablist" aria-label="Options">
+    <button role="tab" aria-selected="true" data-opt="a"><span class="tag">A</span>Value column</button>
+    <button role="tab" aria-selected="false" data-opt="b"><span class="tag">B</span>Summary cards</button>
+    <button role="tab" aria-selected="false" data-opt="c"><span class="tag">C</span>Value under the name</button>
+  </div>
+
+  <!-- A -->
+  <section class="option" id="opt-a">
+    <div class="screen">
+      <h3 class="title">Settings</h3>
+      <p class="sub">Your organisation's profile and how the platform is set up for it. Select an area to change it.</p>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th style="width:30%">Name</th><th>Description</th><th style="width:30%">Current value</th><th style="width:40px"></th></tr></thead>
+        <tbody>
+          <tr><td><div class="name"><span class="tile"><span class="material-icons">badge</span></span>Company name</div></td><td class="desc">Your organisation's name, theme colour and logo</td><td class="val">Northwind Studios<small><span class="swatch" style="background:#0062b5"></span><span class="mono">#0062B5</span></small></td><td class="chev"><span class="material-icons">chevron_right</span></td></tr>
+          <tr><td><div class="name"><span class="tile"><span class="material-icons">location_on</span></span>Company address</div></td><td class="desc">Company and billing addresses, phone and email</td><td class="val">12 Harbour Road, Bristol<small>BS1 4AB · United Kingdom</small></td><td class="chev"><span class="material-icons">chevron_right</span></td></tr>
+          <tr><td><div class="name"><span class="tile"><span class="material-icons">calendar_month</span></span>Date format</div></td><td class="desc">How dates are shown to everyone</td><td class="val"><span class="mono">DD/MM/YYYY</span><small>16/10/2026</small></td><td class="chev"><span class="material-icons">chevron_right</span></td></tr>
+          <tr><td><div class="name"><span class="tile"><span class="material-icons">pin</span></span>Number format</div></td><td class="desc">How numbers are shown to everyone</td><td class="val"><span class="mono">1,234,567.89</span><small>Comma thousands, point decimals</small></td><td class="chev"><span class="material-icons">chevron_right</span></td></tr>
+          <tr><td><div class="name"><span class="tile"><span class="material-icons">category</span></span>Application type</div></td><td class="desc">Which experience this domain serves</td><td class="val"><span class="chip primary">Innovation</span></td><td class="chev"><span class="material-icons">chevron_right</span></td></tr>
+          <tr><td><div class="name"><span class="tile"><span class="material-icons">payments</span></span>Currencies</div></td><td class="desc">Currencies and conversion rates</td><td class="val">GBP <span class="desc">(default)</span>, EUR, USD</td><td class="chev"><span class="material-icons">chevron_right</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <aside class="notes">
+      <h2>A · Value column</h2>
+      <p>The list stays as it is, with a third column for the current value and a short second line where it helps.</p>
+      <h4>Good for</h4><ul><li>The smallest change from today</li><li>Scanning names and values side by side</li></ul>
+      <h4>Trade-offs</h4><ul><li>Three text columns get tight below about 900px; the description hides first</li><li>Long values (addresses) are cut to one line</li></ul>
+    </aside>
+  </section>
+
+  <!-- B -->
+  <section class="option" id="opt-b" hidden>
+    <div class="screen" style="background:var(--bg)">
+      <h3 class="title">Settings</h3>
+      <p class="sub">Your organisation's profile and how the platform is set up for it. Select a card to change it.</p>
+      <div class="cards">
+        <article class="card"><div class="card-h"><span class="tile"><span class="material-icons">badge</span></span><b>Company name</b><span class="edit"><span class="material-icons" style="font-size:16px">edit</span>Edit</span></div>
+          <dl><div><dt>Name</dt><dd>Northwind Studios</dd></div><div><dt>Theme colour</dt><dd><span class="swatch" style="background:#0062b5"></span><span class="mono">#0062B5</span></dd></div><div><dt>Logo</dt><dd>northwind-logo.svg</dd></div></dl></article>
+        <article class="card"><div class="card-h"><span class="tile"><span class="material-icons">location_on</span></span><b>Company address</b><span class="edit"><span class="material-icons" style="font-size:16px">edit</span>Edit</span></div>
+          <dl><div><dt>Address</dt><dd>12 Harbour Road, Bristol BS1 4AB</dd></div><div><dt>Phone</dt><dd>0117 496 0000</dd></div><div><dt>Email</dt><dd>hello@example.com</dd></div></dl></article>
+        <article class="card"><div class="card-h"><span class="tile"><span class="material-icons">calendar_month</span></span><b>Date format</b><span class="edit"><span class="material-icons" style="font-size:16px">edit</span>Edit</span></div>
+          <dl><div><dt>Format</dt><dd class="mono">DD/MM/YYYY</dd></div><div><dt>Example</dt><dd>16/10/2026</dd></div></dl></article>
+        <article class="card"><div class="card-h"><span class="tile"><span class="material-icons">pin</span></span><b>Number format</b><span class="edit"><span class="material-icons" style="font-size:16px">edit</span>Edit</span></div>
+          <dl><div><dt>Format</dt><dd class="mono">1,234,567.89</dd></div><div><dt>Decimals</dt><dd>2</dd></div></dl></article>
+        <article class="card"><div class="card-h"><span class="tile"><span class="material-icons">category</span></span><b>Application type</b><span class="edit"><span class="material-icons" style="font-size:16px">edit</span>Edit</span></div>
+          <dl><div><dt>Type</dt><dd><span class="chip primary">Innovation</span></dd></div><div><dt>Domain</dt><dd class="mono">ideas.example.com</dd></div></dl></article>
+        <article class="card"><div class="card-h"><span class="tile"><span class="material-icons">payments</span></span><b>Currencies</b><span class="edit"><span class="material-icons" style="font-size:16px">edit</span>Edit</span></div>
+          <dl><div><dt>Default</dt><dd>GBP</dd></div><div><dt>Also used</dt><dd>EUR, USD</dd></div></dl></article>
+      </div>
+    </div>
+    <aside class="notes">
+      <h2>B · Summary cards</h2>
+      <p>One card per area with all its values, like the Account card in user details. Edit opens the same panel.</p>
+      <h4>Good for</h4><ul><li>Seeing everything at once, including multi-part values (address, phone, email)</li><li>Matches the user details look</li></ul>
+      <h4>Trade-offs</h4><ul><li>Takes more space; less like the other lists (Features, Site design)</li><li>Descriptions move into the panel</li></ul>
+      <p class="rec"><b>Recommended</b>: Settings is a handful of areas with several values each, so a dashboard of cards reads best.</p>
+    </aside>
+  </section>
+
+  <!-- C -->
+  <section class="option" id="opt-c" hidden>
+    <div class="screen">
+      <h3 class="title">Settings</h3>
+      <p class="sub">Your organisation's profile and how the platform is set up for it. Select an area to change it.</p>
+      <div class="list">
+        <div class="row"><span class="tile"><span class="material-icons">badge</span></span><div class="main"><div class="label">Company name<span class="material-icons info" title="Your organisation's name, theme colour and logo">info_outline</span></div><div class="value">Northwind Studios<span class="sep">|</span><span class="swatch" style="background:#0062b5"></span><span class="mono">#0062B5</span></div></div><span class="material-icons chev">chevron_right</span></div>
+        <div class="row"><span class="tile"><span class="material-icons">location_on</span></span><div class="main"><div class="label">Company address<span class="material-icons info">info_outline</span></div><div class="value">12 Harbour Road, Bristol BS1 4AB<span class="sep">|</span>0117 496 0000<span class="sep">|</span>hello@example.com</div></div><span class="material-icons chev">chevron_right</span></div>
+        <div class="row"><span class="tile"><span class="material-icons">calendar_month</span></span><div class="main"><div class="label">Date format<span class="material-icons info">info_outline</span></div><div class="value"><span class="mono">DD/MM/YYYY</span><span class="sep">|</span>16/10/2026</div></div><span class="material-icons chev">chevron_right</span></div>
+        <div class="row"><span class="tile"><span class="material-icons">pin</span></span><div class="main"><div class="label">Number format<span class="material-icons info">info_outline</span></div><div class="value"><span class="mono">1,234,567.89</span></div></div><span class="material-icons chev">chevron_right</span></div>
+        <div class="row"><span class="tile"><span class="material-icons">category</span></span><div class="main"><div class="label">Application type<span class="material-icons info">info_outline</span></div><div class="value"><span class="chip primary">Innovation</span></div></div><span class="material-icons chev">chevron_right</span></div>
+        <div class="row"><span class="tile"><span class="material-icons">payments</span></span><div class="main"><div class="label">Currencies<span class="material-icons info">info_outline</span></div><div class="value">GBP (default)<span class="sep">|</span>EUR<span class="sep">|</span>USD</div></div><span class="material-icons chev">chevron_right</span></div>
+      </div>
+    </div>
+    <aside class="notes">
+      <h2>C · Value under the name</h2>
+      <p>Each row shows the name, then the value in larger text. The description moves to an info tooltip.</p>
+      <h4>Good for</h4><ul><li>Phone-friendly: one column, no table</li><li>Values stand out more than in A</li></ul>
+      <h4>Trade-offs</h4><ul><li>Descriptions are hidden until hovered</li><li>Long values are cut to one line</li></ul>
+    </aside>
+  </section>
+</div>
+<script>
+document.querySelectorAll('[role=tab]').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('[role=tab]').forEach(function(x){x.setAttribute('aria-selected',x===b);document.getElementById('opt-'+x.dataset.opt).hidden=x!==b;});
+  });
+});
+</script>
+</body>
+</html>

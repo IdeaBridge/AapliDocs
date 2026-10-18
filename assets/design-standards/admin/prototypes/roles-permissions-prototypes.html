@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roles and permissions</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Material+Icons&display=swap">
+<style>
+/* Three ways to arrange Form builder › Settings › Roles and permissions. Tokens follow docs/DESIGN_SYSTEM.md. Fictional roles only. */
+:root{
+  --bg:#f4f6f9; --surface:#fff; --surface-2:#f8f8f8; --line:#e2e6ec; --line-strong:#cfd5dd;
+  --fg:#1d2127; --muted:#5f6670; --placeholder:#8a919b;
+  --primary:#0062b5; --primary-tint:rgba(0,98,181,.1); --primary-tint-2:rgba(0,98,181,.05);
+  --ok:#2e7d32; --ok-tint:rgba(46,125,50,.1); --warn:#8a5300; --warn-tint:rgba(237,160,0,.14);
+  --f-ui:"Roboto",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-ui);font-size:14px;line-height:1.5}
+.material-icons{font-family:"Material Icons";font-size:20px;line-height:1;font-weight:normal;font-style:normal;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;font-feature-settings:"liga";vertical-align:middle}
+.wrap{max-width:1240px;margin:0 auto;padding:28px 16px 56px}
+h1{font-size:22px;font-weight:500;margin:0 0 6px}
+.lede{color:var(--muted);margin:0 0 20px;max-width:76ch}
+.switch{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:20px;overflow-x:auto}
+.switch button{font:inherit;cursor:pointer;background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:12px 14px;color:var(--muted);display:flex;gap:8px;align-items:center;white-space:nowrap}
+.switch button[aria-selected="true"]{color:var(--primary);border-bottom-color:var(--primary);font-weight:500}
+.tag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:0 7px}
+.switch button[aria-selected="true"] .tag{background:var(--primary-tint);border-color:transparent}
+.option{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:24px;align-items:start}
+@media(max-width:1020px){.option{grid-template-columns:minmax(0,1fr)}}
+.screen{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:24px 28px;min-width:0;position:relative;overflow:hidden}
+@media(max-width:600px){.screen{padding:18px 14px}}
+.head{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;margin-bottom:16px}
+.title{font-size:17px;font-weight:500;margin:0 0 4px}
+.sub{color:var(--muted);margin:0}
+.notes{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px}
+.notes h2{font-size:16px;font-weight:500;margin:0 0 4px}
+.notes p{color:var(--muted);margin:0 0 12px}
+.notes h4{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:14px 0 6px}
+.notes ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+.rec{margin-top:16px;border-top:1px solid var(--line);padding-top:12px;font-size:13px}
+.rec b{color:var(--primary);font-weight:500}
+.btn{font:inherit;font-weight:500;font-size:13px;cursor:pointer;border-radius:4px;padding:6px 14px;display:inline-flex;gap:6px;align-items:center;border:1px solid var(--primary);background:var(--primary);color:#fff}
+.btn--stroked{background:#fff;color:var(--primary);border-color:var(--line-strong)}
+.btn--text{background:none;border-color:transparent;color:var(--primary);padding:4px 8px}
+.btn .material-icons{font-size:18px}
+.iconbtn{background:none;border:0;cursor:pointer;color:var(--muted);border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center}
+.iconbtn:hover{background:var(--surface-2)}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;border-radius:10px;padding:1px 8px;background:var(--surface-2);border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.chip--task{background:var(--warn-tint);border-color:transparent;color:var(--warn)}
+.chip--default{background:var(--primary-tint);border-color:transparent;color:var(--primary)}
+.chip--ok{background:var(--ok-tint);border-color:transparent;color:var(--ok)}
+input[type=checkbox]{width:16px;height:16px;accent-color:var(--primary);cursor:pointer;margin:0;vertical-align:middle}
+input[type=checkbox]:disabled{cursor:not-allowed;opacity:.35}
+.na{color:var(--placeholder)}
+select{font:inherit;font-size:13px;border:1px solid var(--line-strong);border-radius:4px;padding:5px 8px;background:#fff;color:var(--fg)}
+.search{display:flex;align-items:center;gap:6px;border:1px solid var(--line-strong);border-radius:4px;padding:4px 8px;min-width:200px}
+.search input{border:0;outline:0;font:inherit;font-size:13px;width:100%}
+.search .material-icons{color:var(--placeholder);font-size:18px}
+.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:12px}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+
+/* A: grouped matrix */
+.mx-wrap{border:1px solid var(--line);border-radius:6px;overflow-x:auto}
+table.mx{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
+.mx th,.mx td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:center;white-space:nowrap}
+.mx thead th{background:var(--surface-2);font-weight:500;color:var(--muted);font-size:12px}
+.mx thead tr.grp th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+.mx thead tr.grp th+th,.mx .gstart{border-left:1px solid var(--line)}
+.mx .rcol{position:sticky;left:0;background:#fff;text-align:left;min-width:220px;z-index:1;border-right:1px solid var(--line)}
+.mx thead .rcol{background:var(--surface-2)}
+.mx tr.all td{background:var(--primary-tint-2)}
+.mx tr.all .rcol{background:#f2f7fc;color:var(--muted);font-size:12px}
+.mx tr.sec td{background:#fff;text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;padding-top:14px}
+.mx tbody tr:not(.sec):not(.all):hover td{background:#f9fbfd}
+.mx .rname{display:flex;gap:8px;align-items:center;justify-content:space-between}
+.mx .rname b{font-weight:500}
+.mx td.col-hl,.mx th.col-hl{background:rgba(0,98,181,.06)!important}
+
+/* B: list + panel */
+.rl{border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.rl table{border-collapse:collapse;width:100%;font-size:13px}
+.rl th{background:var(--surface-2);text-align:left;font-weight:500;color:var(--muted);font-size:12px;padding:8px 14px;border-bottom:1px solid var(--line)}
+.rl td{padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+.rl tr:last-child td{border-bottom:0}
+.rl tbody tr{cursor:pointer}
+.rl tbody tr:hover td{background:#f9fbfd}
+.rl tbody tr.sel td{background:var(--primary-tint-2)}
+.rl tbody tr.sel td:first-child{box-shadow:inset 3px 0 0 var(--primary)}
+.who{display:flex;gap:10px;align-items:center}
+.tile{width:32px;height:32px;border-radius:6px;background:var(--primary-tint);color:var(--primary);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.tile--task{background:var(--warn-tint);color:var(--warn)}
+.who b{font-weight:500;display:block}
+.who small{color:var(--muted)}
+.meter{display:flex;gap:2px}
+.meter i{width:8px;height:14px;border-radius:2px;background:var(--line)}
+.meter i.on{background:var(--primary)}
+.panel{position:absolute;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--bg);border-left:1px solid var(--line);box-shadow:-8px 0 24px rgba(16,24,40,.08);display:flex;flex-direction:column;transform:translateX(102%);transition:transform .2s}
+.panel.open{transform:none}
+.panel__head{background:linear-gradient(180deg,#eaf2fa,#f4f8fc);border-bottom:1px solid var(--line);padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
+.panel__head h3{margin:0;font-size:16px;font-weight:500}
+.panel__head p{margin:2px 0 0;color:var(--muted);font-size:12.5px}
+.panel__body{flex:1;overflow:auto;padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+.panel__foot{border-top:1px solid var(--line);background:#fff;padding:12px 18px;display:flex;gap:8px;justify-content:flex-end}
+.card{background:#fff;border:1px solid var(--line);border-radius:6px;padding:12px 14px}
+.card h4{margin:0 0 6px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;display:flex;justify-content:space-between;align-items:center}
+.card h4 button{font:inherit;text-transform:none;letter-spacing:0;font-size:12px;color:var(--primary);background:none;border:0;cursor:pointer}
+.tg{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-top:1px solid var(--line);gap:12px}
+.card h4+.tg{border-top:0}
+.tg small{display:block;color:var(--muted);font-size:12px}
+.tg.dis{opacity:.5}
+.sw{position:relative;width:34px;height:20px;flex:none}
+.sw input{opacity:0;width:100%;height:100%;position:absolute;inset:0;margin:0;z-index:1}
+.sw span{position:absolute;inset:0;background:var(--line-strong);border-radius:10px;transition:.15s}
+.sw span::after{content:"";position:absolute;width:14px;height:14px;left:3px;top:3px;border-radius:50%;background:#fff;transition:.15s;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.sw input:checked+span{background:var(--primary)}
+.sw input:checked+span::after{left:17px}
+.sw input:disabled+span{opacity:.5}
+.presets{display:flex;gap:6px;flex-wrap:wrap}
+.presets button{font:inherit;font-size:12.5px;border:1px solid var(--line-strong);background:#fff;border-radius:14px;padding:3px 10px;cursor:pointer;color:var(--fg)}
+.presets button.on{background:var(--primary-tint);border-color:var(--primary);color:var(--primary);font-weight:500}
+
+/* C: transposed + presets */
+.tx-wrap{border:1px solid var(--line);border-radius:6px;overflow-x:auto}
+table.tx{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
+.tx th,.tx td{border-bottom:1px solid var(--line);padding:8px 12px;text-align:center}
+.tx thead th{background:var(--surface-2);vertical-align:bottom;min-width:120px}
+.tx thead th .rh{display:flex;flex-direction:column;align-items:center;gap:4px}
+.tx thead th b{font-weight:500;font-size:13px}
+.tx .pcol{position:sticky;left:0;background:#fff;text-align:left;min-width:210px;border-right:1px solid var(--line);z-index:1}
+.tx thead .pcol{background:var(--surface-2);font-size:12px;color:var(--muted);font-weight:500}
+.tx tr.lvl td{background:var(--primary-tint-2)}
+.tx tr.lvl .pcol{background:#f2f7fc;font-weight:500}
+.tx tr.lvl select{width:100%;min-width:110px}
+.tx tr.sec td{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;cursor:pointer;user-select:none;background:#fff}
+.tx tr.sec td .material-icons{font-size:18px;transition:transform .15s}
+.tx tr.sec.closed td .material-icons{transform:rotate(-90deg)}
+.tx tr.sec td .cnt{text-transform:none;letter-spacing:0;font-weight:400;margin-left:6px}
+.tx .pcol small{display:block;color:var(--muted);font-size:12px;font-weight:400}
+.tx tr.perm.hidden{display:none}
+.tx th.addcol{min-width:60px}
+.custom-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--warn);margin-left:4px;vertical-align:middle}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Roles and permissions: three layouts</h1>
+  <p class="lede">Form builder › Settings › Roles and permissions. Today it is one wide table: 13 unlabelled checkbox columns, a "select all" row with no label, and roles added from a multi-select above. Each option below works on the same fictional roles. The ticks work so you can try them.</p>
+
+  <div class="switch" role="tablist">
+    <button role="tab" aria-selected="true" data-opt="a"><span class="tag">Option 1</span> Grouped matrix</button>
+    <button role="tab" aria-selected="false" data-opt="b"><span class="tag">Option 2</span> Role list + panel</button>
+    <button role="tab" aria-selected="false" data-opt="c"><span class="tag">Option 3</span> Access levels per role</button>
+  </div>
+
+  <!-- OPTION 1 -->
+  <div class="option" id="opt-a">
+    <div class="screen">
+      <div class="head">
+        <div><h2 class="title">Roles and permissions</h2><p class="sub">What each role can do with records in this application.</p></div>
+        <div class="toolbar">
+          <div class="search"><span class="material-icons">search</span><input placeholder="Search roles" id="a-search"></div>
+          <button class="btn"><span class="material-icons">add</span>Add role</button>
+        </div>
+      </div>
+      <div class="mx-wrap"><table class="mx" id="a-table"></table></div>
+      <div class="legend"><span><span class="chip chip--default">Default</span> built-in role</span><span><span class="chip chip--task">Task</span> from a workflow step</span><span><span class="na">—</span> not available for this role</span></div>
+    </div>
+    <aside class="notes">
+      <h2>Grouped matrix</h2>
+      <p>Keeps today's table, but makes it readable.</p>
+      <h4>What changes</h4>
+      <ul>
+        <li>Columns are grouped: Records, Lifecycle, Output and Social.</li>
+        <li>Roles are grouped by type: Default, Custom, then Workflow tasks.</li>
+        <li>The "all roles" row is labelled, and the role column stays put when you scroll sideways.</li>
+        <li>Hovering a cell highlights its column.</li>
+        <li>Permissions a role can't have show a dash, not a greyed tick.</li>
+        <li>"Add role" opens a picker; each row's ⋮ removes the role.</li>
+      </ul>
+      <h4>Good for</h4>
+      <ul><li>Comparing roles at a glance.</li><li>Smallest change to build.</li></ul>
+      <h4>Watch out</h4>
+      <ul><li>Still wide; on a laptop it scrolls sideways.</li></ul>
+    </aside>
+  </div>
+
+  <!-- OPTION 2 -->
+  <div class="option" id="opt-b" hidden>
+    <div class="screen" style="min-height:620px">
+      <div class="head">
+        <div><h2 class="title">Roles and permissions</h2><p class="sub">Select a role to see and change what it can do.</p></div>
+        <div class="toolbar"><button class="btn"><span class="material-icons">add</span>Add role</button></div>
+      </div>
+      <div class="rl"><table><thead><tr><th>Role</th><th>Type</th><th>Access</th><th>Permissions</th></tr></thead><tbody id="b-list"></tbody></table></div>
+      <div class="panel" id="b-panel" role="dialog" aria-modal="true" aria-labelledby="b-title">
+        <div class="panel__head"><span class="tile" id="b-tile"><span class="material-icons">badge</span></span>
+          <div style="flex:1"><h3 id="b-title">Role</h3><p id="b-desc"></p></div>
+          <button class="iconbtn" id="b-close" aria-label="Close"><span class="material-icons">close</span></button></div>
+        <div class="panel__body" id="b-body"></div>
+        <div class="panel__foot"><button class="btn btn--text" style="margin-right:auto;color:#b3261e">Remove role</button><button class="btn btn--stroked" id="b-cancel">Cancel</button><button class="btn" id="b-save">Save</button></div>
+      </div>
+    </div>
+    <aside class="notes">
+      <h2>Role list + panel</h2>
+      <p>The same pattern as Features, Other settings and Users.</p>
+      <h4>What changes</h4>
+      <ul>
+        <li>Each role is a row showing its access level and how many permissions it has.</li>
+        <li>Selecting a role opens a panel with switches grouped into cards, each with a short explanation.</li>
+        <li>Quick presets set the switches in one click: Read only, Contributor, Manager.</li>
+        <li>Rules are explained in place, e.g. "Workflow task roles can't add records".</li>
+      </ul>
+      <h4>Good for</h4>
+      <ul><li>Consistency with the rest of the console.</li><li>Room to explain each permission.</li><li>Works on narrow screens.</li></ul>
+      <h4>Watch out</h4>
+      <ul><li>Comparing two roles means opening each one.</li></ul>
+    </aside>
+  </div>
+
+  <!-- OPTION 3 -->
+  <div class="option" id="opt-c" hidden>
+    <div class="screen">
+      <div class="head">
+        <div><h2 class="title">Roles and permissions</h2><p class="sub">Pick an access level for each role, then fine-tune individual permissions if you need to.</p></div>
+        <div class="toolbar"><button class="btn btn--stroked" id="c-expand"><span class="material-icons">unfold_more</span>Expand all</button><button class="btn"><span class="material-icons">add</span>Add role</button></div>
+      </div>
+      <div class="tx-wrap"><table class="tx" id="c-table"></table></div>
+      <div class="legend"><span><span class="custom-dot"></span> changed from the preset (shows as Custom)</span><span><span class="na">—</span> not available for this role</span></div>
+    </div>
+    <aside class="notes">
+      <h2>Access levels per role</h2>
+      <p>Turns the table round: roles across the top, permissions down the side.</p>
+      <h4>What changes</h4>
+      <ul>
+        <li>There are usually far fewer roles than permissions, so the table fits the width.</li>
+        <li>The first row sets an access level per role: None, Read only, Contributor, Manager or Custom.</li>
+        <li>Permission groups fold away; their header shows a count for each role.</li>
+        <li>Changing a single tick switches that role to Custom.</li>
+        <li>Each permission has a one-line description.</li>
+      </ul>
+      <h4>Good for</h4>
+      <ul><li>Fast set-up: most apps only need the level row.</li><li>Comparing roles side by side.</li></ul>
+      <h4>Watch out</h4>
+      <ul><li>Needs agreed preset definitions; the backend still stores individual ticks, so no API change.</li></ul>
+      <div class="rec"><b>Suggestion:</b> Option 3 if admins mostly set up new apps; Option 2 if you want it to match the rest of the console.</div>
+    </aside>
+  </div>
+</div>
+
+<script>
+const GROUPS=[
+  {name:'Records',perms:[['View','View','See records in the application'],['Submit','Add','Create new records'],['Edit','Edit','Change existing records'],['Delete','Delete','Remove records permanently']]},
+  {name:'Lifecycle',perms:[['Archive','Archive','Move records out of active lists'],['Close','Close','Mark records as finished'],['UpdateStatus','Update status','Change a record’s workflow status']]},
+  {name:'Output',perms:[['PrintDownload','Print/Download','Print or download a record'],['Export','Export','Export lists to a file'],['Share','Share','Send a link to other people']]},
+  {name:'Social',perms:[['Like','Like','Like records'],['Follow','Follow','Get updates when a record changes'],['MarkInappropriate','Mark inappropriate','Flag a record for review']]}
+];
+const ALL=GROUPS.flatMap(g=>g.perms.map(p=>p[0]));
+const PRESETS={
+  none:[],
+  read:['View','PrintDownload','Follow'],
+  contrib:['View','Submit','Edit','PrintDownload','Share','Like','Follow','MarkInappropriate'],
+  manager:ALL.slice()
+};
+const PRESET_LABEL={none:'None',read:'Read only',contrib:'Contributor',manager:'Manager',custom:'Custom'};
+const TYPE={Default:'Default',Custom:'Custom',Task:'Task'};
+const roles=[
+  {name:'Creator',type:'Default',desc:'The person who added the record'},
+  {name:'Team member',type:'Default',desc:'Everyone in the record’s team'},
+  {name:'Everyone',type:'Default',desc:'All signed-in users'},
+  {name:'Site manager',type:'Custom',desc:'Organisation role'},
+  {name:'Finance reviewer',type:'Custom',desc:'Organisation role'},
+  {name:'Approve request',type:'Task',desc:'Workflow step: person assigned to approve'},
+  {name:'Check budget',type:'Task',desc:'Workflow step: person assigned to check'}
+];
+const start={'Creator':'contrib','Team member':'read','Everyone':'none','Site manager':'manager','Finance reviewer':'read','Approve request':'contrib','Check budget':'read'};
+roles.forEach(r=>{r.p={};ALL.forEach(k=>r.p[k]=PRESETS[start[r.name]].includes(k)&&allowed(r,k));if(r.name==='Finance reviewer')r.p.Export=true;});
+function allowed(r,k){if(k==='Submit'&&(r.type==='Task'||['Creator','Team member'].includes(r.name)))return false;return true;}
+function locked(r,k){return k==='View'&&r.type==='Task';}
+function count(r){return ALL.filter(k=>r.p[k]).length}
+function avail(r){return ALL.filter(k=>allowed(r,k)).length}
+function levelOf(r){for(const lv of ['none','read','contrib','manager']){if(ALL.every(k=>!allowed(r,k)||r.p[k]===PRESETS[lv].includes(k)))return lv}return 'custom'}
+function setPreset(r,lv){ALL.forEach(k=>{if(allowed(r,k)&&!locked(r,k))r.p[k]=PRESETS[lv].includes(k)});if(r.type==='Task')r.p.View=true;}
+function chip(t){return `<span class="chip ${t==='Task'?'chip--task':t==='Default'?'chip--default':''}">${t}</span>`}
+function rerender(){renderA();renderB();renderC();}
+
+/* ---------- A ---------- */
+let aQuery='';
+function renderA(){
+  const t=document.getElementById('a-table');let h='<thead><tr class="grp"><th class="rcol" rowspan="2" style="vertical-align:bottom">Role</th>';
+  GROUPS.forEach(g=>h+=`<th colspan="${g.perms.length}">${g.name}</th>`);h+='<th rowspan="2"></th></tr><tr>';
+  let ci=0;GROUPS.forEach(g=>g.perms.forEach((p,i)=>h+=`<th data-c="${ci++}" class="${i===0?'gstart':''}">${p[1]}</th>`));h+='</tr></thead><tbody>';
+  h+='<tr class="all"><td class="rcol">All roles</td>';ci=0;
+  GROUPS.forEach(g=>g.perms.forEach((p,i)=>{const rs=roles.filter(r=>allowed(r,p[0]));const on=rs.filter(r=>r.p[p[0]]).length;h+=`<td data-c="${ci++}" class="${i===0?'gstart':''}"><input type="checkbox" aria-label="${p[1]} for all roles" data-all="${p[0]}" ${on===rs.length?'checked':''} ${on>0&&on<rs.length?'data-ind="1"':''}></td>`}));h+='<td></td></tr>';
+  ['Default','Custom','Task'].forEach(type=>{
+    const rs=roles.filter(r=>r.type===type&&r.name.toLowerCase().includes(aQuery));if(!rs.length)return;
+    h+=`<tr class="sec"><td class="rcol" colspan="${ALL.length+2}" style="position:static">${type==='Task'?'Workflow tasks':type+' roles'}</td></tr>`;
+    rs.forEach(r=>{const ri=roles.indexOf(r);h+=`<tr><td class="rcol"><div class="rname"><span><b>${r.name}</b></span>${chip(r.type)}</div></td>`;ci=0;
+      GROUPS.forEach(g=>g.perms.forEach((p,i)=>{const k=p[0];h+=`<td data-c="${ci++}" class="${i===0?'gstart':''}">${allowed(r,k)?`<input type="checkbox" aria-label="${p[1]} for ${r.name}" data-r="${ri}" data-k="${k}" ${r.p[k]?'checked':''} ${locked(r,k)?'disabled title="Task roles always see the record"':''}>`:'<span class="na" title="Not available for this role">—</span>'}</td>`}));
+      h+=`<td><button class="iconbtn" aria-label="More for ${r.name}"><span class="material-icons">more_vert</span></button></td></tr>`});
+  });
+  t.innerHTML=h+'</tbody>';
+  t.querySelectorAll('[data-ind]').forEach(e=>e.indeterminate=true);
+  t.querySelectorAll('input[data-k]').forEach(e=>e.onchange=()=>{roles[e.dataset.r].p[e.dataset.k]=e.checked;rerender()});
+  t.querySelectorAll('input[data-all]').forEach(e=>e.onchange=()=>{roles.forEach(r=>{if(allowed(r,e.dataset.all)&&!locked(r,e.dataset.all))r.p[e.dataset.all]=e.checked});rerender()});
+  t.querySelectorAll('[data-c]').forEach(c=>{c.onmouseenter=()=>t.querySelectorAll(`[data-c="${c.dataset.c}"]`).forEach(x=>x.classList.add('col-hl'));c.onmouseleave=()=>t.querySelectorAll('.col-hl').forEach(x=>x.classList.remove('col-hl'))});
+}
+document.getElementById('a-search').oninput=e=>{aQuery=e.target.value.toLowerCase();renderA()};
+
+/* ---------- B ---------- */
+let bSel=null,bDraft=null;
+function renderB(){
+  const tb=document.getElementById('b-list');
+  tb.innerHTML=roles.map((r,i)=>{const n=count(r),a=avail(r);let m='';for(let j=0;j<a;j++)m+=`<i class="${j<n?'on':''}"></i>`;
+    return `<tr data-i="${i}" class="${bSel===i?'sel':''}"><td><div class="who"><span class="tile ${r.type==='Task'?'tile--task':''}"><span class="material-icons">${r.type==='Task'?'task_alt':r.type==='Default'?'groups':'badge'}</span></span><div><b>${r.name}</b><small>${r.desc}</small></div></div></td><td>${chip(r.type)}</td><td>${PRESET_LABEL[levelOf(r)]}</td><td><div style="display:flex;gap:10px;align-items:center"><div class="meter">${m}</div><span style="color:var(--muted);font-size:12px">${n} of ${a}</span></div></td></tr>`}).join('');
+  tb.querySelectorAll('tr').forEach(tr=>tr.onclick=()=>openB(+tr.dataset.i));
+}
+function openB(i){bSel=i;const r=roles[i];bDraft={...r,p:{...r.p}};
+  document.getElementById('b-title').textContent=r.name;document.getElementById('b-desc').textContent=r.desc;
+  document.getElementById('b-tile').className='tile '+(r.type==='Task'?'tile--task':'');
+  document.getElementById('b-tile').innerHTML=`<span class="material-icons">${r.type==='Task'?'task_alt':r.type==='Default'?'groups':'badge'}</span>`;
+  drawB();document.getElementById('b-panel').classList.add('open');renderB();}
+function drawB(){const r=bDraft,lv=levelOf(r);
+  let h=`<div class="card"><h4>Access level</h4><div class="presets">${['read','contrib','manager'].map(p=>`<button data-p="${p}" class="${lv===p?'on':''}">${PRESET_LABEL[p]}</button>`).join('')}${lv==='custom'||lv==='none'?`<button class="on" disabled>${PRESET_LABEL[lv]}</button>`:''}</div></div>`;
+  GROUPS.forEach(g=>{const ks=g.perms.filter(p=>allowed(r,p[0]));h+=`<div class="card"><h4>${g.name}<button data-g="${g.name}">${ks.every(p=>r.p[p[0]])?'Turn all off':'Turn all on'}</button></h4>`;
+    g.perms.forEach(p=>{const k=p[0],ok=allowed(r,k),lk=locked(r,k);const why=!ok?(r.type==='Task'?'Workflow task roles can’t add records':'This role already owns or belongs to the record'):lk?'Task roles always see the record they’re assigned':p[2];
+      h+=`<label class="tg ${ok?'':'dis'}"><span>${p[1]}<small>${why}</small></span><span class="sw"><input type="checkbox" data-k="${k}" ${r.p[k]&&ok?'checked':''} ${!ok||lk?'disabled':''}><span></span></span></label>`});h+='</div>'});
+  const b=document.getElementById('b-body');b.innerHTML=h;
+  b.querySelectorAll('[data-p]').forEach(e=>e.onclick=()=>{setPreset(bDraft,e.dataset.p);drawB()});
+  b.querySelectorAll('input[data-k]').forEach(e=>e.onchange=()=>{bDraft.p[e.dataset.k]=e.checked;drawB()});
+  b.querySelectorAll('[data-g]').forEach(e=>e.onclick=()=>{const g=GROUPS.find(x=>x.name===e.dataset.g);const on=!g.perms.filter(p=>allowed(bDraft,p[0])).every(p=>bDraft.p[p[0]]);g.perms.forEach(p=>{if(allowed(bDraft,p[0])&&!locked(bDraft,p[0]))bDraft.p[p[0]]=on});drawB()});
+}
+function closeB(){document.getElementById('b-panel').classList.remove('open');bSel=null;renderB()}
+document.getElementById('b-close').onclick=closeB;document.getElementById('b-cancel').onclick=closeB;
+document.getElementById('b-save').onclick=()=>{roles[bSel].p=bDraft.p;closeB();rerender()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&bSel!==null)closeB()});
+
+/* ---------- C ---------- */
+const cOpen=new Set();
+function renderC(){
+  const t=document.getElementById('c-table');let h='<thead><tr><th class="pcol">Permission</th>';
+  roles.forEach(r=>h+=`<th><div class="rh"><b>${r.name}</b>${chip(r.type)}</div></th>`);h+='</tr></thead><tbody>';
+  h+='<tr class="lvl"><td class="pcol">Access level</td>';
+  roles.forEach((r,i)=>{const lv=levelOf(r);h+=`<td><select data-r="${i}" aria-label="Access level for ${r.name}">${['none','read','contrib','manager'].map(p=>`<option value="${p}" ${lv===p?'selected':''}>${PRESET_LABEL[p]}</option>`).join('')}${lv==='custom'?'<option value="custom" selected>Custom</option>':''}</select></td>`});h+='</tr>';
+  GROUPS.forEach(g=>{const open=cOpen.has(g.name);
+    h+=`<tr class="sec ${open?'':'closed'}" data-g="${g.name}"><td class="pcol"><span class="material-icons">expand_more</span> ${g.name}</td>`;
+    roles.forEach(r=>{const ks=g.perms.filter(p=>allowed(r,p[0]));const on=ks.filter(p=>r.p[p[0]]).length;h+=`<td style="text-align:center;text-transform:none;letter-spacing:0;font-weight:400">${on} / ${ks.length}</td>`});h+='</tr>';
+    g.perms.forEach(p=>{const k=p[0];h+=`<tr class="perm ${open?'':'hidden'}"><td class="pcol">${p[1]}<small>${p[2]}</small></td>`;
+      roles.forEach((r,i)=>{const lv=levelOf(r);const diff=lv==='custom';h+=`<td>${allowed(r,k)?`<input type="checkbox" aria-label="${p[1]} for ${r.name}" data-r="${i}" data-k="${k}" ${r.p[k]?'checked':''} ${locked(r,k)?'disabled title="Task roles always see the record"':''}>`:'<span class="na">—</span>'}</td>`});h+='</tr>'});
+  });
+  t.innerHTML=h+'</tbody>';
+  t.querySelectorAll('select').forEach(s=>s.onchange=()=>{if(s.value!=='custom')setPreset(roles[s.dataset.r],s.value);rerender()});
+  t.querySelectorAll('input[data-k]').forEach(e=>e.onchange=()=>{roles[e.dataset.r].p[e.dataset.k]=e.checked;rerender()});
+  t.querySelectorAll('tr.sec').forEach(tr=>tr.onclick=()=>{const g=tr.dataset.g;cOpen.has(g)?cOpen.delete(g):cOpen.add(g);renderC()});
+  // dot on custom roles
+  t.querySelectorAll('thead th').forEach((th,i)=>{if(i>0&&levelOf(roles[i-1])==='custom')th.querySelector('b').insertAdjacentHTML('beforeend','<span class="custom-dot" title="Custom"></span>')});
+  document.getElementById('c-expand').innerHTML=cOpen.size===GROUPS.length?'<span class="material-icons">unfold_less</span>Collapse all':'<span class="material-icons">unfold_more</span>Expand all';
+}
+document.getElementById('c-expand').onclick=()=>{if(cOpen.size===GROUPS.length)cOpen.clear();else GROUPS.forEach(g=>cOpen.add(g.name));renderC()};
+cOpen.add('Records');
+
+document.querySelectorAll('.switch button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.switch button').forEach(x=>x.setAttribute('aria-selected',x===b));['a','b','c'].forEach(o=>document.getElementById('opt-'+o).hidden=o!==b.dataset.opt)});
+rerender();
+</script>
+</body>
+</html>

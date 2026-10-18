@@ -1,0 +1,339 @@
+<title>Table Action Patterns</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400&family=Material+Icons&display=swap">
+<style>
+/* Layout: prototype board — option switcher, then one live Users table per option with notes beside it. Tokens follow the Aapli admin design system. */
+:root{
+  --bg:#f4f6f9; --surface:#ffffff; --surface-2:#f8f8f8; --line:#e2e6ec; --line-strong:#cfd5dd;
+  --fg:#2b2f36; --muted:#5f6670; --placeholder:#8a919b;
+  --primary:#0062b5; --primary-hover:#00539a; --primary-tint:rgba(0,98,181,.1); --primary-rgb:0,98,181; --on-primary:#fff;
+  --ok:#2e7d32; --ok-tint:rgba(46,125,50,.1); --danger:#c62828; --danger-tint:rgba(198,40,40,.08); --warn:#8a5300; --warn-tint:rgba(237,160,0,.14);
+  --scrim:rgba(15,27,42,.32); --shadow:rgba(15,27,42,.14);
+  --f-ui:"Roboto",system-ui,-apple-system,"Segoe UI",sans-serif; --f-mono:"Roboto Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12161c; --surface:#1a2028; --surface-2:#212833; --line:#2e3744; --line-strong:#3b4656; --fg:#e4e8ee; --muted:#9aa4b1; --placeholder:#76808d;
+  --primary:#5aa9ec; --primary-hover:#7dbcf1; --primary-tint:rgba(90,169,236,.14); --primary-rgb:90,169,236; --on-primary:#0b121b;
+  --ok:#81c784; --ok-tint:rgba(129,199,132,.14); --danger:#ef7a7a; --danger-tint:rgba(239,122,122,.12); --warn:#f0b450; --warn-tint:rgba(240,180,80,.14);
+  --scrim:rgba(0,0,0,.5); --shadow:rgba(0,0,0,.4); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12161c; --surface:#1a2028; --surface-2:#212833; --line:#2e3744; --line-strong:#3b4656; --fg:#e4e8ee; --muted:#9aa4b1; --placeholder:#76808d;
+  --primary:#5aa9ec; --primary-hover:#7dbcf1; --primary-tint:rgba(90,169,236,.14); --primary-rgb:90,169,236; --on-primary:#0b121b;
+  --ok:#81c784; --ok-tint:rgba(129,199,132,.14); --danger:#ef7a7a; --danger-tint:rgba(239,122,122,.12); --warn:#f0b450; --warn-tint:rgba(240,180,80,.14);
+  --scrim:rgba(0,0,0,.5); --shadow:rgba(0,0,0,.4); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-ui);font-size:14px;line-height:1.5}
+.material-icons{font-size:20px;line-height:1;vertical-align:middle;font-family:"Material Icons";font-weight:normal;font-style:normal;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;-webkit-font-feature-settings:"liga";font-feature-settings:"liga"}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 48px}
+h1{font-size:22px;font-weight:500;margin:0 0 6px;text-wrap:balance}
+.lede{color:var(--muted);margin:0 0 22px;max-width:70ch}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--primary);outline-offset:1px}
+
+/* option switcher */
+.switch{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:20px;overflow-x:auto}
+.switch button{background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:12px 14px;color:var(--muted);display:flex;gap:8px;align-items:center;white-space:nowrap}
+.switch button[aria-selected="true"]{color:var(--primary);border-bottom-color:var(--primary);font-weight:500}
+.switch .tag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:0 7px;color:var(--muted)}
+.switch button[aria-selected="true"] .tag{background:var(--primary-tint);border-color:transparent;color:var(--primary)}
+
+.option{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start}
+@media (max-width:1000px){.option{grid-template-columns:minmax(0,1fr)}}
+
+/* mock screen */
+.screen{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:24px 28px;position:relative;overflow:hidden;min-width:0;min-height:560px}
+@media (max-width:600px){.screen{padding:18px 14px}}
+.title{font-size:17px;font-weight:500;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 16px;max-width:62ch}
+.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px;min-height:36px}
+.search{position:relative;flex:0 1 280px;margin-right:auto}
+.search .material-icons{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.search input{width:100%;font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:7px 9px 7px 34px}
+.btn{border-radius:4px;border:1px solid transparent;padding:7px 14px;display:inline-flex;align-items:center;gap:6px;font-weight:500;background:transparent;color:var(--fg);white-space:nowrap;min-height:34px}
+.btn-primary{background:var(--primary);color:var(--on-primary)}
+.btn-primary:hover{background:var(--primary-hover)}
+.btn-stroked{border-color:var(--line);color:var(--primary);background:var(--surface)}
+.btn-stroked:hover{border-color:var(--line-strong)}
+.btn-text{color:var(--primary);padding:4px 8px;min-height:28px}
+.btn-text:hover{background:var(--primary-tint)}
+.btn-danger{color:var(--danger)}
+.btn-danger:hover{background:var(--danger-tint)}
+.icon-btn{width:32px;height:32px;padding:0;justify-content:center;color:var(--muted);border-radius:4px;border:0;background:none;display:inline-flex;align-items:center}
+.icon-btn:hover,.icon-btn[aria-expanded="true"]{background:var(--surface-2);color:var(--fg)}
+
+.tbl-wrap{border:1px solid var(--line);border-radius:4px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;padding:10px 12px;background:var(--surface-2);border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:rgba(var(--primary-rgb),.025)}
+tr.is-selected td{background:var(--primary-tint)!important}
+.col-check{width:44px}
+.col-actions{text-align:right;white-space:nowrap}
+.person{display:flex;gap:10px;align-items:center;min-width:0}
+.avatar{width:30px;height:30px;border-radius:50%;background:var(--primary-tint);color:var(--primary);display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex:none}
+.person b{font-weight:500;display:block}
+.person small{color:var(--muted);font-size:12px}
+.mono{font-family:var(--f-mono);font-size:12.5px}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;border-radius:10px;padding:1px 9px;white-space:nowrap}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.chip.active{color:var(--ok);background:var(--ok-tint)}
+.chip.suspended{color:var(--danger);background:var(--danger-tint)}
+.chip.invited{color:var(--warn);background:var(--warn-tint)}
+input[type=checkbox]{width:16px;height:16px;accent-color:var(--primary);vertical-align:middle}
+.row-link{background:none;border:0;padding:0;text-align:left;color:inherit;cursor:pointer}
+.row-link:hover b{color:var(--primary);text-decoration:underline}
+.chev{color:var(--muted)}
+.count{font-size:12px;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px;color:var(--muted);font-size:12px;flex-wrap:wrap;gap:8px}
+
+/* bulk bar */
+.bulk{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--primary-tint);border-radius:4px;padding:4px 6px 4px 12px;width:100%}
+.bulk strong{font-weight:500;color:var(--primary);margin-right:auto}
+
+/* menu */
+.menu{position:absolute;z-index:20;min-width:200px;background:var(--surface);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 24px var(--shadow);padding:6px 0}
+.menu button{display:flex;align-items:center;gap:10px;width:100%;padding:8px 14px;border:0;background:none;color:var(--fg);text-align:left}
+.menu button:hover,.menu button:focus-visible{background:var(--surface-2)}
+.menu .danger{color:var(--danger)}
+.menu hr{border:0;border-top:1px solid var(--line);margin:6px 0}
+
+/* panel */
+.scrim{position:absolute;inset:0;background:var(--scrim)}
+.panel{position:absolute;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--surface);border-left:1px solid var(--line);box-shadow:-8px 0 24px var(--shadow);display:flex;flex-direction:column}
+.panel header{display:flex;justify-content:space-between;align-items:flex-start;padding:22px 20px 10px 24px;gap:12px}
+.panel h3{font-size:20px;font-weight:500;margin:2px 0 2px}
+.panel .body{padding:0 24px 20px;overflow-y:auto;flex:1}
+.panel dl{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;margin:14px 0 18px}
+.panel dt{font-size:12px;color:var(--muted)}
+.panel dd{margin:0}
+.panel .acts{display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--line);padding-top:12px}
+.panel .acts .btn{justify-content:flex-start}
+.panel .acts-h{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 6px}
+.panel footer{display:flex;gap:10px;padding:14px 24px;border-top:1px solid var(--line)}
+
+.toast{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:9px 14px;border-radius:4px;display:flex;gap:8px;align-items:center;font-size:13px;white-space:nowrap}
+
+/* notes */
+.notes{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px}
+.notes h2{font-size:16px;font-weight:500;margin:0 0 4px}
+.notes .verdict{color:var(--muted);margin:0 0 14px}
+.notes h4{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:14px 0 6px}
+.notes ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+.notes .rec{margin-top:16px;border-top:1px solid var(--line);padding-top:12px;font-size:13px}
+.notes .rec b{color:var(--primary);font-weight:500}
+.try{font-size:12.5px;color:var(--muted);margin:0 0 12px;display:flex;gap:6px;align-items:center}
+@media (prefers-reduced-motion:no-preference){.panel{animation:slide .18s cubic-bezier(.2,0,0,1)}@keyframes slide{from{transform:translateX(20px);opacity:0}}}
+</style>
+
+<div class="wrap">
+  <h1>Table actions: three options</h1>
+  <p class="lede">The same People › Users table, built three ways so the row actions are always visible or always one predictable click away, instead of appearing on hover. Each table works: select rows, open menus and panels. The data is made up.</p>
+
+  <div class="switch" role="tablist" aria-label="Options">
+    <button role="tab" id="tab-a" aria-selected="true" aria-controls="opt-a" data-opt="a"><span class="tag">A</span>Row menu</button>
+    <button role="tab" id="tab-b" aria-selected="false" aria-controls="opt-b" data-opt="b"><span class="tag">B</span>Open in panel</button>
+    <button role="tab" id="tab-c" aria-selected="false" aria-controls="opt-c" data-opt="c"><span class="tag">C</span>Visible actions</button>
+  </div>
+
+  <!-- Option A -->
+  <section class="option" id="opt-a" role="tabpanel" aria-labelledby="tab-a">
+    <div class="screen" data-kind="a">
+      <p class="try"><span class="material-icons" style="font-size:16px">touch_app</span>Try: tick a few rows, or open a ⋮ menu.</p>
+      <h3 class="title">Users</h3>
+      <p class="sub">Add users and manage their roles and privileges.</p>
+      <div class="toolbar" data-toolbar></div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th class="col-check"><input type="checkbox" aria-label="Select all users" data-all></th><th>Name</th><th>Role</th><th>Status</th><th>Last sign-in</th><th class="col-actions"><span class="sr" style="position:absolute;left:-9999px">Actions</span></th></tr></thead>
+        <tbody data-body></tbody>
+      </table></div>
+      <div class="foot"><span data-range></span><span>Rows per page: 20</span></div>
+    </div>
+    <aside class="notes">
+      <h2>A · Row menu</h2>
+      <p class="verdict">A ⋮ button is always on every row. Selecting rows swaps the toolbar for bulk actions.</p>
+      <h4>Good for</h4>
+      <ul><li>Tables with many actions per row (Users has 6)</li><li>Dense lists admins scan, then act on one row</li><li>Bulk work: suspend or export 30 people at once</li></ul>
+      <h4>Trade-offs</h4>
+      <ul><li>Every action is two clicks</li><li>Actions are hidden until the menu opens, so new admins discover them by trying</li></ul>
+      <h4>Rules it would add</h4>
+      <ul><li>⋮ always visible, 32px, with the aria-label "Actions for {name}"</li><li>Destructive items last, in red, after a divider, then a confirmation step</li><li>Checkbox column only where bulk actions exist</li></ul>
+      <p class="rec"><b>Recommended default</b> for most admin tables (Users, Roles, Cards, Announcements).</p>
+    </aside>
+  </section>
+
+  <!-- Option B -->
+  <section class="option" id="opt-b" role="tabpanel" aria-labelledby="tab-b" hidden>
+    <div class="screen" data-kind="b">
+      <p class="try"><span class="material-icons" style="font-size:16px">touch_app</span>Try: select a name to open its panel.</p>
+      <h3 class="title">Users</h3>
+      <p class="sub">Add users and manage their roles and privileges.</p>
+      <div class="toolbar" data-toolbar></div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th class="col-check"><input type="checkbox" aria-label="Select all users" data-all></th><th>Name</th><th>Role</th><th>Status</th><th>Last sign-in</th><th class="col-actions"></th></tr></thead>
+        <tbody data-body></tbody>
+      </table></div>
+      <div class="foot"><span data-range></span><span>Rows per page: 20</span></div>
+    </div>
+    <aside class="notes">
+      <h2>B · Open in panel</h2>
+      <p class="verdict">The row has no buttons. Selecting it opens a right-hand panel with the details and every action, the same pattern as Features and Settings.</p>
+      <h4>Good for</h4>
+      <ul><li>Records where people look before they act (Failed submissions, Email logs, Import history)</li><li>Keeping the table calm and readable</li><li>Consistency with the panels already in the admin</li></ul>
+      <h4>Trade-offs</h4>
+      <ul><li>Quick, repeated actions (reset password for five people) take more clicks</li><li>The panel covers part of the table</li></ul>
+      <h4>Rules it would add</h4>
+      <ul><li>The name is a link-styled button; the row shows a › so it reads as openable</li><li>Panel lists actions in a column, with destructive ones last</li><li>Bulk actions still come from row selection</li></ul>
+      <p class="rec"><b>Recommended</b> for read-first records and anywhere a row has more detail than the table can show.</p>
+    </aside>
+  </section>
+
+  <!-- Option C -->
+  <section class="option" id="opt-c" role="tabpanel" aria-labelledby="tab-c" hidden>
+    <div class="screen" data-kind="c">
+      <p class="try"><span class="material-icons" style="font-size:16px">touch_app</span>Try: use Edit or Reset password, or ⋮ for the rest.</p>
+      <h3 class="title">Users</h3>
+      <p class="sub">Add users and manage their roles and privileges.</p>
+      <div class="toolbar" data-toolbar></div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Name</th><th>Role</th><th>Status</th><th>Last sign-in</th><th class="col-actions">Actions</th></tr></thead>
+        <tbody data-body></tbody>
+      </table></div>
+      <div class="foot"><span data-range></span><span>Rows per page: 20</span></div>
+    </div>
+    <aside class="notes">
+      <h2>C · Visible actions</h2>
+      <p class="verdict">The one or two most used actions are text buttons on every row; everything else sits in ⋮.</p>
+      <h4>Good for</h4>
+      <ul><li>Tables where one action dominates (Edit, Resubmit, Download)</li><li>Admins who repeat the same action down a list</li></ul>
+      <h4>Trade-offs</h4>
+      <ul><li>Busier rows; the action column needs about 220px</li><li>Choosing which actions get promoted is a product decision per table</li><li>No bulk selection in this version</li></ul>
+      <h4>Rules it would add</h4>
+      <ul><li>At most two visible actions, as text buttons, never icons alone</li><li>Never a destructive action as a visible button</li><li>Same action order on every row</li></ul>
+      <p class="rec"><b>Use selectively</b> on tables built around one repeated task, e.g. Failed submissions (Resubmit) or Import templates (Download).</p>
+    </aside>
+  </section>
+</div>
+
+<script>
+(function(){
+  var people=[
+    {n:"Alex Morgan",e:"alex.morgan@example.com",r:"Administrator",s:"active",l:"Today, 09:12"},
+    {n:"Priya Natarajan",e:"priya.n@example.com",r:"Contributor",s:"active",l:"Yesterday"},
+    {n:"Jordan Blake",e:"jordan.blake@example.com",r:"Reviewer",s:"invited",l:"Never"},
+    {n:"Sam Okafor",e:"sam.okafor@example.com",r:"Contributor",s:"suspended",l:"02/09/2026"},
+    {n:"Elena Varga",e:"elena.varga@example.com",r:"Points admin",s:"active",l:"13/10/2026"},
+    {n:"Tom Fischer",e:"tom.fischer@example.com",r:"Contributor",s:"active",l:"11/10/2026"},
+    {n:"Mei Lin",e:"mei.lin@example.com",r:"Reviewer",s:"active",l:"08/10/2026"}
+  ];
+  var label={active:"Active",suspended:"Suspended",invited:"Invited"};
+  var menuItems=function(p){return [["edit","Edit details"],["badge","Change role"],["lock_reset","Reset password"],["history","View history"],null,[p.s==="suspended"?"person":"person_off",p.s==="suspended"?"Reactivate":"Suspend",true],["delete_outline","Delete user",true]]};
+  function initials(n){return n.split(" ").map(function(x){return x[0]}).join("")}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+  document.querySelectorAll(".screen").forEach(function(scr){
+    var kind=scr.dataset.kind, body=scr.querySelector("[data-body]"), tb=scr.querySelector("[data-toolbar]"), all=scr.querySelector("[data-all]");
+    var sel=new Set(), menu=null, toastT;
+
+    function person(p,i){
+      var inner='<span class="avatar" aria-hidden="true">'+initials(p.n)+'</span><span><b>'+esc(p.n)+'</b><small>'+esc(p.e)+'</small></span>';
+      return kind==="b" ? '<button class="row-link person" data-open="'+i+'">'+inner+'</button>' : '<div class="person">'+inner+'</div>';
+    }
+    function render(){
+      body.innerHTML=people.map(function(p,i){
+        var check = kind==="c" ? "" : '<td class="col-check"><input type="checkbox" data-sel="'+i+'" aria-label="Select '+esc(p.n)+'" '+(sel.has(i)?"checked":"")+'></td>';
+        var act = kind==="a" ? '<button class="icon-btn" data-menu="'+i+'" aria-haspopup="menu" aria-expanded="false" aria-label="Actions for '+esc(p.n)+'"><span class="material-icons">more_vert</span></button>'
+                : kind==="b" ? '<span class="material-icons chev" aria-hidden="true">chevron_right</span>'
+                : '<button class="btn btn-text" data-quick="Edit details" data-i="'+i+'">Edit</button><button class="btn btn-text" data-quick="Password reset email sent to" data-i="'+i+'">Reset password</button><button class="icon-btn" data-menu="'+i+'" aria-haspopup="menu" aria-expanded="false" aria-label="More actions for '+esc(p.n)+'"><span class="material-icons">more_vert</span></button>';
+        return '<tr class="'+(sel.has(i)?"is-selected":"")+'" '+(kind==="b"?'data-row="'+i+'" style="cursor:pointer"':'')+'>'+check+'<td>'+person(p,i)+'</td><td>'+esc(p.r)+'</td><td><span class="chip '+p.s+'">'+label[p.s]+'</span></td><td class="mono">'+esc(p.l)+'</td><td class="col-actions">'+act+'</td></tr>';
+      }).join("");
+      scr.querySelector("[data-range]").textContent="1–"+people.length+" of 1,248 users";
+      if(all){all.checked=sel.size===people.length;all.indeterminate=sel.size>0&&sel.size<people.length;}
+      toolbar();
+    }
+    function toolbar(){
+      if(sel.size){
+        tb.innerHTML='<div class="bulk" role="region" aria-label="Bulk actions"><strong>'+sel.size+' selected</strong><button class="btn btn-text" data-bulk="Exported"><span class="material-icons">download</span>Export</button><button class="btn btn-text" data-bulk="Role changed for"><span class="material-icons">badge</span>Change role</button><button class="btn btn-text btn-danger" data-bulk="Suspended"><span class="material-icons">person_off</span>Suspend</button><button class="icon-btn" data-clear aria-label="Clear selection"><span class="material-icons">close</span></button></div>';
+      } else {
+        tb.innerHTML='<div class="search"><span class="material-icons" aria-hidden="true">search</span><input type="search" id="q-'+kind+'" placeholder="Search users" aria-label="Search users"></div><span class="count">1,248 users</span><button class="btn btn-stroked"><span class="material-icons">upload</span>Bulk add</button><button class="btn btn-primary"><span class="material-icons">person_add</span>Add user</button>';
+      }
+    }
+    function toast(msg){
+      var t=scr.querySelector(".toast"); if(!t){t=document.createElement("div");t.className="toast";t.setAttribute("role","status");scr.appendChild(t);}
+      t.innerHTML='<span class="material-icons" style="font-size:18px">check_circle</span>'+esc(msg); t.hidden=false;
+      clearTimeout(toastT); toastT=setTimeout(function(){t.hidden=true},2200);
+    }
+    function closeMenu(){ if(menu){menu.btn.setAttribute("aria-expanded","false");menu.el.remove();var b=menu.btn;menu=null;return b;} }
+    function openMenu(btn,i){
+      closeMenu();
+      var p=people[i], el=document.createElement("div"); el.className="menu"; el.setAttribute("role","menu");
+      el.innerHTML=menuItems(p).filter(function(m){return kind!=="c"||!m||(m[1]!=="Edit details"&&m[1]!=="Reset password")}).map(function(m){
+        return m? '<button role="menuitem" class="'+(m[2]?"danger":"")+'" data-act="'+esc(m[1])+'"><span class="material-icons">'+m[0]+'</span>'+esc(m[1])+'</button>' : '<hr>';
+      }).join("");
+      scr.appendChild(el);
+      var r=btn.getBoundingClientRect(), s=scr.getBoundingClientRect();
+      var top=r.bottom-s.top+4, left=r.right-s.left-el.offsetWidth;
+      if(top+el.offsetHeight>scr.clientHeight-8) top=r.top-s.top-el.offsetHeight-4;
+      el.style.top=Math.max(8,top)+"px"; el.style.left=Math.max(8,left)+"px";
+      btn.setAttribute("aria-expanded","true"); menu={el:el,btn:btn,i:i};
+      el.querySelector("button").focus();
+    }
+    function openPanel(i,opener){
+      closePanel();
+      var p=people[i];
+      var sc=document.createElement("div"); sc.className="scrim"; sc.dataset.close="";
+      var pn=document.createElement("aside"); pn.className="panel"; pn.setAttribute("role","dialog"); pn.setAttribute("aria-modal","true"); pn.setAttribute("aria-labelledby","pt-"+kind);
+      pn.innerHTML='<header><div><h3 id="pt-'+kind+'" tabindex="-1">'+esc(p.n)+'</h3><span class="chip '+p.s+'">'+label[p.s]+'</span></div><button class="icon-btn" data-close aria-label="Close"><span class="material-icons">close</span></button></header>'+
+        '<div class="body"><dl><div><dt>Email</dt><dd>'+esc(p.e)+'</dd></div><div><dt>Role</dt><dd>'+esc(p.r)+'</dd></div><div><dt>Last sign-in</dt><dd class="mono">'+esc(p.l)+'</dd></div><div><dt>Department</dt><dd>Operations</dd></div></dl>'+
+        '<p class="acts-h">Actions</p><div class="acts">'+menuItems(p).filter(Boolean).map(function(m){return '<button class="btn btn-text'+(m[2]?" btn-danger":"")+'" data-act="'+esc(m[1])+'"><span class="material-icons">'+m[0]+'</span>'+esc(m[1])+'</button>'}).join("")+'</div></div>'+
+        '<footer><button class="btn btn-primary" data-act="Edit details"><span class="material-icons">edit</span>Edit details</button><button class="btn btn-stroked" data-close>Close</button></footer>';
+      scr.appendChild(sc); scr.appendChild(pn); scr._opener=opener; scr._open=i;
+      body.querySelectorAll("tr").forEach(function(tr){tr.classList.toggle("is-selected",tr.dataset.row==i||sel.has(+tr.dataset.row))});
+      pn.querySelector("h3").focus();
+    }
+    function closePanel(){
+      var pn=scr.querySelector(".panel"); if(!pn) return;
+      pn.remove(); var sc=scr.querySelector(".scrim"); if(sc) sc.remove();
+      scr._open=null; render(); if(scr._opener){var o=body.querySelector('[data-open="'+scr._opener+'"]'); if(o) o.focus();}
+    }
+
+    scr.addEventListener("change",function(e){
+      var t=e.target;
+      if(t.dataset.sel!==undefined){ var i=+t.dataset.sel; t.checked?sel.add(i):sel.delete(i); render(); }
+      if(t.hasAttribute("data-all")){ sel=new Set(t.checked?people.map(function(_,i){return i}):[]); render(); }
+    });
+    scr.addEventListener("click",function(e){
+      var t=e.target.closest("button,[data-row],[data-close]");
+      if(menu && (!t || !t.closest(".menu")) && !(t && t.dataset.menu!==undefined)) closeMenu();
+      if(!t) return;
+      if(t.dataset.menu!==undefined){ e.stopPropagation(); if(menu&&menu.btn===t){closeMenu();return;} openMenu(t,+t.dataset.menu); return; }
+      if(t.dataset.act){ var who = menu? people[menu.i] : people[scr._open]; var b=closeMenu(); toast(t.dataset.act+(who?": "+who.n:"")); if(b) b.focus(); if(scr.querySelector(".panel") && /Delete|Suspend|Reactivate/.test(t.dataset.act)) closePanel(); return; }
+      if(t.dataset.quick){ toast(t.dataset.quick+" "+people[+t.dataset.i].n); return; }
+      if(t.dataset.bulk){ toast(t.dataset.bulk+" "+sel.size+" users"); sel.clear(); render(); return; }
+      if(t.hasAttribute("data-clear")){ sel.clear(); render(); return; }
+      if(t.hasAttribute("data-close")){ closePanel(); return; }
+      if(t.dataset.open!==undefined){ e.stopPropagation(); openPanel(+t.dataset.open,t.dataset.open); return; }
+      if(t.dataset.row!==undefined && !e.target.closest("input")){ openPanel(+t.dataset.row,t.dataset.row); }
+    });
+    scr.addEventListener("keydown",function(e){
+      if(e.key==="Escape"){ if(menu){var b=closeMenu(); if(b) b.focus();} else closePanel(); }
+      if(menu && (e.key==="ArrowDown"||e.key==="ArrowUp")){
+        var items=[].slice.call(menu.el.querySelectorAll("button")), k=items.indexOf(document.activeElement);
+        k = e.key==="ArrowDown" ? Math.min(items.length-1,k+1) : Math.max(0,k-1); items[k].focus(); e.preventDefault();
+      }
+    });
+    render();
+  });
+
+  var tabs=[].slice.call(document.querySelectorAll('[role="tab"]'));
+  function show(opt){
+    tabs.forEach(function(b){var on=b.dataset.opt===opt;b.setAttribute("aria-selected",on);b.tabIndex=on?0:-1;document.getElementById("opt-"+b.dataset.opt).hidden=!on;});
+  }
+  tabs.forEach(function(b,i){
+    b.addEventListener("click",function(){show(b.dataset.opt)});
+    b.addEventListener("keydown",function(e){ if(e.key==="ArrowRight"||e.key==="ArrowLeft"){var n=tabs[(i+(e.key==="ArrowRight"?1:tabs.length-1))%tabs.length];show(n.dataset.opt);n.focus();} });
+  });
+  var h=(location.hash||"").replace("#","");
+  if(["a","b","c"].indexOf(h)>-1) show(h);
+})();
+</script>

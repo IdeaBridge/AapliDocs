@@ -1,0 +1,43 @@
+---
+layout: default
+title: "Changelog"
+parent: "Admin (AapliAdmin)"
+grand_parent: Design Standards
+has_children: false
+nav_order: 24
+permalink: /design-standards/admin/changelog/
+---
+
+{% raw %}
+# 13. Changelog {#13-changelog}
+
+| Date | Version | Change |
+|---|---|---|
+| 17/10/2026 | 2.7.1 | Import history: clicking a row (or Enter) opens the file's row log in a right panel; the detail component can be embedded (`[fileId]`, `[embedded]`, `(closed)`). Company banner: Delete asks first ("Delete banner?", danger-solid "Delete banner") and reports failures. Message wording: 176 toasts and dialog titles / buttons set in TypeScript rewritten to sentence case without "Please" (rules added to 8), specs updated with them; rule builder's validation warning now shows as an error. Import data steps full width, one per row. |
+| 17/10/2026 | 2.7 | Design-system audit (`design-system/audit-17-10-2026.md`) and fixes: admin content, entity builder, dialogs and select panels are `.ab-theme` roots; 598 hard-coded colours replaced with tokens; remaining legacy screens rebuilt (list in 12). Modal confirmation pattern specified (6.15: 18/24 heading, 14/21 body, 24px padding, 16px / 24px rhythm, 8px between buttons, Cancel then action) and `app-default-dialog` rebuilt to it. Accordions (6.17): open by default, no hover background. App header, sidebar and footer on tokens. Info tooltips use `mat-icon.ab-info` + `matTooltip` instead of hover boxes. |
+| 17/10/2026 | 2.6 | One row height across the console (6.5 Row height): 36px header, 40px single-line body rows, `6px 12px` cells, new tokens `--ab-row-h`, `--ab-row-h-head`, `--ab-cell-py`, `--ab-cell-px`. Form fields everywhere are 36px white boxes with a thin border (Material included; the old pale blue select fill removed). Right panels: blue header band, white body, groups split by hairlines instead of cards. Form builder: Roles and permissions as a grouped matrix (Records, Lifecycle, Output, Social; roles by Default / Custom / Workflow tasks; Add role menu, search); Points as a grouped table (workflow › task › action) with a share toggle instead of "/T" and a "Most a creator can earn" summary; Assign tasks as an assignment grid (Split by field, fixed category columns with repeats hidden, task columns with coverage, select-all and per-column checkboxes, searchable assignee picker with radio buttons for roles and checkboxes for people); Dashboard designer compacted; Form and Dashboard left columns use the rail width (`--ab-rail-w`, 260px); Card view settings compacted. Prototypes in `design-system/roles-permissions-prototypes.html`, `points-prototypes.html`, `tasks-prototypes.html`. |
+| 16/10/2026 | 2.5 | Content › Menu rebuilt: toolbar (count, Add link, Save menu), link tree with type icon, destination, visibility chips and ⋮ menu, link panel (Link, Goes to, Who can see it). Data › Import data: Upload attachments, Retry import and Import a file as toolbar buttons at the top; steps as numbered cards. Templates and Export data show each application's icon before its name. Button colours are now !important inside the admin so a tenant's Custom CSS can't recolour them; Custom CSS editor restyled. |
+| 16/10/2026 | 2.4.4 | Subtitles (page description, panel description, section description) run the full width of their section; no 62ch / 70ch cap. Settings list spans the page. |
+| 16/10/2026 | 2.4.3 | Settings back to option C (value under the name), the chosen design. |
+| 16/10/2026 | 2.4.2 | Settings switched to option A: Name, Description, Current value columns. |
+| 16/10/2026 | 2.4.1 | Organisation › Settings shows current values on the list (option C): name, info tooltip with the description, value line (company name and theme colour; address, phone, email; formats in mono; application type chip; default currency). Values refresh when a panel closes. |
+| 16/10/2026 | 2.4 | All right-hand panels, including add / edit, use the user details design (6.9). People › User properties rebuilt in the Users table style. Settings value prototypes in `design-system/settings-value-prototypes.html` (awaiting a choice). |
+| 16/10/2026 | 2.3.2 | User details panel redesigned: identity band, Details / Activity tabs, Account and Profile cards, empty fields collapsed, stronger text. Status falls back to the list row. |
+| 16/10/2026 | 2.3.1 | User details panel rebuilt on `.ab-panel` (header, details list, activity history); activity history restyled with tokens. |
+| 16/10/2026 | 2.3 | `angular2-smart-table` removed from the project: data sources replaced by `AbLocalDataSource` / `AbServerDataSource` (same API and server conventions); its leftover global styles deleted. |
+| 16/10/2026 | 2.2 | Form builder › Settings: Information, Views, Other settings, AI features and Integrations rebuilt as the item list + detail panel (6.9, with the in-editor Done variant). |
+| 16/10/2026 | 2.1 | One button theme (6.2, `_buttons-bridge.scss`). Tables sort columns locally when the API ignores the sort (6.5.1). Form builder: Application settings and Properties combined into one Settings tab, opening on Application settings (5). Header "Get started" renamed "Documentation". |
+| 16/10/2026 | 2.0.1 | Users search matches first name, last name, email, role or status (`UsersDataSource`). Fixed the blank Add button in item-management toolbars (legacy button rules were scoped into the component); stylesheet rule added (10.3). |
+| 15/10/2026 | 2.0 | Data table component `app-ab-data-table` (6.5.1) replaces angular2-smart-table's table everywhere; People › Users rebuilt to the reference design (person cell, status chips, bulk bar, pager). Nav search reaches Site design areas and Integrations › Microsoft Teams app (4.8). Embedded settings sections put Edit on the first line (6.8). Application type no longer repeats the domain as a chip. Design-system buttons keep sentence case and their disabled look against the legacy global button rules. |
+| 15/10/2026 | 1.9 | Row actions (option A): one always-visible ⋮ menu per row, row click opens a details-only panel; hover-revealed actions removed everywhere. Icons inherit the text colour inside `.ab-theme` (fixes dark icons on primary buttons). |
+| 15/10/2026 | 1.8 | Page frame and title rules (3.6): every admin screen's title at 24px / 28px in 17px Roboto 500, description 14px. "Import export data" renamed Data (`/admin/data/…`). Site design, Marketplace and Integrations use the list + detail panel. |
+| 15/10/2026 | 1.7 | Admin home page dropped. Stats component added (6.16) and used on People › Users for the licence figures. |
+| 15/10/2026 | 1.6 | Admin addresses now follow the nav (`/admin/<group>/<screen>`); all old addresses redirect. Fixed nav links that opened the Settings page instead (a prefix redirect on `configurations`). Addressing rules added (4.6). |
+| 15/10/2026 | 1.5 | Import export promoted to a nav group, "Import export data", with its four pages as children (tabs removed). Data group removed; Failed submissions moved to a new last group, Others (which also replaces the "More" fallback). |
+| 15/10/2026 | 1.4 | Settings becomes a list + detail panel (no tabs) with Company profile split into Company name, Company address, Date format and Number format; Organisation settings renamed Application type and shown as a list. Roles promoted to a nav group. General pinned to the bottom of the nav. Three treatments for sub-pages defined (4.3). List and panel CSS moved into the design system (`.ab-table--list`, `.ab-icon-tile`, `.ab-row-link`, `.ab-panel`). |
+| 15/10/2026 | 1.3.1 | Pane gutter rule made explicit for admin console screens; Features and the tab shells now use the 28px gutter. |
+| 15/10/2026 | 1.3 | Feature list and detail panel pattern added (6.9) and applied to Features. |
+| 15/10/2026 | 1.2 | Company profile, Organisation settings and Currencies combined into Organisation › Settings with in-page tabs (old URLs redirect). New settings section component (`.ab-section`, `.ab-dl`, `.ab-form-grid`, `.ab-fieldset`). Tabs can be drawn from `navTabsFor`. |
+| 15/10/2026 | 1.1 | Third level defined as in-page tabs (Roles, Import export menus replaced), searchable from the nav. Nav groups reordered: Organisation, Applications, People first. Section rail widened to 260px; icons in rails, tabs and nav no longer shrink. |
+| 15/10/2026 | 1.0 | First version, from the Custom Properties prototype. Tokens, shared classes, Material alignment and legacy bridge added. Admin left nav rebuilt as a single searchable two-level list (Operations / Configurations split removed). Form builder shell and Properties rail redesigned. |
+{% endraw %}
